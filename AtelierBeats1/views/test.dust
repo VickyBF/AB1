@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Test - Atelier Beats</title>
+  <link rel="stylesheet" href="qunit/qunit.css">
+</head>
+<body>
+  <script src="js/ajax.js"></script>
+  <script src="qunit/qunit.js"></script>
+  <script src="qunit/sinon.js"></script>
+  <script src="qunit/sinon-qunit.js"></script>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script>
+
+    var headers = {};
+    var baseUrl = "http://localhost:3000/tracks";
+    var validTrackId = "544fea347af5b1630817ca86";
+    var emptyCallback = function(){};
+    var JSONCallback = function(){};
+    var validJSON = {
+          "name" : "bob"
+        };
+
+    var notValidJSON = emptyCallback;
+
+    /*
+     * The function must check that:
+     *  - all the arguments are passed when called
+     *  - type has one of the following value: "GET", "POST", "PUT", "DELETE"
+     *  - the data (data parameter) are in JSON format
+     * If a check fails the function must throw an error.
+     */
+    QUnit.module("doJSONRequest Function - Ex 3a", {
+
+    });
+
+    test("Check the correctness of the parameter", function() {
+
+      assert.throws( doJSONRequest.bind(null, "GET", baseUrl, headers), "should only accept 5 parameters, not less");
+      assert.throws( doJSONRequest.bind(null, "GET", baseUrl, headers, null, emptyCallback, null), "should only accept 5 parameters, not more");
+
+      var result;
+
+      try {
+        doJSONRequest("GET", baseUrl, headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept 5 parameters" );
+
+      try {
+        doJSONRequest("GET", baseUrl, headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept the http method GET");
+
+      try {
+        doJSONRequest("POST", baseUrl, headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept the http method POST");
+
+      try {
+        doJSONRequest("PUT", baseUrl, headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept the http method PUT");
+
+      try {
+        doJSONRequest("DELETE", baseUrl + "/id", headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept the http method DELETE");
+
+      assert.throws( doJSONRequest.bind(null, "HEAD", baseUrl + "/id", headers, null, emptyCallback), "should NOT accept the http method HEAD");
+
+      try {
+        doJSONRequest("GET", baseUrl, headers, null, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept null data");
+
+      try {
+        doJSONRequest("GET", baseUrl, headers, undefined, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+      ok( result, "should accept undefined data");
+      assert.throws( doJSONRequest.bind(null, "GET", baseUrl, headers, notValidJSON, emptyCallback), "should not accept not valid JSON data");
+
+      try {
+        doJSONRequest("GET", baseUrl, headers, validJSON, emptyCallback);
+        result = true;
+      } catch(error) {
+        result = false;
+      }
+
+
+      ok( result, "should accept valid JSON data");
+    });
+  
+  </script>
+</body>
+</html>

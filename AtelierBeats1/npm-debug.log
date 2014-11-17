@@ -1,0 +1,176 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'grunt@0.4.0a' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'grunt@0.4.0a', null ]
+5 verbose cache add name=undefined spec="grunt@0.4.0a" args=["grunt@0.4.0a",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'grunt@0.4.0a',
+6 verbose parsed url   path: 'grunt@0.4.0a',
+6 verbose parsed url   href: 'grunt@0.4.0a' }
+7 verbose cache add name="grunt" spec="0.4.0a" args=["grunt","0.4.0a"]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '0.4.0a',
+8 verbose parsed url   path: '0.4.0a',
+8 verbose parsed url   href: '0.4.0a' }
+9 verbose addNamed [ 'grunt', '0.4.0a' ]
+10 verbose addNamed [ null, null ]
+11 silly lockFile 8ff070f0-grunt-0-4-0a grunt@0.4.0a
+12 verbose lock grunt@0.4.0a /Users/jelenabudakovic/.npm/8ff070f0-grunt-0-4-0a.lock
+13 verbose request where is /grunt
+14 verbose request registry https://registry.npmjs.org/
+15 verbose request id 48f8c4a09bfc222d
+16 verbose url raw /grunt
+17 verbose url resolving [ 'https://registry.npmjs.org/', './grunt' ]
+18 verbose url resolved https://registry.npmjs.org/grunt
+19 verbose request where is https://registry.npmjs.org/grunt
+20 info trying registry request attempt 1 at 13:18:04
+21 verbose etag "33D7UE4IBFEGEH24FXIWFJUPP"
+22 http GET https://registry.npmjs.org/grunt
+23 http 200 https://registry.npmjs.org/grunt
+24 silly registry.get cb [ 200,
+24 silly registry.get   { date: 'Fri, 31 Oct 2014 12:18:04 GMT',
+24 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 silly registry.get     etag: '"5WVGBC95VFSCQVIPEQD14S7D3"',
+24 silly registry.get     'content-type': 'application/json',
+24 silly registry.get     'cache-control': 'max-age=60',
+24 silly registry.get     'content-length': '87257',
+24 silly registry.get     'accept-ranges': 'bytes',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     age: '23',
+24 silly registry.get     'x-served-by': 'cache-fra1227-FRA',
+24 silly registry.get     'x-cache': 'HIT',
+24 silly registry.get     'x-cache-hits': '2',
+24 silly registry.get     'x-timer': 'S1414757884.222259,VS0,VE0',
+24 silly registry.get     vary: 'Accept',
+24 silly registry.get     'keep-alive': 'timeout=10, max=50',
+24 silly registry.get     connection: 'Keep-Alive' } ]
+25 silly lockFile c35653f1-npmjs-org-grunt-grunt-0-4-0a-tgz https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+26 verbose lock https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz /Users/jelenabudakovic/.npm/c35653f1-npmjs-org-grunt-grunt-0-4-0a-tgz.lock
+27 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz',
+27 verbose addRemoteTarball   'f06077b70d42944fbe6c945ddbec4066551680fd' ]
+28 info retry fetch attempt 1 at 13:18:04
+29 verbose fetch to= /var/folders/wb/zngh7_yn0n3_901drdv1n2hh0000gn/T/npm-7502-WzltMH0l/registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+30 http GET https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+31 http 200 https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+32 silly lockFile c35653f1-npmjs-org-grunt-grunt-0-4-0a-tgz https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+33 silly lockFile c35653f1-npmjs-org-grunt-grunt-0-4-0a-tgz https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz
+34 silly lockFile 8ff070f0-grunt-0-4-0a grunt@0.4.0a
+35 silly lockFile 8ff070f0-grunt-0-4-0a grunt@0.4.0a
+36 silly resolved [ { name: 'grunt',
+36 silly resolved     description: 'A task-based command line build tool for JavaScript projects.',
+36 silly resolved     version: '0.4.0-a',
+36 silly resolved     author: { name: '"Cowboy" Ben Alman', url: 'http://benalman.com/' },
+36 silly resolved     homepage: 'http://gruntjs.com/',
+36 silly resolved     repository: { type: 'git', url: 'git://github.com/gruntjs/grunt.git' },
+36 silly resolved     bugs: { url: 'http://github.com/gruntjs/grunt/issues' },
+36 silly resolved     licenses: [ [Object] ],
+36 silly resolved     main: 'lib/grunt',
+36 silly resolved     scripts: { test: './node_modules/.bin/grunt test' },
+36 silly resolved     engines: { node: '>= 0.8.0' },
+36 silly resolved     keywords:
+36 silly resolved      [ 'async',
+36 silly resolved        'cli',
+36 silly resolved        'minify',
+36 silly resolved        'uglify',
+36 silly resolved        'build',
+36 silly resolved        'lodash',
+36 silly resolved        'unit',
+36 silly resolved        'test',
+36 silly resolved        'qunit',
+36 silly resolved        'nodeunit',
+36 silly resolved        'server',
+36 silly resolved        'init',
+36 silly resolved        'scaffold',
+36 silly resolved        'make',
+36 silly resolved        'jake',
+36 silly resolved        'tool' ],
+36 silly resolved     dependencies:
+36 silly resolved      { async: '~0.1.22',
+36 silly resolved        'coffee-script': '~1.3.3',
+36 silly resolved        colors: '~0.6.0-1',
+36 silly resolved        dateformat: '1.0.2-1.2.3',
+36 silly resolved        eventemitter2: '~0.4.9',
+36 silly resolved        glob: '~3.1.13',
+36 silly resolved        'grunt-init': '0.1.0',
+36 silly resolved        hooker: '~0.2.3',
+36 silly resolved        'iconv-lite': '~0.2.5',
+36 silly resolved        minimatch: '~0.2.6',
+36 silly resolved        nopt: '~1.0.10',
+36 silly resolved        rimraf: '~2.0.2',
+36 silly resolved        lodash: '~0.9.0',
+36 silly resolved        'underscore.string': '~2.2.0rc',
+36 silly resolved        which: '~1.0.5',
+36 silly resolved        'js-yaml': '~1.0.1' },
+36 silly resolved     devDependencies:
+36 silly resolved      { temporary: '~0.0.4',
+36 silly resolved        'grunt-contrib-jshint': '~0.1.0',
+36 silly resolved        'grunt-contrib-nodeunit': '~0.1.0',
+36 silly resolved        'grunt-contrib-watch': '~0.1.0',
+36 silly resolved        'grunt-cli': '~0.1.1' },
+36 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+36 silly resolved     _id: 'grunt@0.4.0-a',
+36 silly resolved     dist:
+36 silly resolved      { shasum: 'f06077b70d42944fbe6c945ddbec4066551680fd',
+36 silly resolved        tarball: 'http://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz' },
+36 silly resolved     _npmVersion: '1.1.62',
+36 silly resolved     _npmUser: { name: 'cowboy', email: 'cowboy@rj3.net' },
+36 silly resolved     maintainers: [ [Object], [Object] ],
+36 silly resolved     directories: {},
+36 silly resolved     _shasum: 'f06077b70d42944fbe6c945ddbec4066551680fd',
+36 silly resolved     _from: 'grunt@0.4.0a',
+36 silly resolved     _resolved: 'https://registry.npmjs.org/grunt/-/grunt-0.4.0a.tgz' } ]
+37 info install grunt@0.4.0-a into /usr/local/lib
+38 info installOne grunt@0.4.0-a
+39 verbose lib/node_modules/grunt unbuild
+40 verbose tar unpack /Users/jelenabudakovic/.npm/grunt/0.4.0-a/package.tgz
+41 silly lockFile d04b7634-usr-local-lib-node-modules-grunt tar:///usr/local/lib/node_modules/grunt
+42 verbose lock tar:///usr/local/lib/node_modules/grunt /Users/jelenabudakovic/.npm/d04b7634-usr-local-lib-node-modules-grunt.lock
+43 silly lockFile 00cb2df0-ic-npm-grunt-0-4-0-a-package-tgz tar:///Users/jelenabudakovic/.npm/grunt/0.4.0-a/package.tgz
+44 verbose lock tar:///Users/jelenabudakovic/.npm/grunt/0.4.0-a/package.tgz /Users/jelenabudakovic/.npm/00cb2df0-ic-npm-grunt-0-4-0-a-package-tgz.lock
+45 silly gunzTarPerm modes [ '755', '644' ]
+46 error Error: EACCES, mkdir '/usr/local/lib/node_modules/grunt'
+46 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/grunt']
+46 error   errno: 3,
+46 error   code: 'EACCES',
+46 error   path: '/usr/local/lib/node_modules/grunt',
+46 error   fstream_type: 'Directory',
+46 error   fstream_path: '/usr/local/lib/node_modules/grunt',
+46 error   fstream_class: 'DirWriter',
+46 error   fstream_stack:
+46 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+46 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+46 error      'Object.oncomplete (fs.js:107:15)' ] }
+47 error Please try running this command again as root/Administrator.
+48 error System Darwin 13.4.0
+49 error command "node" "/usr/local/bin/npm" "install" "-g" "grunt@0.4.0a"
+50 error cwd /Users/jelenabudakovic/WebstormProjects/Jelena_Budakovic_Ex6
+51 error node -v v0.10.32
+52 error npm -v 1.4.28
+53 error path /usr/local/lib/node_modules/grunt
+54 error fstream_path /usr/local/lib/node_modules/grunt
+55 error fstream_type Directory
+56 error fstream_class DirWriter
+57 error code EACCES
+58 error errno 3
+59 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/grunt'
+60 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+60 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+60 error fstream_stack Object.oncomplete (fs.js:107:15)
+61 verbose exit [ 3, true ]
