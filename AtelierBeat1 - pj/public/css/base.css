@@ -19,7 +19,6 @@
   @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
       font-family: "font_icons8";
-      src: url("./font_icons8.svg#font_icons8") format("svg");
     }
   }
 
@@ -50,7 +49,8 @@
   body {
     background: #F0F0F0;
     font-weight: 300;
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-family: "Myriad;
+    -webkit-font-smoothing"riad
     -webkit-font-smoothing:auto;
   }
 
@@ -82,7 +82,7 @@
   }
 
   .container.main-wrapper{
-    background-color:  #a44b4d;
+    background-color: #d9d9d9;
   }
 
   /* ---------------- Typography ---------------- */
@@ -99,8 +99,8 @@
   .h5,
   .h6 {
     font-family: inherit;
-    font-weight: 500;
-    line-height: 1.1;
+    font-weight: 300;
+    line-height: 1;
     color: inherit;
   }
   h1 small,
@@ -152,7 +152,7 @@
   .h2 .small,
   h3 .small,
   .h3 .small {
-    font-size: 65%;
+    font-size: 20%;
   }
   h4,
   .h4,
@@ -215,7 +215,9 @@
   }
 
   a:hover, a:focus {
-    text-decoration: underline;
+    text-decoration: none;
+    color: white;
+
   }
 
   a:active, a:hover {
@@ -223,11 +225,11 @@
   }
 
   a.beats{
-    color: #D35B5D;
+    color: #d9d9d9;
   }
 
   a.beats:hover, a.beats:focus {
-    color: #8a2932;
+    color: rgb(59, 121, 255);
     text-decoration: underline;
   }
 
@@ -255,7 +257,7 @@
   }
 
   .login .slogan{
-    color: #FF9B9B;
+    color: #000000;
   }
 
   /* Unprefixed pulse class. Prefixed is below */
@@ -387,14 +389,14 @@
 
   .btn-beats{
     color: #fff;
-    background-color: #a44b4d;
-    border-color: #633133;
+    background-color: #d9d9d9;
+    border-color: #b5b5b5;
   }
 
   .btn-beats:hover, .btn-beats:focus, .btn-beats:active, .btn-beats.active {
     color: #fff;
-    background-color: #8a2932;
-    border-color: #70403e;
+    background-color: #d9d9d9;
+    border-color: #0b4bd0;
   }
 
   .btn-icon:hover, .btn-icon:focus, .btn-icon.active{
@@ -443,7 +445,7 @@
   }
 
   .player .btn-icon{
-    color: #f7f7f7;
+    color: #838383;
   }
 
   .pl-timeline-wrapper, .pl-volume-wrapper{
@@ -460,19 +462,25 @@
   .pl-timeline-rail, .pl-volume-rail{
     padding: 4px 0;
     position:relative;
-    background-color: #ccc;
+    background-color: #838383;
     width:100%;
     cursor:pointer;
     background-clip: content-box;
     height:11px!important;
   }
 
-  .pl-timeline-bar, .pl-volume-bar{
+  .pl-timeline-bar{
     position:absolute;
     height: 3px;
     top:4px;left:0;
-    background: #a44b4d;
+    background: #525252;
   }
+.pl-volume-bar{
+    position:absolute;
+    height: 3px;
+    top:4px;left:0;
+    background: #838383;
+}
 
   .pl-volume{
     flex: 0 0 120px;
@@ -488,8 +496,8 @@
 
   .pl-artwork{
     float:left;
-    height:140px;
-    width:140px;
+    height:50px;
+    width:50px;
   }
 
   .pl-track-info{
@@ -521,7 +529,7 @@
     border-bottom: 0;
     line-height: 19px;
     max-height: 38px;
-    color:#F7F7F7;
+    color: #000000;
   }
 
   .pl-track-subtitle, .pl-track-title {
@@ -546,11 +554,12 @@
   .fl-tl-row{
     display:flex;
     width:100%;
-    border-bottom: 1px solid #BEBEBE;
+    border-bottom: 1px solid #b5b5b5;
   }
 
-  .fl-tl-row:hover .fl-tl-cell {
-    background: #CECED1;
+  .fl-tl-row:hover{
+    background: rgb(59, 121, 255);
+    color: #fbfbfb;
   }
 
   .fl-tl-th {
@@ -575,7 +584,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
   }
+
 
   .tl-number, .tl-empty, .tl-play {
     width: 40px;
@@ -648,7 +659,7 @@
     }
 
     .fl-tl-name a{
-      color: #a44b4d;
+      color: #d9d9d9;
     }
 
     .fl-tl-artist, .fl-tl-album{
@@ -669,7 +680,7 @@
   .tracklist {
     table-layout: fixed;
     width: 100%;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .tl-row:hover .tl-cell {
@@ -684,7 +695,6 @@
     border-top: 0;
     letter-spacing: 1px;
     line-height: 28px;
-    text-transform: uppercase;
     vertical-align: bottom;
   }
 
@@ -828,7 +838,7 @@
 #main-nav{
   width:300px;
   height: 100%;
-  background: #a44b4d;
+  background: #d9d9d9;
   font-size: 16px;
   transition:width 150ms ease-out;
 }
@@ -867,26 +877,28 @@ ul.horizontal-menu li{
 ul.nav-menu li > a {
   display: block;
   outline: none;
-  text-decoration: none;
   box-shadow: inset 0 -1px rgba(0,0,0,0.2);
-  text-shadow: 0 0 1px rgba(255,255,255,0.1);
+  text-shadow: 0 0 1px rgba(255,255,255);
   font-size: 1.4em;
-  color: #f7f7f7;
-  -webkit-transition: background 0.3s, box-shadow 0.3s;
-  -moz-transition: background 0.3s, box-shadow 0.3s;
-  transition: background 0.3s, box-shadow 0.3s;
+  color: #000000;
   overflow:hidden;
   white-space: nowrap;
+}
+
+ul.nav-menu li:hover{
+    background: rgb(59, 121, 255);
+    color: #ffffff;
+}
+ul.nav-menu a:hover{
+    color: white;
+    text-decoration: none;
+
 }
 
 ul.nav-menu li:first-child a, .search-item{
   box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
 }
 
-ul.nav-menu li a:hover, .search-item:hover {
-  background: rgba(0,0,0,0.2);
-  box-shadow: inset 0 -1px rgba(0,0,0,0);
-}
 
 ul.nav-menu.horizontal-menu li > a{
   padding: 0 20px;
@@ -902,8 +914,9 @@ ul.nav-menu.horizontal-menu.float-right li:last-child > a{
 }
 
 ul.nav-menu.horizontal-menu li > a:hover{
-  background: rgba(0,0,0,0.2);
+  background: rgb(59, 121, 255);
   box-shadow: inset 1px 0px rgba(0,0,0,0);
+  color: white;
 }
 
 .nav-menu-icon{
@@ -945,7 +958,7 @@ ul.nav-menu.horizontal-menu li > a:hover{
   outline: none;
   border: none;
   background: transparent;
-  color: #f7f7f7;
+  color: #505050;
   font-size: 1.4em;
   font-weight: 300;
   font-family: 'Lato', Arial, sans-serif;
@@ -966,10 +979,10 @@ a.create-playlist{
 }
 
 a.create-playlist:hover, a.create-playlist:active{
-  background: rgba(0,0,0,0.2);
+  background: rgb(59, 121, 255);
   color: #f7f7f7;
-  text-decoration: 
-  none;
+  text-decoration: none;
+
 }
 
 #playlists > li{
@@ -977,7 +990,7 @@ a.create-playlist:hover, a.create-playlist:active{
 }
 
 #playlists > li:hover{
-  background: rgba(0,0,0,0.2);
+  background: rgba(247, 247, 49, 0.20);
   box-shadow: inset 0 -1px rgba(0,0,0,0);
 }
 
@@ -986,8 +999,9 @@ a.create-playlist:hover, a.create-playlist:active{
 }
 
 #tracks-list  > div > div.fl-tl-name:hover:not(.fl-tl-th){
-  background: rgba(0,0,0,0.2);
-  box-shadow: inset 0 -1px rgba(0,0,0,0);
+    background: rgb(59, 121, 255);
+    color: #ffffff;
+
 }
 
 #playlists .edit-btn {
@@ -1200,7 +1214,7 @@ a.create-playlist:hover, a.create-playlist:active{
 /* ---------------- User nav ---------------- */
 
 #user-nav{
-  background: #a44b4d;
+  background: #d9d9d9;
   width:100%;
   height:60px;
 }
