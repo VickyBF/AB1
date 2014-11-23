@@ -43,50 +43,50 @@
           <li><a href="#">logout</a></li>
         </ul>
       </nav>
-      <section class="player">
-        <div class="pl-info-wrapper">
-          <div class="pl-artwork">
-            <div class="media-object">
-              <div class="mo-image" style="background-image: url('./images/albums/thin_lizzy-live_and_dangerous.jpg')"></div>
-            </div>
-          </div>
-          <div class="pl-track-info">
-            <a class="pl-track-title" href="albums/Thin%20Lizzy%20-%20Live%20And%20Dangerous">Don't Believe A Word</a>
-              <div class="pl-track-subtitle text-muted one-line">
-                  <a title="Thin Lizzy" href="artists/Thin%20Lizzy">Thin Lizzy</a>
-            </div>
-          </div>
-        </div>
-        <div class="pl-wrapper">
-         <!--  <audio id="leplayer" onloadedmetadata=>
-            <source src="https://archive.org/download/testmp3testfile/mpthreetest.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-          </audio> -->
-          <div class="pl-controls">
-            <button id="previous" class="btn btn-icon fa fa-step-backward"></button>
-            <button id="play-pause" class="btn btn-icon fa fa-play"></button>
-            <button id="next" class="btn btn-icon fa fa-step-forward"></button>
-          </div>
-          <div class="pl-progress">
-            <div class="time time-elapsed" id="time-elapsed">0:00</div>
-            <div class="pl-timeline-wrapper">
-              <div class="pl-timeline-rail" id="pl-timeline-rail">
-                <div class="pl-timeline-bar" id="pl-timeline-bar"></div>
+       <div class="pl-info-wrapper">
+                <div class="pl-artwork">
+                  <div class="media-object">
+                    <div class="mo-image" style="background-image: url('./images/albums/thin_lizzy-live_and_dangerous.jpg')"></div>
+                  </div>
+                </div>
+                <div class="pl-track-info">
+                  <a class="pl-track-title" href="albums/Thin%20Lizzy%20-%20Live%20And%20Dangerous">Don't Believe A Word</a>
+                    <div class="pl-track-subtitle text-muted one-line">
+                        <a title="Thin Lizzy" href="artists/Thin%20Lizzy">Thin Lizzy</a>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="time time-total" id="time-total">2:19</div>
-          </div>
-          <div class="pl-volume">
-            <i class="btn-icon fa fa-volume-off" id="volume-off"></i>
-            <div class="pl-volume-wrapper">
-              <div class="pl-volume-rail" id="pl-volume-rail">
-                <div class="pl-volume-bar" id="pl-volume-bar"></div>
+              <div class="pl-wrapper">
+               <!--  <audio id="leplayer" onloadedmetadata  =>
+                  <source src="https://archive.org/download/testmp3testfile/mpthreetest.mp3" type="audio/mpeg">
+                  Your browser does not support the audio tag.
+                </audio> -->
+                <div class="pl-controls">
+                  <button id="previous" class="btn btn-icon fa fa-step-backward"></button>
+                  <button id="play-pause" class="btn btn-icon fa fa-play"></button>
+                  <button id="next" class="btn btn-icon fa fa-step-forward"></button>
+                </div>
+                <div class="pl-progress">
+                  <div class="time time-elapsed" id="time-elapsed">0:00</div>
+                  <div class="pl-timeline-wrapper">
+                    <div class="pl-timeline-rail" id="pl-timeline-rail">
+                      <div class="pl-timeline-bar" id="pl-timeline-bar"></div>
+                    </div>
+                  </div>
+                  <div class="time time-total" id="time-total">2:19</div>
+                </div>
+                <div class="pl-volume">
+                  <i class="btn-icon fa fa-volume-off" id="volume-off"></i>
+                  <div class="pl-volume-wrapper">
+                    <div class="pl-volume-rail" id="pl-volume-rail">
+                      <div class="pl-volume-bar" id="pl-volume-bar"></div>
+                    </div>
+                  </div>
+                   <i class="btn-icon fa fa-volume-up" id="volume-up"></i>
+                </div>
               </div>
-            </div>
-             <i class="btn-icon fa fa-volume-up" id="volume-up"></i>
-          </div>
-        </div>
-      </section> <!-- /.player -->
+            </section> <!-- /.player --><section class="player">
+
       <section id="content">
        <!-- Content will be rendered here -->
       </section>
