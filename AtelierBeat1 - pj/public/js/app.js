@@ -941,6 +941,8 @@ function setupPlayer(){
   var fullScreenButton = document.getElementById("full-screen");
   var volumeOff = document.getElementById("volume-off");
   var volumeUp = document.getElementById("volume-up");
+  var next = document.getElementById("next");
+  var previous = document.getElementById("previous");
 
   // Sliders
   var seekRail = document.getElementById("pl-timeline-rail");
@@ -962,7 +964,7 @@ function setupPlayer(){
     //set volume
     volumeBar.style.width = (audio.volume * 100) + "%";
   })
-  audio.src = 'https://archive.org/download/testmp3testfile/mpthreetest.mp3';
+  audio.src = 'https://archive.org/download/testmp3testfile/mpthreetest.mp3';  //TO BE MODIFIED
   document.body.appendChild(audio);
 
 
@@ -1030,6 +1032,16 @@ function setupPlayer(){
 
     volumeUp.classList.add("active")
     volumeOff.classList.remove("active")
+  });
+
+  // Event listener for botton "next"
+  next.addEventListener("click", function(evt) {
+    //must be implemented
+  });
+
+  // Event listener for botton "previous"
+  previous.addEventListener("click", function(evt) {
+    //must be implemented
   });
 }
 
