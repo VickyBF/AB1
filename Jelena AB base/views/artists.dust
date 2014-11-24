@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Artists</title>
+    <link rel="stylesheet" href="./css/artists.css">
+</head>
+<body>
+<div id='user-menu'>
+    <ul>
+        <li class='active'><a href='#'><span>User</span></a></li>
+        <li><a href='Login.html'><span>&#9758;Logout</span></a></li>
+    </ul>
+</div>
+<header>
+    <h1>AtelierBeats.</h1>
+</header>
+<section>
+    <div id='main-menu'>
+        <ul>
+            <li><form>
+                <input type="text" placeholder="Search..." required></form></li>
+            <li><a href='Library.html'><span>&#9835;Library</span></a> </li>
+            <li class="active"><a href=Artists.html><span>&#8788;Artists</span></a></li>
+            <li ><a href='Albums.html'><span>&#9836;Albums</span></a></li>
+            <button onclick="newPlayList()">New Playlist</button>
+            <li ><a href='#'><span>&#8803;Grunge</span></a></li>
+            <li ><a href='#'><span>&#8803;Soulfull House</span></a></li>
+            <li ><a href='#'><span>&#8803;Deep House</span></a></li>
+            <li ><a href='#'><span>&#8803;Jazz</span></a></li>
+            <li ><a href='#'><span>&#8803;Rock</span></a></li>
+        </ul>
+    </div>
+<article id="article1">
+    <figure><img src="Pictures/artists/biagio.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Biagio Antonacci</a></figcaption></figure>
+    <figure><img src="Pictures/artists/carta.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Marco Carta</a></figcaption></figure>
+    <figure><img src="Pictures/artists/eminem.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Eminem</a></figcaption></figure>
+    <figure><img src="Pictures/artists/guetta.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">David Guetta</a></figcaption></figure>
+    <figure><img src="Pictures/artists/madonna.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Madonna</a></figcaption></figure>
+    <figure><img src="Pictures/artists/pausini.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Laura Pausini</a></figcaption></figure>
+    <figure><img src="Pictures/artists/perry.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Ketty Perry</a></figcaption></figure>
+    <figure><img src="Pictures/artists/rihanna.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Rihanna</a></figcaption></figure>
+    <figure><img src="Pictures/artists/taylor.jpeg" style="width:80%;height:80%"><figcaption class="caption"><a href="Albums.html">Taylor Swift</a></figcaption></figure>
+</article>
+</section>
+<script src="js/model.js"></script>
+<script src="js/library.js"></script>
+<script src="js/app.js"></script>
+<script src="/views/views.js"></script>
+</body>
+</html>

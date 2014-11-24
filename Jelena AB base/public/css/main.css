@@ -1,0 +1,32 @@
+body {
+    background-image: url("../Pictures/music1.jpg");
+    background-size: cover;
+    color: #000305;
+    font-size: 95%;
+    font-family: 'fantasy', Comic Sans, Comic Sans MS, cursive;
+    line-height: 1.429;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    margin: 0 auto;
+    padding: 1em 0 1em 0;
+}
+
+section {
+    background: #ffb0d0;
+    width: 50%;
+    padding: 8px;
+    margin-left: 25%;
+    text-align: center;
+    border: dashed;
+}
+
+.container{
+    color:#000305;
+    text-shadow: 3px 3px 1px #ff84c0;
+}
+
+footer { text-align: center;}
