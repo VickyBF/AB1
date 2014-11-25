@@ -1326,6 +1326,10 @@ ul.grid-list > li{
   max-height: 38px;
 }
 
+.mo-title:hover{
+    color: #3b79ff;
+}
+
 .mo-subtitle, .mo-title {
   display: block;
   margin: 0 0 8px;
