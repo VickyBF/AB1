@@ -427,7 +427,7 @@
   .pl-controls{
     flex: 0 0 auto;
     padding: 2px 5px 5px;
-
+    margin-left: -7px;
     width: 100px;
     height: 30px;
   }
@@ -491,13 +491,13 @@
     position:absolute;
     height: 3px;
     top:4px;left:0;
-    background: #525252;
+    background: #3b79ff;
   }
 .pl-volume-bar{
     position:absolute;
     height: 3px;
     top:4px;left:0;
-    background: #838383;
+    background: #3b79ff;
 }
 
   .pl-volume{
@@ -540,6 +540,7 @@
     padding-bottom: 100%;
     position: relative;
     opacity: 0.7;
+    border-radius: 5px;
 
   }
   .mo-image:hover{
