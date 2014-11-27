@@ -933,10 +933,12 @@ function appendNewPlaylistToMenu(pl){
 *
 * - When a track finishes your player should play the next one
 */
+document.getElementById("playpause").addEventListener('click', setupPlayer() );
 
 function setupPlayer() {
+  var counter=0;
 
-  if (!document.getElementsByTagName('audio')[0]) {
+  if (!document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
     doJSONRequest("GET", "/tracks", null, null, setList);
     function setList(lista){
       var newTrackList =[]
@@ -974,6 +976,16 @@ function setupPlayer() {
       })
       setSong(0, newTrackList,audio);
       document.body.appendChild(audio);
+
+      audio.addEventListener("ended", function () {   ///Sequential mode
+        //sequential mode
+          counter++;
+          setSong(counter, newTrackList, audio);
+          audio.play();
+
+      })
+
+
 
 
       // Event listener for the play/pause button
@@ -1044,19 +1056,35 @@ function setupPlayer() {
 
       // Event listener for botton "next"
       next.addEventListener("click", function (evt) {
-        //must be implemented
+        counter++;
+        if (newTrackList[counter]){
+          setSong(counter, newTrackList,audio) ;
+        }
+        else{
+          setSong(0, newTrackList,audio);
+        }
       });
 
       // Event listener for botton "previous"
       previous.addEventListener("click", function (evt) {
-        //must be implemented
+        counter--;
+        if (newTrackList[counter]){
+          setSong(counter, newTrackList,audio);
+        }
+        else{
+          setSong(0, newTrackList,audio);
+        }
       });
     }
   }
 }
-function setSong(i, tracklist,audio){
-  audio.src=tracklist[i].file;
+function setSong(i, tracklist,audio){   //Song to be played
+    audio.src=tracklist[i].file;
+
+  // Need to make the picture change and also the title and so on depending on the song that is playing
+
 }
+
 /*//////////////Drag and Drop for tracks//////////////////////
   // Set the drop-event handlers.
 var dropArea = document.getElementById("tracks-list");
