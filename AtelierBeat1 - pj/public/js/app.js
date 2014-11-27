@@ -934,123 +934,158 @@ function appendNewPlaylistToMenu(pl){
 * - When a track finishes your player should play the next one
 */
 
-function setupPlayer(){
-  // Buttons
-  var playButton = document.getElementById("play-pause");
-  var muteButton = document.getElementById("mute");
-  var fullScreenButton = document.getElementById("full-screen");
-  var volumeOff = document.getElementById("volume-off");
-  var volumeUp = document.getElementById("volume-up");
-  var next = document.getElementById("next");
-  var previous = document.getElementById("previous");
+function setupPlayer() {
 
-  // Sliders
-  var seekRail = document.getElementById("pl-timeline-rail");
-  var seekBar = document.getElementById("pl-timeline-bar");
-  var volumeRail = document.getElementById("pl-volume-rail");
-  var volumeBar = document.getElementById("pl-volume-bar");
+  if (!document.getElementsByTagName('audio')[0]) {
+    doJSONRequest("GET", "/tracks", null, null, setList);
+    function setList(lista){
+      var newTrackList =[]
+      for (var i= 0;i < lista.length; i++){
+        newTrackList.push(lista[i]);
+      }
+      // Buttons
+      var playButton = document.getElementById("play-pause");
+      var muteButton = document.getElementById("mute");
+      var fullScreenButton = document.getElementById("full-screen");
+      var volumeOff = document.getElementById("volume-off");
+      var volumeUp = document.getElementById("volume-up");
+      var next = document.getElementById("next");
+      var previous = document.getElementById("previous");
 
-  //Labels
-  var timeElapsed = document.getElementById("time-elapsed");
-  var timeTotal = document.getElementById("time-total");
+      // Sliders
+      var seekRail = document.getElementById("pl-timeline-rail");
+      var seekBar = document.getElementById("pl-timeline-bar");
+      var volumeRail = document.getElementById("pl-volume-rail");
+      var volumeBar = document.getElementById("pl-volume-bar");
 
-  // Audio element
-  var audio = document.createElement('audio');
+      //Labels
+      var timeElapsed = document.getElementById("time-elapsed");
+      var timeTotal = document.getElementById("time-total");
 
-  audio.addEventListener("loadedmetadata",function(){
-    //set total time
-    timeTotal.innerHTML = formatTime(Math.floor(audio.duration));
+      // Audio element
+      var audio = document.createElement('audio');
 
-    //set volume
-    volumeBar.style.width = (audio.volume * 100) + "%";
-  })
-  audio.src = 'https://archive.org/download/testmp3testfile/mpthreetest.mp3';  //TO BE MODIFIED
-  document.body.appendChild(audio);
+      audio.addEventListener("loadedmetadata", function () {
+        //set total time
+        timeTotal.innerHTML = formatTime(Math.floor(audio.duration));
+
+        //set volume
+        volumeBar.style.width = (audio.volume * 100) + "%";
+      })
+      setSong(0, newTrackList,audio);
+      document.body.appendChild(audio);
 
 
-  // Event listener for the play/pause button
-  playButton.addEventListener("click", function() {
-    if (audio.paused == true) {
-      // Play the track
-      audio.play();
+      // Event listener for the play/pause button
+      playButton.addEventListener("click", function () {
+        if (audio.paused == true) {
+          // Play the track
+          audio.play();
 
-      // Update the button icon to 'Pause'
-      playButton.classList.remove('fa-play')
-      playButton.classList.add('fa-pause')
-    } else {
-      // Pause the track
-      audio.pause();
+          // Update the button icon to 'Pause'
+          playButton.classList.remove('fa-play')
+          playButton.classList.add('fa-pause')
+        } else {
+          // Pause the track
+          audio.pause();
 
-      // Update the button icon to 'Play'
-      playButton.classList.remove('fa-pause')
-      playButton.classList.add('fa-play')
+          // Update the button icon to 'Play'
+          playButton.classList.remove('fa-pause')
+          playButton.classList.add('fa-play')
+        }
+      });
+
+      // Event listener for the seek bar
+      seekRail.addEventListener("click", function (evt) {
+        var frac = (evt.offsetX / seekRail.offsetWidth)
+        seekBar.style.width = (frac * 100) + "%";
+
+        // Calculate the new time
+        var time = audio.duration * frac;
+        audio.currentTime = time;
+      });
+
+      // Update the seek bar as the track plays
+      audio.addEventListener("timeupdate", function () {
+        // Calculate the slider value
+        var value = (100 / audio.duration) * audio.currentTime;
+
+        // Update the seek bar
+        seekBar.style.width = value + "%";
+
+        // Update the elapsed time
+        timeElapsed.innerHTML = formatTime(Math.floor(audio.currentTime));
+      });
+
+      // Event listener for the volume bar
+      volumeRail.addEventListener("click", function (evt) {
+        var frac = (evt.offsetX / volumeRail.offsetWidth)
+        volumeBar.style.width = (frac * 100) + "%";
+
+        audio.volume = frac;
+      });
+
+      //Click listener for volume buttons
+      volumeOff.addEventListener("click", function (evt) {
+        volumeBar.style.width = "0%";
+        audio.volume = 0;
+
+        volumeOff.classList.add("active")
+        volumeUp.classList.remove("active")
+      });
+
+      volumeUp.addEventListener("click", function (evt) {
+        volumeBar.style.width = "100%";
+        audio.volume = 1;
+
+        volumeUp.classList.add("active")
+        volumeOff.classList.remove("active")
+      });
+
+      // Event listener for botton "next"
+      next.addEventListener("click", function (evt) {
+        //must be implemented
+      });
+
+      // Event listener for botton "previous"
+      previous.addEventListener("click", function (evt) {
+        //must be implemented
+      });
     }
-  });
-
-  // Event listener for the seek bar
-  seekRail.addEventListener("click", function(evt) {
-    var frac = (evt.offsetX / seekRail.offsetWidth)
-    seekBar.style.width = (frac * 100) + "%";
-
-    // Calculate the new time
-    var time = audio.duration * frac;
-    audio.currentTime = time;
-  });
-
-  // Update the seek bar as the track plays
-  audio.addEventListener("timeupdate", function() {
-    // Calculate the slider value
-    var value = (100 / audio.duration) * audio.currentTime;
-
-    // Update the seek bar
-    seekBar.style.width = value + "%";
-
-    // Update the elapsed time
-    timeElapsed.innerHTML = formatTime(Math.floor(audio.currentTime));
-  });
-
-  // Event listener for the volume bar
-  volumeRail.addEventListener("click", function(evt) {
-    var frac = (evt.offsetX / volumeRail.offsetWidth)
-    volumeBar.style.width = (frac * 100) + "%";
-
-    audio.volume = frac;
-  });
-
-  //Click listener for volume buttons
-  volumeOff.addEventListener("click", function(evt) {
-    volumeBar.style.width = "0%";
-    audio.volume = 0;
-
-    volumeOff.classList.add("active")
-    volumeUp.classList.remove("active")
-  });
-
-  volumeUp.addEventListener("click", function(evt) {
-    volumeBar.style.width = "100%";
-    audio.volume = 1;
-
-    volumeUp.classList.add("active")
-    volumeOff.classList.remove("active")
-  });
-
-  // Event listener for botton "next"
-  next.addEventListener("click", function(evt) {
-    //must be implemented
-  });
-
-  // Event listener for botton "previous"
-  previous.addEventListener("click", function(evt) {
-    //must be implemented
-  });
+  }
 }
+function setSong(i, tracklist,audio){
+  audio.src=tracklist[i].file;
+}
+/*//////////////Drag and Drop for tracks//////////////////////
+  // Set the drop-event handlers.
+var dropArea = document.getElementById("tracks-list");
+dropArea.addEventListener("drop", dropHandler, true);
+dropArea.addEventListener("dragover", doNothing, true);
 
-//////////////Drag and Drop for tracks//////////////////////
+function dropHandler(event)
+{
+// Use our doNothing() function to prevent default processing.
+doNothing(event);
+// Get the file(s) that are dropped.
+var filelist =  event.dataTransfer.files;
+if (!filelist) return;  // if null, exit now
+var filecount = filelist.length;  // get number of dropped files
 
-
-
+if (filecount > 0)
+{
+  console.log("I draged a file")
+}
+}
+// Prevents the event from continuing so our handlers can process the event.
+function doNothing(event)
+{
+  event.stopPropagation();
+  event.preventDefault();
+}*/
 
 
 ///////////////////////////////////////////////////////////
 
 //<!-- /build -->
+
