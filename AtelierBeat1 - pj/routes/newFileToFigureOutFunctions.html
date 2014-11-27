@@ -1,0 +1,53 @@
+
+<!--Drag and Drop Demo-->  //Taken from handson to figure out the drag and drop that I'm going to use for upload the tracks  
+<section id="tracks-list">
+<header>
+<h1>Drag and Drop</h1>
+</header>
+
+<article>
+<img id="drag1" draggable="true" src="img/fancy_numbers_fonts_clipart_font1_0_NifterDotCom.gif" alt="Zero"/>
+<img id="drag2" draggable="true" src="img/fancy_numbers_fonts_clipart_font1_1_NifterDotCom.gif" alt="One"/>
+<img id="drag3" draggable="true" src="img/fancy_numbers_fonts_clipart_font1_2_NifterDotCom.gif" alt="Two"/>
+<img id="drag4" draggable="true" src="img/fancy_numbers_fonts_clipart_font1_3_NifterDotCom.gif" alt="Three"/>
+<div id="dropTarget"><span>Drag one of the images and drop it here.</span></div>
+
+<script>
+    //Task 6:
+
+function dragStartEvent(e) {
+    e.dataTransfer.setData('Text',
+        '<img id="'+ this.id+'" src="' + this.src +'" alt="'+this.alt +'" /><br /><p class="caption">'+this.alt+'</p>');
+}
+
+function dragOverEvent(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Necessary. Allows us to drop.
+    }
+}
+
+function dropEvent(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Prevents browser redirect
+    }
+    this.innerHTML = e.dataTransfer.getData('Text');
+}
+
+drag1=document.getElementById('drag1');
+drag2=document.getElementById('drag2');
+drag3=document.getElementById('drag3');
+drag4=document.getElementById('drag4');
+
+drag1.addEventListener( 'dragstart', dragStartEvent,false);
+drag2.addEventListener( 'dragstart', dragStartEvent,false);
+drag3.addEventListener('dragstart', dragStartEvent,false);
+drag4.addEventListener('dragstart', dragStartEvent,false);
+
+
+targetNode=document.getElementById('dropTarget');
+
+targetNode.addEventListener('dragover', dragOverEvent,false);
+targetNode.addEventListener('drop', dropEvent,false);
+</script>
+</article>
+</section>

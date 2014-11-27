@@ -34,6 +34,7 @@
         <ul class="nav-menu" id="playlists">
         <!-- Playlists will be rendered here -->
         </ul>
+        <a href="#" class="create-playlist" id="create-nt-btn"><i class="fa fa-plus"></i> Add track</a>
       </div> <!-- /.main-nav-content -->
     </nav>
     <section class="main-content main-content-float-menu clearfix">
@@ -118,3 +119,4 @@
   <script src="js/app.js"></script>
 </body>
 </html>
+

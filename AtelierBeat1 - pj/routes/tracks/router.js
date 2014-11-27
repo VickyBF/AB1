@@ -64,6 +64,10 @@ router.get('/:trackid', function(req, res, next) {
   });
 });
 
+//upload new track
+///////////////////////////////
+
+///////////////////////////////
 //update a track
 router.put('/:trackid', function(req, res, next) {
   var data = req.body;
