@@ -1,15 +1,11 @@
 /* Setup on Page Load */
 //<!-- build:remove -->
 window.onload = function(){
-
   bindMenu();
-
   updatePage();
   setupPlayer();
-
   //setupPlaylists();
   setupSearch();
-
 }
 
 function bindMenu(){
@@ -31,86 +27,57 @@ function bindMenu(){
 }
 
 //<!-- /build -->
-
 /* UI */
-
 /* Library */
 
 function drawLibrary(e, addHistory){
-
   if(e && e.target){
     e.preventDefault();
   }
-
   addLibraryToHistory(addHistory);
-
   //execute the AJAX call to the get tracks
   doJSONRequest("GET", "/tracks", null, null, renderTracks);
-
   function renderTracks(tracks){
-
     var tracksData = buildTracksData(tracks);
-
     var data = {
       "tracks" : tracksData
     };
-
     dust.render("tracks", data, function(err, out) {
-
       var content = document.getElementById("content");
-
       content.innerHTML = out;
-
       bindAlbumLink();
-
       bindArtistLink();
-
       bindTracksDelete();
-
       bindEditTrackName();
-
     });
-
   }
 }
 
 function buildTracksData(tracks){
-
   var tracksData = [];
-
   for(track in tracks){
-
     var newTracksData = {};
     newTracksData.artist = {};
     newTracksData.album = {};
-
     newTracksData.name = tracks[track].name;
     newTracksData._id = tracks[track]._id;
     newTracksData.duration = formatTime(tracks[track].duration);
-
     newTracksData.artist._id = tracks[track].artist._id;
     newTracksData.artist.name = tracks[track].artist.name;
-
     newTracksData.album._id = tracks[track].album._id;
     newTracksData.album.name = tracks[track].album.name;
-
     tracksData.push(newTracksData);
-
   }
-
   return tracksData;
-
 }
 
 function addLibraryToHistory(addHistory){
   if((("undefined" == typeof addHistory) 
     || (addHistory === null))
     || addHistory==true){
-
     var state = {
       'function' : 'drawLibrary'
     };
-
     addToHistory(JSON.stringify(state), "/#library");
   }
 }
@@ -135,73 +102,49 @@ function createHTMLLibrary(tracks){
 
 function bindTracksDelete(){
   var tracks = document.querySelectorAll(".fl-tl-delete a");
-
   for (var elem = 0; elem < tracks.length; ++elem) {
     tracks[elem].onclick = deleteTrack;
   }
 }
 
 function deleteTrack(e){
-
   var href;
   var target = e.target;
-
   if(e && e.target){
     e.preventDefault();
     href = target.getAttribute("href");
   }
-
     //execute the AJAX call to the delete a single album
     doJSONRequest("DELETE", href, null, null, removeTrack);
-
     function removeTrack(){
-
       var toDelete = target.parentNode.parentNode; 
       var parent = document.getElementById("tracks-list");
-
       parent.removeChild(toDelete);
-
     }
-
   }
 
   function bindEditTrackName(){
-
     var tracksName = document.querySelectorAll("#tracks-list > div > div.fl-tl-name > span + .edit-btn");
-
     for (var elem = 0; elem < tracksName.length; ++elem) {
       tracksName[elem].onclick = editTrackName;
     }
-
   }
 
   function editTrackName(e){
-
     if(e && e.target){
       e.preventDefault();
     }
-
     var target = e.target;
-
     //console.log(target);
-
     var editable = target.previousSibling;
-
     //console.log(editable.contentEditable);
     //console.log(editable.contentEditable ==  "false");
-
     if(editable.contentEditable == "false" || editable.contentEditable == "inherit"){ //we have to enable the editing
-
       editable.contentEditable = "true";
-
       removeClass(target.firstChild, "fa-pencil");
-
       removeClass(target.firstChild, "fl-tl-pencil");
-
       addClass(target.firstChild, "fa-check");
-
       addClass(target.firstChild, "fl-tl-check");
-
       //set the cursor on the editable element
       var s = window.getSelection(),
       r = document.createRange();
@@ -224,58 +167,42 @@ function deleteTrack(e){
       doJSONRequest("PUT", href, null, updatedTrack, disableEditing);
 
       function disableEditing(){
-
         editable.contentEditable = "false";
-
         removeClass(target.firstChild, "fa-check");
-
         removeClass(target.firstChild, "fl-tl-check");
-
         addClass(target.firstChild, "fa-pencil");
-
         addClass(target.firstChild, "fl-tl-pencil");
-
       }
-
     }
-
   }
 
   /* Library */
 
   /* Artists */
 
+
   function drawArtists(e, addHistory){
     if(e && e.target){
       e.preventDefault();
     }
-
     addArtistsToHistory(addHistory);
-
   //execute the AJAX call to get the artists
   doJSONRequest("GET", "/artists", null, null, renderArtists);
+
 
   function renderArtists(artists){
     //create the data object with the structure expected by the compiled view
     var data = {
       "artists" : artists
     }
-
     dust.render("artists", data, function(err, out) {
-
       var content = document.getElementById("content");
-
       content.innerHTML = out;
-
       bindArtistLink();
-
       bindArtistDelete();
-
     });
-
     //console.log(artists);
   }
-  
 }
 
 function addArtistsToHistory(addHistory){
@@ -285,32 +212,25 @@ function addArtistsToHistory(addHistory){
   var state = {
     'function' : 'drawArtists'
   };
-
   addToHistory(JSON.stringify(state), "/#artists");
 }
 }
 
 function drawArtist(e, addHistory){
-
   var href;
-
   if(e && e.target){
     e.preventDefault();
     href = e.target.getAttribute("href");
   } else {
     href = e;
   }
-
   addArtistToHistory(href, addHistory)
-
     //execute the AJAX call to the get a single artist
     doJSONRequest("GET", href, null, null, renderArtist);
 
     function renderArtist(artist){
-
         //we need the artist's tracks
         doJSONRequest("GET", "/tracks?filter=" + encodeURIComponent(JSON.stringify({'artist' : artist._id})), null, null, renderShowArtist);
-
         function renderShowArtist(tracks){
 
           var artistData = [];
@@ -327,22 +247,14 @@ function drawArtist(e, addHistory){
           };
 
           dust.render("artist", data, function(err, out) {
-
             var content = document.getElementById("content");
-
             content.innerHTML = out;
-
             bindArtistLink();
-
             bindAlbumLink();
-
             bindTracksDelete();
-
             bindEditTrackName();
-
           });
         }
-
       }
     }
 
@@ -354,7 +266,6 @@ function drawArtist(e, addHistory){
           'function' : 'drawArtist',
           'href'   : href
         };
-
         addToHistory(JSON.stringify(state), "/#" + href);
       }
     }
@@ -370,7 +281,6 @@ function drawArtist(e, addHistory){
 
     function bindArtistDelete(){
       var artists = document.querySelectorAll(".delete-btn");
-
       for (var elem = 0; elem < artists.length; ++elem) {
       //console.log(albums[elem])
       artists[elem].onclick = deleteArtist;
@@ -378,10 +288,8 @@ function drawArtist(e, addHistory){
   }
 
   function deleteArtist(e){
-
     var href;
     var target = e.target;
-
     if(e && e.target){
       e.preventDefault();
       href = target.getAttribute("href");
@@ -391,18 +299,12 @@ function drawArtist(e, addHistory){
     doJSONRequest("DELETE", href, null, null, removeArtist);
 
     function removeArtist(){
-
       //console.log(responseText);
-
       //console.log(target);
-
       var toDelete = target.parentNode.parentNode; 
       var parent = document.getElementById("artists-list");
-
       parent.removeChild(toDelete);
-
     }
-
   }
 
   /* Artists */
@@ -412,51 +314,33 @@ function drawArtist(e, addHistory){
   function drawAlbums(e, addHistory){
     if(e && e.target)
       e.preventDefault();
-
     addAlbumsToHistory(addHistory);
-
   //execute the AJAX call to the get albums
   doJSONRequest("GET", "/albums", null, null, renderAlbums);
 
   function renderAlbums(albums){
-
     var albumData = [];
-
     for(album in albums){
-
       var newAlbumData = {};
       newAlbumData.artist = {};
-
       newAlbumData.artwork = albums[album].artwork;
       newAlbumData._id = albums[album]._id;
       newAlbumData.name = albums[album].name;
       newAlbumData.artist._id = albums[album].artist._id;
       newAlbumData.artist.name = albums[album].artist.name;
-
       albumData.push(newAlbumData);
-
     }
-
     var data = {
       "albums" : albumData
     };
-
     dust.render("albums", data, function(err, out) {
-
       var content = document.getElementById("content");
-
       content.innerHTML = out;
-
       bindAlbumLink();
-
       bindAlbumDelete();
-
       bindArtistLink();
-
     });
-
   }
-
 }
 
 function addAlbumsToHistory(addHistory){
@@ -466,7 +350,6 @@ function addAlbumsToHistory(addHistory){
     var state = {
       'function' : 'drawAlbums'
     };
-
     addToHistory(JSON.stringify(state), "/#albums");
   }
 }
@@ -480,26 +363,17 @@ function drawAlbum(e, addHistory){
   } else {
     href = e;
   }
-
   addAlbumToHistory(href, addHistory);
-
     //console.log(target.getAttribute("href"));
-
     //execute the AJAX call to the get a single album
     doJSONRequest("GET", href, null, null, renderAlbum);
-
     function renderAlbum(album){
-
         //we need the album's tracks
         doJSONRequest("GET", "/tracks?filter=" + encodeURIComponent(JSON.stringify({'album' : album._id})), null, null, renderShowAlbum);
-
         function renderShowAlbum(tracks){
-
           var albumData = [];
           var albumTracks = buildTracksData(tracks);
-
           albumData.artist = {};
-
           albumData.artwork = album.artwork;
           albumData._id = album._id;
           albumData.name = album.name;
@@ -507,30 +381,19 @@ function drawAlbum(e, addHistory){
           albumData.dateReleased = album.dateReleased.split("T")[0];
           albumData.artist._id = album.artist._id;
           albumData.artist.name = album.artist.name;
-
           var data = {
             "album" : albumData,
             "tracks" : albumTracks
           };
-
           dust.render("album", data, function(err, out) {
-
             var content = document.getElementById("content");
-
             content.innerHTML = out;
-
             bindAlbumLink();
-
             bindArtistLink();
-
             bindTracksDelete();
-
             bindEditTrackName();
-
           });
-
         }
-
       }
     }
 
@@ -542,7 +405,6 @@ function drawAlbum(e, addHistory){
           'function' : 'drawAlbum',
           'href'   : href
         };
-
         addToHistory(JSON.stringify(state), "/#" + href);
       }
     }
@@ -566,27 +428,19 @@ function drawAlbum(e, addHistory){
   }
 
   function deleteAlbum(e){
-
     var href;
     var target = e.target;
-
     if(e && e.target){
       e.preventDefault();
       href = target.getAttribute("href");
     }
-
     //execute the AJAX call to the delete a single album
     doJSONRequest("DELETE", href, null, null, removeAlbum);
-
     function removeAlbum(){
-
       var toDelete = target.parentNode.parentNode; 
       var parent = document.getElementById("albums-list");
-
       parent.removeChild(toDelete);
-
     }
-
   }
 
   /* Albums */
@@ -602,11 +456,8 @@ function drawAlbum(e, addHistory){
  * @param {String} url The current url as long with the hash
  */
  function addToHistory(state, url){
-
   history.pushState(state, null, url);
-
   //console.log("Added to history: " + url + ", state: " + state);
-
 }
 
 /*
@@ -618,17 +469,13 @@ function drawAlbum(e, addHistory){
  * @param {String} url The current url as long with the hash
  */
  function updatePage(event) {
-
   //get reference to the hash and to the current state
   var hash = document.location.hash;
   if(event && event.state)
     var currentState = JSON.parse(event.state);
-
   if(currentState){
-
     //console.log(hash);
     //console.log(currentState);
-
     if(currentState.function == 'drawLibrary')
       drawLibrary(null, false);
     else if(currentState.function == 'drawArtist')
@@ -641,10 +488,8 @@ function drawAlbum(e, addHistory){
       drawArtists(null, false);
 
   } else if(hash){
-
     //console.log(hash);
     //console.log(currentState);
-
     if(hash.indexOf("library") > -1)
       drawLibrary(null, false);
     else if(hash.indexOf("#artists/") > -1)
@@ -659,12 +504,10 @@ function drawAlbum(e, addHistory){
   } else {
     drawLibrary(null, false);
   }
-
 }
 
 //bind the window onpopstate event to the updatePage function
 window.onpopstate = updatePage;
-
 /* History Navigation */
 
 /* Search */
@@ -673,27 +516,21 @@ function setupSearch(){
   var searchBox = document.getElementById("main-search");
   searchBox.addEventListener("input", function(){
     var split = this.value.split(" ");
-
     result = fuzzyFind(model.tracks, "name", this.value);
 
     if(this.value.trim() === ""){
       drawLibrary();
       return;
     }
-
-
     var container = document.getElementById('tracks-list');
     var classList = container.classList;
-
     var newHtml = '<div class="fl-tl-thead fl-tl-row">\n\
     <div class="fl-tl-th fl-tl-name">Song</div>\n\
     <div class="fl-tl-th fl-tl-artist">Artist</div>\n\
     <div class="fl-tl-th fl-tl-album">Album</div>\n\
     <div class="fl-tl-th fl-tl-time">Time</div>\n\
     </div>';
-
     newHtml += createHTMLLibrary(result);
-
     container.innerHTML = newHtml;
   })
 }
@@ -724,29 +561,23 @@ function findOne(arr, prop, val){
 /* Playlist: Not working after the switch to AJAX */
 function setupPlaylists(){
   loadPlaylistsFromLocalStorage();
-
   var createPlBtn = document.getElementById("create-pl-btn");
   createPlBtn.addEventListener('click', function(){
-
     localStorage.pl_cnt =  localStorage.pl_cnt || 0;
     var cnt = localStorage.pl_cnt;
     var _id = "pl-"+cnt
     var name = 'New Playlist ' + (++cnt);
-    var newPlaylist =  playlist(_id, name, model.users[0]._id, []); 
-
+    var newPlaylist =  playlist(_id, name, model.users[0]._id, []);
     //update localStorage counter
     localStorage.pl_cnt = cnt;
-    
     //persist to localStorage
     savePlaylist(newPlaylist);
     appendNewPlaylistToMenu(newPlaylist);    
   })
-
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('edit-btn') ) {
       return onEditPlaylistClicked(e.target)
     }
-
     if (e.target.classList.contains('pl-name-input') ) {
       return e.preventDefault();
     }
@@ -791,9 +622,7 @@ function addTrackToPlaylist(playlistId, trackId){
   if(typeof track === "undefined" || track === null){
     throw new Error("track doesn't exist in the model")
   }
-
   pl.tracks.push(trackId);
-
   //persist
   playlists[playlistId]= pl;
   localStorage.playlists = JSON.stringify(playlists);
@@ -941,6 +770,9 @@ function setupPlayer(){
   var fullScreenButton = document.getElementById("full-screen");
   var volumeOff = document.getElementById("volume-off");
   var volumeUp = document.getElementById("volume-up");
+  var nextButton =document.getElementById("next");
+  var backButton = document.getElementById("previous");
+  var shuffleButton = document.getElementsByClassName("playMode")
 
   // Sliders
   var seekRail = document.getElementById("pl-timeline-rail");
@@ -965,7 +797,6 @@ function setupPlayer(){
   audio.src = 'https://archive.org/download/testmp3testfile/mpthreetest.mp3';
   document.body.appendChild(audio);
 
-
   // Event listener for the play/pause button
   playButton.addEventListener("click", function() {
     if (audio.paused == true) {
@@ -985,6 +816,47 @@ function setupPlayer(){
     }
   });
 
+  shuffleButton.addEventListener("click", setupMode(), true );
+  function setupMode(){
+      var play= localStorage.shuffleButton;
+
+      if(play!=null){
+            var initial_state = play;   // check if there was a playmode already set up
+      }
+      else{
+            var initial_state="Sequential";
+      }
+
+      var x= function player_toggle(){
+          if (initial_state=="Sequential") {
+                initial_state="Random";
+                document.getElementById("playMode").innerHTML="Sequential";
+          }
+          else{
+                initial_state="Sequential";
+                document.getElementById("playMode").innerHTML="Random";
+          }
+      }
+      return x;
+  }
+
+  nextButton.addEventListener("click", function() {
+
+  });
+
+  backButton.addEventListener("click", function() {
+
+  });
+
+  muteButton.addEventListener("click", function() {
+
+  });
+
+  fullScreenButton.addEventListener("click", function() {
+
+  });
+
+
   // Event listener for the seek bar
   seekRail.addEventListener("click", function(evt) {
     var frac = (evt.offsetX / seekRail.offsetWidth)
@@ -999,10 +871,8 @@ function setupPlayer(){
   audio.addEventListener("timeupdate", function() {
     // Calculate the slider value
     var value = (100 / audio.duration) * audio.currentTime;
-
     // Update the seek bar
     seekBar.style.width = value + "%";
-
     // Update the elapsed time
     timeElapsed.innerHTML = formatTime(Math.floor(audio.currentTime));
   });

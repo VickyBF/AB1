@@ -1,0 +1,102 @@
+body {
+    background-image: url("../Pictures/music1.jpg");
+    background-size: cover;
+    color: #000305;
+    font-size: 95%;
+    font-family: 'fantasy', Comic Sans, Comic Sans MS, cursive;
+    line-height: 1.429;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+header {
+    margin: 0 auto;
+    padding: 1.5em 0 0 0;
+}
+
+header h1 {font-size: 2.5em;}
+
+#user-menu, #user-menu ul, #user-menu ul li, #user-menu ul li a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+#user-menu {
+    width: auto;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+#user-menu ul {
+    background: #222222;}
+#user-menu:after,
+#user-menu ul:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#user-menu ul li {
+    float: right;
+    display: block;
+}
+
+#user-menu ul li a {
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #ffffff;
+}
+#user-menu ul li a:hover, #user-menu ul li.active a {
+    color: #ffffff;
+}
+#user-menu ul li:hover, #user-menu ul li.active {
+    background: #ffb0d0;
+}
+
+#main-menu,
+#main-menu ul,
+#main-menu ul li,
+#main-menu ul li a {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#main-menu{
+    width: 200px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    background: #222222;
+}
+#main-menu > ul > li > a {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+#main-menu > ul > li > a:hover,
+#main-menu > ul > li.active > a{
+    color: #eeeeee;
+    background: #ffb0d0;
+}
+
+.caption{
+    text-align: center;
+}
+section>div{
+    float: left;
+}
+section>article{
+    float: right;
+    width: 70%;
+}

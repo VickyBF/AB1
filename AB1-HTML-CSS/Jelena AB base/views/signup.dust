@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<header>
+    <h1 class="container">NOW LISTEN.</h1>
+</header>
+
+<section>
+    <form>
+        Firstname: <input type="text" name="name"><br>
+        Lastname: <input type="text" name="lastname"><br>
+        Username: <input type="text" name="user"><br>
+        email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password"><br>
+        Repeat password: <input type="password" name="password"><br>
+        <a href="Library.html">Tune in</a>
+        <p>Already have an account? <a href="Login.html">login</a> now!</p>
+    </form>
+
+</section>
+
+<footer>
+    <p>&copy; 2014 AtelierBeats - Jelena Budakovic</p>
+</footer>
+<script src="/views/views.js"></script>
+</body>
+</html>

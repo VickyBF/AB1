@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="/css/library.css">
+</head>
+<body>
+<div id='user-menu'>
+    <ul>
+        <li class='active'><a href='#'><span>User</span></a></li>
+        <li><a href='Login.html'><span>&#9758;Logout</span></a></li>
+    </ul>
+</div>
+<header>
+    <h1>AtelierBeats.</h1>
+</header>
+
+<div id='main-menu'>
+    <ul>
+        <li><input id="search" type="search" onkeyup="search()" placeholder="Search..." required></li>
+        <li class="active"><a href=Library.html><span>&#9835;Library</span></a></li>
+        <li ><a href='Artists.html'><span>&#8788;Artists</span></a></li>
+        <li ><a href='Albums.html'><span>&#9836;Albums</span></a></li>
+        <button onclick="newPlayList()">New Playlist</button>
+        <li ><a href='#'><span>&#8803;Grunge</span></a></li>
+        <li ><a href='#'><span>&#8803;Soulfull House</span></a></li>
+        <li ><a href='#'><span>&#8803;Deep House</span></a></li>
+        <li ><a href='#'><span>&#8803;Jazz</span></a></li>
+        <li ><a href='#'><span>&#8803;Rock</span></a></li>
+    </ul>
+
+</div>
+
+<section>
+    <img src="Pictures/albums/biagio.JPG" style="width:30%;height:30%">
+    <div>
+        <button type="button" onclick=""> Previous </button>
+        <button id="playpause" type="button"> Play/Pause </button>
+        <button type="button" onclick=""> Next </button>
+        <audio id="mySong">
+            <source src="Audio/mus.mp3" type="audio/mpeg">
+        </audio>
+        <div>Elapsed Time: <span id="currentTime"></span></div>
+        <div>Total Time: <span id="totalTime"></span></div>
+        Volume:<input id="volume" min="0" max="1" step="0.1" type="range" onchange="setVolume()" />
+    </div>
+
+<table id="table1">
+    <tr>
+        <th>SONG</th>
+        <th><a href='Artists.html'>ARTIST</a></th>
+        <th><a href='Albums.html'>ALBUM</a></th>
+        <th>TIME</th>
+    </tr>
+    <tr>
+        <td>Resta in ascolto</td>
+        <td>Laura Pausini</td>
+        <td>Resta in ascolto</td>
+        <td>3:24</td>
+    </tr>
+    <tr>
+        <td>Unfaithful</td>
+        <td>Rihanna</td>
+        <td>A girl like me</td>
+        <td>2:56</td>
+    </tr>
+    <tr>
+        <td>SOS</td>
+        <td>Rihanna</td>
+        <td>A girl like me</td>
+        <td>3:04</td>
+    </tr>
+    <tr>
+        <td>Not afraid</td>
+        <td>Eminem</td>
+        <td>Recovery</td>
+        <td>3:13</td>
+    </tr>
+    <tr>
+        <td>Se fosse per sempre</td>
+        <td>Biagio Antonacci</td>
+        <td>Inaspettata</td>
+        <td>3:17</td>
+    </tr>
+    <tr>
+        <td>Roar</td>
+        <td>Ketty Perry</td>
+        <td>Prism</td>
+        <td>3:27</td>
+    </tr>
+    <tr>
+        <td>Thinking of you</td>
+        <td>Ketty Perry</td>
+        <td>One of the boys</td>
+        <td>2:46</td>
+    </tr>
+    <tr>
+        <td>Amazing</td>
+        <td>Madonna</td>
+        <td>Music</td>
+        <td>2:58</td>
+    </tr>
+    <tr>
+        <td>Memories</td>
+        <td>David Guetta</td>
+        <td>One love</td>
+        <td>3:34</td>
+    </tr>
+    <tr>
+        <td>Shake it off</td>
+        <td>Taylor Swift</td>
+        <td>The last time</td>
+        <td>2:47</td>
+    </tr>
+    <tr>
+        <td>La forza mia</td>
+        <td>Marco Carta</td>
+        <td>La forza mia</td>
+        <td>3:19</td>
+    </tr>
+</table>
+</section>
+<script src="js/model.js"></script>
+<script src="js/library.js"></script>
+<script src="js/app.js"></script>
+<script>
+    document.getElementById("playpause").addEventListener('click', setupPlayer() );
+
+    var mus = document.getElementById('mySong');
+    var display=document.getElementById('currentTime');
+    mus.addEventListener("timeupdate", function(){display.innerText =mus.currentTime.toFixed(2);},false);
+
+    var time = document.getElementById("totalTime");
+    mus.addEventListener('loadedmetadata', function(){var t=((mus.duration)/60).toFixed(2);time.innerHTML=t+" minutes";});
+    //Time duration works properly with google chrome.
+
+    function setVolume() {
+        var volume = document.getElementById("volume");
+        mus.volume = volume.value;
+    }
+
+    function search(){
+        var text=document.getElementById('search');
+        var newTable=document.getElementById("table1");
+        var result=fuzzyFind(window.data.Tracks, "name", text.value);
+            var newContent = "<tr><th>SONG</th><th><a href=\'Artists.html\'>ARTIST</a></th><th><a href=\'Albums.html\'>ALBUM</a></th><th>TIME</th></tr>";
+            for (var i = 0; i < result.length; i++) {
+                newContent += "<tr>" + "<td>" + result[i].name + "</td>" + "<td>" + result[i].artist + "</td>" + "<td>" + result[i].album + "</td>" + "<td>" + window.data.Tracks[i].duration + "</td>" + "</tr>";
+            }
+            newTable.innerHTML = newContent;
+
+    }
+    //Exercise 3
+    function newPlayList(){
+        var pl=new playlist("plnew", "playlist", "newArtist", []);
+        savePlaylist(pl);
+    }
+
+</script>
+<script src="/views/views.js"></script>
+</body>
+</html>

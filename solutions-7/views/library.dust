@@ -74,7 +74,11 @@
                 <div class="pl-timeline-bar" id="pl-timeline-bar"></div>
               </div>
             </div>
+
             <div class="time time-total" id="time-total">2:19</div>
+          </div>
+          <div>
+             <button id="playMode" class="btn btn-icon fa fa-shuffle" type="button"> Play Mode</button>
           </div>
           <div class="pl-volume">
             <i class="btn-icon fa fa-volume-off" id="volume-off"></i>
