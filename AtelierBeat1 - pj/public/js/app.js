@@ -934,7 +934,7 @@ function appendNewPlaylistToMenu(pl){
 * - When a track finishes your player should play the next one
 */
 document.getElementById("play-pause").addEventListener('click', setupPlayer() );
-
+document.getElementById("playMode").addEventListener('click', setupMode(),true );
 function setupPlayer() {
   var counter=0;
 
@@ -953,6 +953,7 @@ function setupPlayer() {
       var volumeUp = document.getElementById("volume-up");
       var next = document.getElementById("next");
       var previous = document.getElementById("previous");
+      var playMode = document.getElementById("playMode");
 
       // Sliders
       var seekRail = document.getElementById("pl-timeline-rail");
@@ -1086,27 +1087,27 @@ function setSong(i, tracklist,audio){   //Song to be played
 }
 
 /*--------------- Modal Window---------------*/
-var checkForm = function(e) {
+/*var checkForm = function(e) {    //Not necessaru if I use "requiered in the input form"
   var form = (e.target) ? e.target : e.srcElement;
   if(form.name.value == "") {
-    alert("Please enter your Name");
+    alert("Please enter the name of the track.");
     form.name.focus();
     e.preventDefault ? e.preventDefault() : e.returnValue = false;
     return;
   }
-  if(form.email.value == "") {
-    alert("Please enter a valid Email address");
-    form.email.focus();
+  if(form.artist.value == "") {      //Need to check if the artist exists
+    alert("Please enter the artist of the song.");
+    form.artist.focus();
     e.preventDefault ? e.preventDefault() : e.returnValue = false;
     return;
   }
-  if(form.message.value == "") {
-    alert("Please enter your comment or question in the Message box");
-    form.message.focus();
+  if(form.album.value == "") {        //Need to check if the album exists
+    alert("Please enter the album of the song.");
+    form.album.focus();
     e.preventDefault ? e.preventDefault() : e.returnValue = false;
     return;
   }
-};
+};*/
 
 var modal_init = function() {
 
@@ -1150,11 +1151,26 @@ var modal_init = function() {
   }
 }
 if(document.addEventListener) {
-  document.getElementById("modal_feedback").addEventListener("submit", checkForm, false);
   document.addEventListener("DOMContentLoaded", modal_init, false);
 } else {
-  document.getElementById("modal_feedback").attachEvent("onsubmit", checkForm);
   window.attachEvent("onload", modal_init);
+}
+
+function setupMode(){
+  var initial_state = "Sequential";
+  var x = function player_toggle() {
+    if (initial_state == "Sequential") {
+      initial_state = "Random";
+      playMode.classList.remove('fa-refresh')
+      playMode.classList.add('fa-random')
+    }
+    else {
+      initial_state = "Sequential";
+      playMode.classList.remove('fa-random')
+      playMode.classList.add('fa-refresh')
+    }
+  }
+  return x;
 }
 
 /*-------------------------------------*/

@@ -67,7 +67,7 @@
                                         <button id="previous" class="btn btn-icon fa fa-step-backward"></button>
                                         <button id="play-pause" class="btn btn-icon fa fa-play"></button>
                                         <button id="next" class="btn btn-icon fa fa-step-forward"></button>
-                                        <button id="playMode" type="button"> Play Mode</button>
+                                        <button id="playMode" class="btn btn-icon fa fa-refresh"> Play Mode</button>
                                 </div>
 
 
@@ -94,19 +94,27 @@
                                 </div>
                             </div>
 
+                       <div id="modal_wrapper">
+                       <div id="modal_window">
+                       <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+
+                       <p>Complete the form below to upload a Track:</p>
+
+                       <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
+                       <p><label>Name of the Track<strong>*</strong><br>
+                       <input type="text" required size="48" name="name" value=""></label></p>
+                        <p><label>Artist<strong>*</strong><br>
+                        <input type="text" required size="48" name="artist" value=""></label></p>
+                        <p><label>Album<strong>*</strong><br>
+                        <input type="text" required size="48" name="album" value=""></label></p>
+                        <p><label>Drag and Drop here the mp3 file<strong>*</strong><br>
+                        <textarea required name="file" cols="48" rows="8"></textarea></label></p>
+                        <p><input type="submit" name="feedbackForm" value="Submit"></p>
+                        </form>
+                       </div> <!-- #modal_window -->
+                       </div> <!-- #modal_wrapper -->
+
                       </div>
-         <div id="modal_wrapper">
-               <div id="modal_window">
-               <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
-
-               <p>Complete the form below to send an email:</p>
-
-               <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
-               <p><label>Your Name<strong>*</strong><br>
-               <input type="text" autofocus required size="48" name="name" value=""></label></p>
-
-               </div> <!-- #modal_window -->
-               </div> <!-- #modal_wrapper -->
 
        <div id = "loguser">
         <ul class="nav-menu vertical-menu float-right clearfix">
