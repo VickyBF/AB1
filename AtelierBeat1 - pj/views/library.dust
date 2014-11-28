@@ -106,7 +106,7 @@
                         <p><label>Artist<strong>*</strong><br>
                         <input type="text" required size="48" name="artist" value=""></label></p>
                         <p><label>Album<strong>*</strong><br>
-                        <input type="text" required size="48" name="album" value=""></label></p>
+                        <input type="text" required size="20" name="album" value=""></label></p>
                         <div id="dropTarget"><span>Drag one track and drop it here.</span></div>
                         <p><input type="submit" name="feedbackForm" value="Submit"></p>
                         <input type="file" name="userPhoto" />

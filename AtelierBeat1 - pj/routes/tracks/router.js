@@ -7,7 +7,9 @@ var middleware =  require('../middleware');
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var Track = mongoose.model('Track');
+var Artist = mongoose.model('Artist');
 var config = require("../../config");
+
 
 //fields we don't want to show to the client
 var fieldsFilter = { '__v': 0 };
@@ -42,8 +44,14 @@ router.get('/', function(req, res, next) {
 
 //create new track
 router.post('/', function(req, res, next) {
-  req.body.name=req.files.userPhoto.originalname.split(".")[0];  //because I don't want the .png
-  req.body.file=req.files.userPhoto.path;
+  if(req.files.userPhoto) {
+    req.body.name = req.files.userPhoto.originalname.split(".")[0];  //because I don't want the .png
+    req.body.file = req.files.userPhoto.path;
+  }
+  else {
+    req.body.file = "no_file_uploaded";
+  }
+  req.body.duration=0;
   console.log(req.body);
   var newTrack = new Track(req.body);
   newTrack.save(onModelSave(res, 201, true,next));
