@@ -30,11 +30,14 @@
           <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
 
-       <a href="#" class="create-playlist" id="create-pl-btn"><i class="fa fa-plus"></i> Add playlist</a>
-        <ul class="nav-menu" id="playlists">
-        <!-- Playlists will be rendered here -->
-        </ul>
-        <a href="#" class="create-playlist" id="create-nt-btn"><i class="fa fa-plus"></i> Add track</a>
+       <button id="create-pl-btn" type="button"> Add playlist</button>
+
+               <ul class="nav-menu" id="playlists">
+               <!-- Playlists will be rendered here -->
+
+               <button id="modal_open" type="button"> Add Track</button>
+
+               </ul>
       </div> <!-- /.main-nav-content -->
     </nav>
     <section class="main-content main-content-float-menu clearfix">
@@ -92,6 +95,18 @@
                             </div>
 
                       </div>
+         <div id="modal_wrapper">
+               <div id="modal_window">
+               <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+
+               <p>Complete the form below to send an email:</p>
+
+               <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
+               <p><label>Your Name<strong>*</strong><br>
+               <input type="text" autofocus required size="48" name="name" value=""></label></p>
+
+               </div> <!-- #modal_window -->
+               </div> <!-- #modal_wrapper -->
 
        <div id = "loguser">
         <ul class="nav-menu vertical-menu float-right clearfix">
@@ -106,6 +121,7 @@
   <section id="content">
          <!-- Content will be rendered here -->
         </section>
+
   </section> <!-- /.player --><section class="player">
 
 

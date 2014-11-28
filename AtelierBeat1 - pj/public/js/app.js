@@ -933,7 +933,7 @@ function appendNewPlaylistToMenu(pl){
 *
 * - When a track finishes your player should play the next one
 */
-document.getElementById("playpause").addEventListener('click', setupPlayer() );
+document.getElementById("play-pause").addEventListener('click', setupPlayer() );
 
 function setupPlayer() {
   var counter=0;
@@ -1085,8 +1085,82 @@ function setSong(i, tracklist,audio){   //Song to be played
 
 }
 
-/*//////////////Drag and Drop for tracks//////////////////////
-  // Set the drop-event handlers.
+/*--------------- Modal Window---------------*/
+var checkForm = function(e) {
+  var form = (e.target) ? e.target : e.srcElement;
+  if(form.name.value == "") {
+    alert("Please enter your Name");
+    form.name.focus();
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    return;
+  }
+  if(form.email.value == "") {
+    alert("Please enter a valid Email address");
+    form.email.focus();
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    return;
+  }
+  if(form.message.value == "") {
+    alert("Please enter your comment or question in the Message box");
+    form.message.focus();
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    return;
+  }
+};
+
+var modal_init = function() {
+
+  var modalWrapper = document.getElementById("modal_wrapper");
+  var modalWindow  = document.getElementById("modal_window");
+
+  var openModal = function(e)
+  {
+    modalWrapper.className = "overlay";
+    modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
+    modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+  };
+
+  var closeModal = function(e)
+  {
+    modalWrapper.className = "";
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+  };
+
+  var clickHandler = function(e) {
+    if(!e.target) e.target = e.srcElement;
+    if(e.target.tagName == "DIV") {
+      if(e.target.id != "modal_window") closeModal(e);
+    }
+  };
+
+  var keyHandler = function(e) {
+    if(e.keyCode == 27) closeModal(e);
+  };
+  if(document.addEventListener) {
+    document.getElementById("modal_open").addEventListener("click", openModal, false);
+    document.getElementById("modal_close").addEventListener("click", closeModal, false);
+    document.addEventListener("click", clickHandler, false);
+    document.addEventListener("keydown", keyHandler, false);
+  } else {
+    document.getElementById("modal_open").attachEvent("onclick", openModal);
+    document.getElementById("modal_close").attachEvent("onclick", closeModal);
+    document.attachEvent("onclick", clickHandler);
+    document.attachEvent("onkeydown", keyHandler);
+  }
+}
+if(document.addEventListener) {
+  document.getElementById("modal_feedback").addEventListener("submit", checkForm, false);
+  document.addEventListener("DOMContentLoaded", modal_init, false);
+} else {
+  document.getElementById("modal_feedback").attachEvent("onsubmit", checkForm);
+  window.attachEvent("onload", modal_init);
+}
+
+/*-------------------------------------*/
+
+/*--------------- Drag and drop for Tracks (not working yet)---------------*/
+/*  // Set the drop-event handlers.
 var dropArea = document.getElementById("tracks-list");
 dropArea.addEventListener("drop", dropHandler, true);
 dropArea.addEventListener("dragover", doNothing, true);
@@ -1094,16 +1168,16 @@ dropArea.addEventListener("dragover", doNothing, true);
 function dropHandler(event)
 {
 // Use our doNothing() function to prevent default processing.
-doNothing(event);
+  doNothing(event);
 // Get the file(s) that are dropped.
-var filelist =  event.dataTransfer.files;
-if (!filelist) return;  // if null, exit now
-var filecount = filelist.length;  // get number of dropped files
+  var filelist =  event.dataTransfer.files;
+  if (!filelist) return;  // if null, exit now
+  var filecount = filelist.length;  // get number of dropped files
 
-if (filecount > 0)
-{
-  console.log("I draged a file")
-}
+  if (filecount > 0)
+  {
+    console.log("I draged a file")
+  }
 }
 // Prevents the event from continuing so our handlers can process the event.
 function doNothing(event)
