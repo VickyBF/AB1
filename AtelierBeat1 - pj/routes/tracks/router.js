@@ -44,15 +44,11 @@ router.get('/', function(req, res, next) {
 
 //create new track
 router.post('/', function(req, res, next) {
-  if(req.files.userPhoto) {
-    req.body.name = req.files.userPhoto.originalname.split(".")[0];  //because I don't want the .png
-    req.body.file = req.files.userPhoto.path;
+  if (!req.body.name){
+    req.body.name = req.files.mp3_file_toUpload.originalname.split(".")[0];  //because I don't want the .png
   }
-  else {
-    req.body.file = "no_file_uploaded";
-  }
+  req.body.file = req.files.mp3_file_toUpload.path;
   req.body.duration=0;
-  console.log(req.body);
   var newTrack = new Track(req.body);
   newTrack.save(onModelSave(res, 201, true,next));
 });
@@ -74,10 +70,6 @@ router.get('/:trackid', function(req, res, next) {
   });
 });
 
-//upload new track
-///////////////////////////////
-
-///////////////////////////////
 //update a track
 router.put('/:trackid', function(req, res, next) {
   var data = req.body;

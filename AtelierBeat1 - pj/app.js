@@ -12,18 +12,10 @@ var mongoose   = require('mongoose');
 mongoose.connect(config.mongoUrl + config.mongoDbName);
 
 
-// multer
-
+/*--- Configure the multer. used to upload the track from our pc on the server ---*/
 app.use(multer({ dest: './public/tracks_folder/',
     rename: function (fieldname, filename) {
         return filename;
-    },
-    onFileUploadStart: function (file) {
-        console.log(file.originalname + ' is starting ...')
-    },
-    onFileUploadComplete: function (file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path)
-
     }
 }));
 

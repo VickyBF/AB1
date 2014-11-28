@@ -980,19 +980,11 @@ function setupPlayer() {
       setSong(0, newTrackList,audio);
       document.body.appendChild(audio);
 
-      audio.addEventListener("ended", function () {   ///Sequential mode
-        //sequential mode
-        if (document.getElementById("playMode").value=='sequential') {
+      audio.addEventListener("ended", function () {
           if (counter == newTrackList.length){
             counter = 0;
         }
-          else{
-            counter++;
-          };
-        }
-        else { //random mode
-          counter = Math.floor(Math.random() * (newTrackList.length + 1));  // number between 0 and length of track list
-        }
+        counter++;
         setSong(counter, newTrackList, audio);
         audio.play();
 
@@ -1172,58 +1164,8 @@ if(document.addEventListener) {
   window.attachEvent("onload", modal_init);
 }
 
-
 /*-------------------------------------*/
 
-/*--------------- Drag and drop for Tracks (not working yet)---------------*/
-function dragOverEvent(e) {
-  if (e.preventDefault) {
-    e.preventDefault(); // Necessary. Allows us to drop.
-  }
-}
-
-function dropEvent(e) {
-  if (e.preventDefault) {
-    e.preventDefault(); // Prevents browser redirect
-  }
-  //this.innerHTML = e.dataTransfer.getData('Text');
-}
-
-targetNode=document.getElementById('dropTarget');
-
-targetNode.addEventListener('dragover', dragOverEvent,false);
-targetNode.addEventListener('drop', dropEvent,false);
-
-
-
-/*  // Set the drop-event handlers.
-var dropArea = document.getElementById("tracks-list");
-dropArea.addEventListener("drop", dropHandler, true);
-dropArea.addEventListener("dragover", doNothing, true);
-
-function dropHandler(event)
-{
-// Use our doNothing() function to prevent default processing.
-  doNothing(event);
-// Get the file(s) that are dropped.
-  var filelist =  event.dataTransfer.files;
-  if (!filelist) return;  // if null, exit now
-  var filecount = filelist.length;  // get number of dropped files
-
-  if (filecount > 0)
-  {
-    console.log("I draged a file")
-  }
-}
-// Prevents the event from continuing so our handlers can process the event.
-function doNothing(event)
-{
-  event.stopPropagation();
-  event.preventDefault();
-}*/
-
-
-///////////////////////////////////////////////////////////
 
 //<!-- /build -->
 

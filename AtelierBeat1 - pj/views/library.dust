@@ -101,16 +101,14 @@
                        <p>Complete the form below to upload a Track:</p>
 
                        <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
-                       <p><label>Name of the Track<strong>*</strong><br>
-                       <input type="text" required size="48" name="name" value=""></label></p>
+                       <p><label>Name<strong>*</strong><br>
+                       <input type="text" size="27" name="name" value=""></label></p>
                         <p><label>Artist<strong>*</strong><br>
-                        <input type="text" required size="48" name="artist" value=""></label></p>
+                        <input type="text" required size="27" name="artist" id="query" class="text-field valid" autocomplete="off" ></label></p>
                         <p><label>Album<strong>*</strong><br>
-                        <input type="text" required size="20" name="album" value=""></label></p>
-                        <div id="dropTarget"><span>Drag one track and drop it here.</span></div>
-                        <p><input type="submit" name="feedbackForm" value="Submit"></p>
-                        <input type="file" name="userPhoto" />
-                            <input type="submit" value="Upload Image" name="submit">
+                        <input type="text" required size="27" name="album" value=""></label></p>
+                        <input required type="file" name="mp3_file_toUpload" />
+                            <input type="submit" value="Upload mp3" name="submit">
                         </form>
 
                        </div> <!-- #modal_window -->
@@ -125,8 +123,6 @@
         </ul>
        </div>
       </nav>
-
-
 
   <section id="content">
          <!-- Content will be rendered here -->
@@ -144,6 +140,46 @@
   <script src="views/views.js"></script>
   <script src="js/ajax.js"></script>
   <script src="js/app.js"></script>
+
+
+/* ---------------- Autocomplete of artists(Modal window) ---------------- */
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://www.devbridge.com/scripts/libs/jquery.autocomplete.js"></script>
+  <script>
+
+     $("document").ready(function() {
+         var availableTags = [
+           "ActionScript",
+           "AppleScript",
+           "Asp",
+           "BASIC",
+           "C",
+           "C++",
+           "Clojure",
+           "COBOL",
+           "ColdFusion",
+           "Erlang",
+           "Fortran",
+           "Groovy",
+           "Haskell",
+           "Java",
+           "JavaScript",
+           "Lisp",
+           "Perl",
+           "PHP",
+           "Python",
+           "Ruby",
+           "Scala",
+           "Scheme"
+         ];
+
+         $( "#query" ).autocomplete({
+           lookup: availableTags
+         });
+       });
+
+      </script>
+
 </body>
 </html>
 
