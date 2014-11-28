@@ -5,10 +5,27 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var dustjs = require('adaro');
 var app = express();
+var multer  = require('multer');
 
 // Connect to MongoDB here
 var mongoose   = require('mongoose');
 mongoose.connect(config.mongoUrl + config.mongoDbName);
+
+
+// multer
+
+app.use(multer({ dest: './public/tracks_folder/',
+    rename: function (fieldname, filename) {
+        return filename;
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...')
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+
+    }
+}));
 
 // Register model definition here
 require('./models');
@@ -32,5 +49,6 @@ app.use('/albums', routers.albums);
 app.use('/artists', routers.artists);
 app.use('/tracks', routers.tracks);
 app.use('/users', routers.users);
+
 
 module.exports = app;

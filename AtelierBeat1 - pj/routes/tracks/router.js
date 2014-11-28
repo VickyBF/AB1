@@ -42,9 +42,11 @@ router.get('/', function(req, res, next) {
 
 //create new track
 router.post('/', function(req, res, next) {
-
+  req.body.name=req.files.userPhoto.originalname.split(".")[0];  //because I don't want the .png
+  req.body.file=req.files.userPhoto.path;
+  console.log(req.body);
   var newTrack = new Track(req.body);
-  newTrack.save(onModelSave(res, 201, true));
+  newTrack.save(onModelSave(res, 201, true,next));
 });
 
 //get a track
@@ -144,7 +146,7 @@ router.delete('/:trackid', function(req, res, next) {
   });
 });
 
-function onModelSave(res, status, sendItAsResponse){
+function onModelSave(res, status, sendItAsResponse,next){
   var statusCode = status || 204;
   var sendItAsResponse = sendItAsResponse || false;
   return function(err, saved){

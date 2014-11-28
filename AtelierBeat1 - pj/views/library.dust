@@ -100,17 +100,19 @@
 
                        <p>Complete the form below to upload a Track:</p>
 
-                       <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">
+                       <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
                        <p><label>Name of the Track<strong>*</strong><br>
                        <input type="text" required size="48" name="name" value=""></label></p>
                         <p><label>Artist<strong>*</strong><br>
                         <input type="text" required size="48" name="artist" value=""></label></p>
                         <p><label>Album<strong>*</strong><br>
                         <input type="text" required size="48" name="album" value=""></label></p>
-                        <p><label>Drag and Drop here the mp3 file<strong>*</strong><br>
-                        <textarea required name="file" cols="48" rows="8"></textarea></label></p>
+                        <div id="dropTarget"><span>Drag one track and drop it here.</span></div>
                         <p><input type="submit" name="feedbackForm" value="Submit"></p>
+                        <input type="file" name="userPhoto" />
+                            <input type="submit" value="Upload Image" name="submit">
                         </form>
+
                        </div> <!-- #modal_window -->
                        </div> <!-- #modal_wrapper -->
 

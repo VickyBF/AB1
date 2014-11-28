@@ -935,6 +935,7 @@ function appendNewPlaylistToMenu(pl){
 */
 document.getElementById("play-pause").addEventListener('click', setupPlayer() );
 document.getElementById("playMode").addEventListener('click', setupMode(),true );
+
 function setupPlayer() {
   var counter=0;
 
@@ -945,6 +946,7 @@ function setupPlayer() {
       for (var i= 0;i < lista.length; i++){
         newTrackList.push(lista[i]);
       }
+      console.log(newTrackList);
       // Buttons
       var playButton = document.getElementById("play-pause");
       var muteButton = document.getElementById("mute");
@@ -981,10 +983,15 @@ function setupPlayer() {
       audio.addEventListener("ended", function () {   ///Sequential mode
         //sequential mode
         if (document.getElementById("playMode").value=='sequential') {
-          counter++;
+          if (counter == newTrackList.length){
+            counter = 0;
+        }
+          else{
+            counter++;
+          };
         }
         else { //random mode
-          counter = Math.floor(Math.random() * (newTrackList.length+1 + 1));  // number between 0 and length of track list
+          counter = Math.floor(Math.random() * (newTrackList.length + 1));  // number between 0 and length of track list
         }
         setSong(counter, newTrackList, audio);
         audio.play();
@@ -1082,9 +1089,19 @@ function setupPlayer() {
     }
   }
 }
-function setSong(i, tracklist,audio){   //Song to be played
-    audio.src=tracklist[i].file;
+function shuffle(o){ //to shuffle an array
+  for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
 
+function setSong(i, tracklist,audio){//Song to be played
+  if(document.getElementById("playMode").value=='sequential'){
+    audio.src=tracklist[i].file;
+  }
+  else{
+    tracklist = shuffle(tracklist)
+    audio.src=tracklist[i].file;
+  }
   // Need to make the picture change and also the title and so on depending on the song that is playing
 
 }
@@ -1108,28 +1125,6 @@ function setupMode(){
 }
 
 /*--------------- Modal Window---------------*/
-/*var checkForm = function(e) {    //Not necessaru if I use "requiered in the input form"
-  var form = (e.target) ? e.target : e.srcElement;
-  if(form.name.value == "") {
-    alert("Please enter the name of the track.");
-    form.name.focus();
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
-    return;
-  }
-  if(form.artist.value == "") {      //Need to check if the artist exists
-    alert("Please enter the artist of the song.");
-    form.artist.focus();
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
-    return;
-  }
-  if(form.album.value == "") {        //Need to check if the album exists
-    alert("Please enter the album of the song.");
-    form.album.focus();
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
-    return;
-  }
-};*/
-
 var modal_init = function() {
 
   var modalWrapper = document.getElementById("modal_wrapper");
@@ -1181,6 +1176,26 @@ if(document.addEventListener) {
 /*-------------------------------------*/
 
 /*--------------- Drag and drop for Tracks (not working yet)---------------*/
+function dragOverEvent(e) {
+  if (e.preventDefault) {
+    e.preventDefault(); // Necessary. Allows us to drop.
+  }
+}
+
+function dropEvent(e) {
+  if (e.preventDefault) {
+    e.preventDefault(); // Prevents browser redirect
+  }
+  //this.innerHTML = e.dataTransfer.getData('Text');
+}
+
+targetNode=document.getElementById('dropTarget');
+
+targetNode.addEventListener('dragover', dragOverEvent,false);
+targetNode.addEventListener('drop', dropEvent,false);
+
+
+
 /*  // Set the drop-event handlers.
 var dropArea = document.getElementById("tracks-list");
 dropArea.addEventListener("drop", dropHandler, true);
