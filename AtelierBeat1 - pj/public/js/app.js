@@ -980,32 +980,35 @@ function setupPlayer() {
 
       audio.addEventListener("ended", function () {   ///Sequential mode
         //sequential mode
+        if (document.getElementById("playMode").value=='sequential') {
           counter++;
-          setSong(counter, newTrackList, audio);
-          audio.play();
+        }
+        else { //random mode
+          counter = Math.floor(Math.random() * (newTrackList.length+1 + 1));  // number between 0 and length of track list
+        }
+        setSong(counter, newTrackList, audio);
+        audio.play();
 
       })
 
-
-
-
       // Event listener for the play/pause button
       playButton.addEventListener("click", function () {
-        if (audio.paused == true) {
-          // Play the track
-          audio.play();
+            if (audio.paused == true) {
+              // Play the track
+              audio.play();
 
-          // Update the button icon to 'Pause'
-          playButton.classList.remove('fa-play')
-          playButton.classList.add('fa-pause')
-        } else {
-          // Pause the track
-          audio.pause();
+              // Update the button icon to 'Pause'
+              playButton.classList.remove('fa-play')
+              playButton.classList.add('fa-pause')
+            } else {
+              // Pause the track
+              audio.pause();
 
-          // Update the button icon to 'Play'
-          playButton.classList.remove('fa-pause')
-          playButton.classList.add('fa-play')
-        }
+              // Update the button icon to 'Play'
+              playButton.classList.remove('fa-pause')
+              playButton.classList.add('fa-play')
+            }
+
       });
 
       // Event listener for the seek bar
@@ -1085,6 +1088,24 @@ function setSong(i, tracklist,audio){   //Song to be played
   // Need to make the picture change and also the title and so on depending on the song that is playing
 
 }
+function setupMode(){
+  var initial_state = "Sequential";
+  var x = function player_toggle() {
+    if (initial_state == "Sequential") {
+      initial_state = "Random";
+      playMode.classList.remove('fa-refresh');
+      playMode.classList.add('fa-random');
+      playMode.value="random";
+    }
+    else {
+      initial_state = "Sequential";
+      playMode.classList.remove('fa-random');
+      playMode.classList.add('fa-refresh');
+      playMode.value='sequential';
+    }
+  }
+  return x;
+}
 
 /*--------------- Modal Window---------------*/
 /*var checkForm = function(e) {    //Not necessaru if I use "requiered in the input form"
@@ -1156,22 +1177,6 @@ if(document.addEventListener) {
   window.attachEvent("onload", modal_init);
 }
 
-function setupMode(){
-  var initial_state = "Sequential";
-  var x = function player_toggle() {
-    if (initial_state == "Sequential") {
-      initial_state = "Random";
-      playMode.classList.remove('fa-refresh')
-      playMode.classList.add('fa-random')
-    }
-    else {
-      initial_state = "Sequential";
-      playMode.classList.remove('fa-random')
-      playMode.classList.add('fa-refresh')
-    }
-  }
-  return x;
-}
 
 /*-------------------------------------*/
 

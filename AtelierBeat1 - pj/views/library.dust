@@ -67,7 +67,7 @@
                                         <button id="previous" class="btn btn-icon fa fa-step-backward"></button>
                                         <button id="play-pause" class="btn btn-icon fa fa-play"></button>
                                         <button id="next" class="btn btn-icon fa fa-step-forward"></button>
-                                        <button id="playMode" class="btn btn-icon fa fa-refresh"> Play Mode</button>
+                                        <button id="playMode" class="btn btn-icon fa fa-refresh" value="sequential"> Play Mode</button>
                                 </div>
 
 
