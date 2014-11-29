@@ -7,10 +7,10 @@ window.onload = function(){
   updatePage();
   setupPlayer();
 
-  //setupPlaylists();
+  setupPlaylists();
   setupSearch();
 
-}
+};
 
 function bindMenu(){
   var menu = document.querySelectorAll("#main-menu > li > a");
