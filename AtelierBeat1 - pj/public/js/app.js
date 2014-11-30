@@ -10,6 +10,8 @@ window.onload = function(){
   setupPlaylists();
   setupSearch();
 
+  bindPLTracksDelete()
+
 };
 
 function bindMenu(){
@@ -68,6 +70,8 @@ function drawLibrary(e, addHistory){
       bindTracksDelete();
 
       bindEditTrackName();
+
+
 
     });
 
@@ -829,11 +833,48 @@ function onPlaylistClicked(link){
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-album"><a href="albums/'+ encodeURI(album.name)+ '">'+ album.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-time">'+ formatTime(track.duration) + '</div>\n';
+    newHtml+= '<div class="fl-tl-th fl-tl-delete"><a href="#" >×</a></div>';
     newHtml+= '</div>\n';
+
+
   })
 
   container.innerHTML = newHtml;
 }
+function bindPLTracksDelete(){
+    var tracks = document.querySelectorAll(".fl-tl-delete a");
+
+    for (var elem = 0; elem < tracks.length; ++elem) {
+        tracks[elem].onclick = deletePLTrack;
+    }
+}
+
+function deletePLTrack(e){
+
+    var href;
+    var target = e.target;
+
+    if(e && e.target){
+        e.preventDefault();
+        href = target.getAttribute("href");
+    }
+
+    //execute the AJAX call to the delete a single album
+    doJSONRequest("DELETE", href, null, null, removePLTrack);
+
+    function removePLTrack(){
+
+        var toDelete = target.parentNode.parentNode;
+        var parent = document.getElementById("tracks-list");
+
+        parent.removeChild(toDelete);
+
+    }
+
+}
+
+
+
 
 function onEditPlaylistClicked(btn){
   var id = btn.dataset["for"];
@@ -867,12 +908,12 @@ function loadPlaylistsFromLocalStorage(){
   localStorage.playlists = localStorage.playlists || JSON.stringify({});
   var playlists =  JSON.parse(localStorage.playlists);
   //merge localStorage playlists with model playlists
-  /*
+    // ---------------------------------- IMPORTANT --------------------------\\
   model.playlists.forEach(function(playlist){
     if (!playlists.hasOwnProperty(playlist._id))
       playlists[playlist._id] = playlist;
   });
-*/
+   // ---------------------------------- IMPORTANT --------------------------\\
 
 var keys = Object.keys(playlists);
 var newHtml ='';
@@ -882,6 +923,8 @@ keys.forEach(function(key){
 
   //persist playlists
   localStorage.playlists = JSON.stringify(playlists);
+
+  //console.log(localStorage.playlists)
 }
 
 function appendNewPlaylistToMenu(pl){
@@ -892,13 +935,17 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '    <a class="pl-name" data-for="' + id + '" href="playlists/' + encodeURI(name) + '">';
   newHtml += '      <i class="nav-menu-icon fa fa-bars"></i>' + name;
   newHtml += '    </a>';
-  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a>';
+  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a>'
+  newHtml += '    <a class="pl-delete" data-for="'+ id + '"href="#">×</a>';
   newHtml += '    <input  class="pl-name-input" name="' + id + '" type="text" value="' + name + '">';
   newHtml += '  </li>';
 
   document.getElementById('playlists').innerHTML += newHtml;
 }
-/* Playlist: Not working after the switch to AJAX */
+
+
+
+
 
 /* Player */
 
