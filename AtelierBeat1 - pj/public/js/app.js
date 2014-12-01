@@ -2,17 +2,19 @@
 //<!-- build:remove -->
 window.onload = function(){
 
-  bindMenu();
+        bindMenu();
 
-  updatePage();
-  setupPlayer();
+        updatePage();
+        setupPlayer();
 
-  setupPlaylists();
-  setupSearch();
+        setupPlaylists();
+        setupSearch();
 
-  bindPLTracksDelete()
+        bindPLTracksDelete()
 
 };
+
+
 
 function bindMenu(){
   var menu = document.querySelectorAll("#main-menu > li > a");
@@ -760,6 +762,7 @@ function setupPlaylists(){
       return onPlaylistClicked(e.target)
     }
 
+
     //the click was outside an edit element, close currently edited ones
     var currentlyEditing = document.querySelectorAll('#playlists > li.edit .edit-btn');
     for (var i = currentlyEditing.length - 1; i >= 0; i--) {
@@ -841,6 +844,7 @@ function onPlaylistClicked(link){
 
   container.innerHTML = newHtml;
 }
+
 function bindPLTracksDelete(){
     var tracks = document.querySelectorAll(".fl-tl-delete a");
 
@@ -865,7 +869,7 @@ function deletePLTrack(e){
     function removePLTrack(){
 
         var toDelete = target.parentNode.parentNode;
-        var parent = document.getElementById("tracks-list");
+        var parent = document.getElementById(e._id);
 
         parent.removeChild(toDelete);
 
@@ -935,8 +939,7 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '    <a class="pl-name" data-for="' + id + '" href="playlists/' + encodeURI(name) + '">';
   newHtml += '      <i class="nav-menu-icon fa fa-bars"></i>' + name;
   newHtml += '    </a>';
-  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a>'
-  newHtml += '    <a class="pl-delete" data-for="'+ id + '"href="#">×</a>';
+  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a><a class="del-pl-btn" href="#"><img src="./images/trash48.jpg" style="width:20px;height:20px"></x></a>';
   newHtml += '    <input  class="pl-name-input" name="' + id + '" type="text" value="' + name + '">';
   newHtml += '  </li>';
 

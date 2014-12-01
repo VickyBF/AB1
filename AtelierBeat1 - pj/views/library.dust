@@ -26,8 +26,8 @@
           <li><a href="library.html"><i class="nav-menu-icon glyphicon glyphicon-music"></i> Tracks</a></li>
           <li><a href="artists.html"><i class="nav-menu-icon fa fa-users"></i> Artists</a></li>
           <li><a href="albums.html"><i class="nav-menu-icon icons8-music-record"></i> Albums</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
+          <li class="mm-user-item"><a href="login"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
+          <li class="mm-user-item"><a href="login"><i clss="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
 
        <a href="#" class="create-playlist" id="create-pl-btn"><i class="fa fa-plus"></i> Add playlist</a>
