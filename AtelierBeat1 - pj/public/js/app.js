@@ -7,8 +7,9 @@ window.onload = function(){
   updatePage();
   setupPlayer();
 
-  //setupPlaylists();
   setupSearch();
+  loadArtist();
+  loadAlbums();
 
 }
 
@@ -48,9 +49,9 @@ function drawLibrary(e, addHistory){
   doJSONRequest("GET", "/tracks", null, null, renderTracks);
 
   function renderTracks(tracks){
-
+    console.log(tracks)
     var tracksData = buildTracksData(tracks);
-
+    console.log(tracksData)
     var data = {
       "tracks" : tracksData
     };
@@ -946,7 +947,7 @@ function setupPlayer() {
       for (var i= 0;i < lista.length; i++){
         newTrackList.push(lista[i]);
       }
-      console.log(newTrackList);
+      //console.log(newTrackList);
       // Buttons
       var playButton = document.getElementById("play-pause");
       var muteButton = document.getElementById("mute");
@@ -1164,8 +1165,154 @@ if(document.addEventListener) {
   window.attachEvent("onload", modal_init);
 }
 
-/*-------------------------------------*/
+/*---------------Autocomplete for artist and album in the modal window----------------------*/
 
+var loadArtist = function(){
+  var dataList = document.getElementById('json-datalist');
+  var input = document.getElementById('ajax');
+// Create a new XMLHttpRequest.
+  var request = new XMLHttpRequest();
+
+// Handle state changes for the request.
+  request.onreadystatechange = function (response) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        // Parse the JSON
+        var jsonOptions = JSON.parse(request.responseText);
+
+        // Loop over the JSON array.
+        jsonOptions.forEach(function (item) {
+          // Create a new <option> element.
+          var option = document.createElement('option');
+          //console.log(option)
+          // Set the value using the item in the JSON array.
+          option.value = item.name;
+          option.id=item._id;
+          option.onclick = test2(option.value,option.id)
+          // Add the <option> element to the <datalist>.
+          dataList.appendChild(option);
+        });
+
+
+        // Update the placeholder text.
+        input.placeholder = "e.g. datalist";
+      } else {
+        // An error occured :(
+        input.placeholder = "Couldn't load datalist options :(";
+      }
+    }
+  };
+
+// Update the placeholder text.
+  input.placeholder = "Loading options...";
+
+// Set up and make the request.
+  request.open('GET', '/artists', true);
+  request.send();
+
+}
+var loadAlbums = function(){
+  var dataList = document.getElementById('json-datalist2');
+  var input = document.getElementById('ajax');
+// Create a new XMLHttpRequest.
+  var request = new XMLHttpRequest();
+
+// Handle state changes for the request.
+  request.onreadystatechange = function (response) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        // Parse the JSON
+        var jsonOptions = JSON.parse(request.responseText);
+
+        // Loop over the JSON array.
+        jsonOptions.forEach(function (item) {
+          // Create a new <option> element.
+          var option = document.createElement('option');
+          //console.log(option)
+          // Set the value using the item in the JSON array.
+          option.value = item.name;
+          option.id=item._id;
+          option.onclick = test3(option.value,option.id)
+          // Add the <option> element to the <datalist>.
+          dataList.appendChild(option);
+        });
+
+
+        // Update the placeholder text.
+        input.placeholder = "e.g. datalist";
+      } else {
+        // An error occured :(
+        input.placeholder = "Couldn't load datalist options :(";
+      }
+    }
+  };
+
+// Update the placeholder text.
+  input.placeholder = "Loading options...";
+
+// Set up and make the request.
+  request.open('GET', '/albums', true);
+  request.send();
+}
+var array = []
+var AlbumArray = []
+var test2 = function(value,id){
+  array.push({name:value,id:id})
+
+  //var input = document.getElementById('json-datalist').childNodes;
+  //console.log(input)
+  console.log(array)
+}
+var test3 = function(value,id){
+  AlbumArray.push({name:value,id:id})
+
+  //var input = document.getElementById('json-datalist').childNodes;
+  //console.log(input)
+  //console.log(array)
+}
+var test = function() {
+  var check;
+  var variable;
+  var input = document.getElementById("ajax");
+  for (var element in array) {
+    if (array[element].name == input.value) {
+      check = true;
+
+      variable = array[element].id;
+    }
+  }
+
+
+  var data = {}
+  doJSONRequest("GET", "/artists/" + variable, null, null, function (artist) {
+    //var input = document.getElementById("ajax");
+    input.value = artist._id
+
+
+  })
+}
+
+var ATest = function(){
+  var input2 = document.getElementById("ajax2");
+  var Albumvariable;
+  for(var album in AlbumArray){
+    if(AlbumArray[album].name == input2.value){
+      check = true;
+      Albumvariable = AlbumArray[album].id;
+    }
+  }
+  doJSONRequest("GET","/albums/"+Albumvariable,null,null,function(album){
+    //var input = document.getElementById("ajax");
+    input2.value = album._id
+
+
+  })
+
+}
+
+
+
+/*---------------Autocomplete for artist and album in the modal window----------------------*/
 
 //<!-- /build -->
 

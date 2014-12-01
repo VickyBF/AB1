@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
 });
 
 //create new track
-router.post('/', function(req, res, next) {
+router.post('/',function(req, res, next) {
   if (!req.body.name){
     req.body.name = req.files.mp3_file_toUpload.originalname.split(".")[0];  //because I don't want the .png
   }
@@ -123,6 +123,7 @@ router.put('/:trackid', function(req, res, next) {
       var newTrack = new Track(data);
       newTrack._id = ObjectId(req.params.trackid);
       newTrack.save(onModelSave(res, 201, true));
+      //res.redirect(303,"/")
     }
   });
 });

@@ -104,9 +104,11 @@
                        <p><label>Name<strong>*</strong><br>
                        <input type="text" size="27" name="name" value=""></label></p>
                         <p><label>Artist<strong>*</strong><br>
-                        <input type="text" required size="27" name="artist" id="query" class="text-field valid" autocomplete="off" ></label></p>
+                        <input type="text" required size="27" name="artist" id="ajax" onchange="test()" list="json-datalist" class="text-field valid" placeholder="Artist"></label></p>
+                        <datalist id="json-datalist"></datalist>
                         <p><label>Album<strong>*</strong><br>
-                        <input type="text" required size="27" name="album" value=""></label></p>
+                        <input type="text" required size="27" name="album" id="ajax2" value="" onchange="ATest()" list="json-datalist2"></label></p>
+                        <datalist id="json-datalist2"></datalist>
                         <input required type="file" name="mp3_file_toUpload" />
                             <input type="submit" value="Upload mp3" name="submit">
                         </form>
@@ -143,42 +145,7 @@
 
 
 /* ---------------- Autocomplete of artists(Modal window) ---------------- */
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://www.devbridge.com/scripts/libs/jquery.autocomplete.js"></script>
-  <script>
 
-     $("document").ready(function() {
-         var availableTags = [
-           "ActionScript",
-           "AppleScript",
-           "Asp",
-           "BASIC",
-           "C",
-           "C++",
-           "Clojure",
-           "COBOL",
-           "ColdFusion",
-           "Erlang",
-           "Fortran",
-           "Groovy",
-           "Haskell",
-           "Java",
-           "JavaScript",
-           "Lisp",
-           "Perl",
-           "PHP",
-           "Python",
-           "Ruby",
-           "Scala",
-           "Scheme"
-         ];
-
-         $( "#query" ).autocomplete({
-           lookup: availableTags
-         });
-       });
-
-      </script>
 
 </body>
 </html>
