@@ -44,11 +44,11 @@ router.get('/', function(req, res, next) {
 
 //create new track
 router.post('/',function(req, res, next) {
-  if (!req.body.name){
-    req.body.name = req.files.mp3_file_toUpload.originalname.split(".")[0];  //because I don't want the .png
-  }
-  req.body.file = req.files.mp3_file_toUpload.path;
+  console.log(req.body)
+  //req.body.file = req.files.mp3_file_toUpload.path;
   req.body.duration=0;
+  //req.body.artist = req.body.artist._id
+  //req.body.album = req.body.album._id
   var newTrack = new Track(req.body);
   newTrack.save(onModelSave(res, 201, true,next));
 });

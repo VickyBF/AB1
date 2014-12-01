@@ -49,9 +49,7 @@ function drawLibrary(e, addHistory){
   doJSONRequest("GET", "/tracks", null, null, renderTracks);
 
   function renderTracks(tracks){
-    console.log(tracks)
     var tracksData = buildTracksData(tracks);
-    console.log(tracksData)
     var data = {
       "tracks" : tracksData
     };
@@ -188,8 +186,6 @@ function deleteTrack(e){
 
     var editable = target.previousSibling;
 
-    //console.log(editable.contentEditable);
-    //console.log(editable.contentEditable ==  "false");
 
     if(editable.contentEditable == "false" || editable.contentEditable == "inherit"){ //we have to enable the editing
 
@@ -364,7 +360,6 @@ function drawArtist(e, addHistory){
       var artists = document.querySelectorAll(".artist-link");
 
       for (var elem = 0; elem < artists.length; ++elem) {
-        //console.log(artists[elem])
         artists[elem].onclick = drawArtist;
       }
     }
@@ -373,7 +368,6 @@ function drawArtist(e, addHistory){
       var artists = document.querySelectorAll(".delete-btn");
 
       for (var elem = 0; elem < artists.length; ++elem) {
-      //console.log(albums[elem])
       artists[elem].onclick = deleteArtist;
     }
   }
@@ -934,13 +928,14 @@ function appendNewPlaylistToMenu(pl){
 *
 * - When a track finishes your player should play the next one
 */
-document.getElementById("play-pause").addEventListener('click', setupPlayer() );
-document.getElementById("playMode").addEventListener('click', setupMode(),true );
 
+document.getElementById("playMode").addEventListener('click', setupMode(),true );
 function setupPlayer() {
   var counter=0;
 
-  if (!document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
+
+  if (! document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
+
     doJSONRequest("GET", "/tracks", null, null, setList);
     function setList(lista){
       var newTrackList =[]
@@ -950,8 +945,8 @@ function setupPlayer() {
       //console.log(newTrackList);
       // Buttons
       var playButton = document.getElementById("play-pause");
-      var muteButton = document.getElementById("mute");
-      var fullScreenButton = document.getElementById("full-screen");
+      //var muteButton = document.getElementById("mute");
+      //var fullScreenButton = document.getElementById("full-screen");
       var volumeOff = document.getElementById("volume-off");
       var volumeUp = document.getElementById("volume-up");
       var next = document.getElementById("next");
@@ -970,7 +965,6 @@ function setupPlayer() {
 
       // Audio element
       var audio = document.createElement('audio');
-
       audio.addEventListener("loadedmetadata", function () {
         //set total time
         timeTotal.innerHTML = formatTime(Math.floor(audio.duration));
@@ -982,10 +976,13 @@ function setupPlayer() {
       document.body.appendChild(audio);
 
       audio.addEventListener("ended", function () {
-          if (counter == newTrackList.length){
+          if (! newTrackList[counter]) {
             counter = 0;
-        }
-        counter++;
+          }
+          else{
+            counter++;
+          }
+        console.log(counter);
         setSong(counter, newTrackList, audio);
         audio.play();
 
@@ -1087,11 +1084,16 @@ function shuffle(o){ //to shuffle an array
   return o;
 };
 
-function setSong(i, tracklist,audio){//Song to be played
+function setSong(i, tracklist,audio){
+  //Song to be played
   if(document.getElementById("playMode").value=='sequential'){
+    //console.log("seq, "+i);
+    console.log(tracklist);
+
     audio.src=tracklist[i].file;
   }
   else{
+    console.log("shuffle, "+i);
     tracklist = shuffle(tracklist)
     audio.src=tracklist[i].file;
   }
@@ -1113,7 +1115,7 @@ function setupMode(){
       playMode.classList.add('fa-refresh');
       playMode.value='sequential';
     }
-  }
+  };
   return x;
 }
 
@@ -1166,7 +1168,6 @@ if(document.addEventListener) {
 }
 
 /*---------------Autocomplete for artist and album in the modal window----------------------*/
-
 var loadArtist = function(){
   var dataList = document.getElementById('json-datalist');
   var input = document.getElementById('ajax');
@@ -1258,61 +1259,49 @@ var array = []
 var AlbumArray = []
 var test2 = function(value,id){
   array.push({name:value,id:id})
-
-  //var input = document.getElementById('json-datalist').childNodes;
-  //console.log(input)
-  console.log(array)
+  //console.log(array)
 }
 var test3 = function(value,id){
   AlbumArray.push({name:value,id:id})
-
-  //var input = document.getElementById('json-datalist').childNodes;
-  //console.log(input)
   //console.log(array)
 }
-var test = function() {
-  var check;
-  var variable;
-  var input = document.getElementById("ajax");
-  for (var element in array) {
-    if (array[element].name == input.value) {
-      check = true;
 
-      variable = array[element].id;
-    }
-  }
+//Vassillis help:
+var input = document.getElementById('ajax');
+var input2 = document.getElementById('ajax2');
 
+input.addEventListener("change", function(){
+  var el = document.querySelector("#json-datalist option[value='" + input.value + "']");
+  console.log(el.id);  //the user sees the name while the server get the ID
+  input.dataset.artistId = el.id;
 
-  var data = {}
-  doJSONRequest("GET", "/artists/" + variable, null, null, function (artist) {
-    //var input = document.getElementById("ajax");
-    input.value = artist._id
+});
+input2.addEventListener("change", function(){
+  var el = document.querySelector("#json-datalist2 option[value='" + input2.value + "']");
+  console.log(el.id); //the user sees the name while the server get the ID
+  input2.dataset.albumId = el.id;
 
+});
+var funzione = function(){
+  var artistId = input.dataset.artistId;
+  var albumId = input2.dataset.albumId;
+  var data = {};
+  doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+    data.artist = artist._id;
+    doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+      data.album = album._id;
 
+      data.name =document.getElementById("setName").value;
+      data.file = document.getElementById("mp3_file_toUpload").value;
+      doJSONRequest("POST", "/tracks" , null, data, function(){
+        alert("Done!")
+      })
+    })
   })
-}
 
-var ATest = function(){
-  var input2 = document.getElementById("ajax2");
-  var Albumvariable;
-  for(var album in AlbumArray){
-    if(AlbumArray[album].name == input2.value){
-      check = true;
-      Albumvariable = AlbumArray[album].id;
-    }
-  }
-  doJSONRequest("GET","/albums/"+Albumvariable,null,null,function(album){
-    //var input = document.getElementById("ajax");
-    input2.value = album._id
-
-
-  })
 
 }
 
-
-
-/*---------------Autocomplete for artist and album in the modal window----------------------*/
 
 //<!-- /build -->
 
