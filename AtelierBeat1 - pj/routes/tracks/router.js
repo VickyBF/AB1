@@ -46,7 +46,7 @@ router.get('/', function(req, res, next) {
 router.post('/',function(req, res, next) {
   console.log(req.body)
   //req.body.file = req.files.mp3_file_toUpload.path;
-  req.body.duration=0;
+  //req.body.duration=0;
   //req.body.artist = req.body.artist._id
   //req.body.album = req.body.album._id
   var newTrack = new Track(req.body);

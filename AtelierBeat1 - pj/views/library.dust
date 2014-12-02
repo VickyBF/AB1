@@ -111,6 +111,7 @@
                                                <input type="text" required size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
                                                <datalist id="json-datalist2"></datalist>
                                                <input required type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" />
+                                               <audio id="ciao" hidden></audio>
 
                                                </form>
                                                <input type="submit" onclick="funzione()" value="Upload mp3" name="submit">

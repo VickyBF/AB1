@@ -1448,19 +1448,29 @@ var funzione = function(){  //With this one I am not uploading the song, I'm not
   var artistId = input.dataset.artistId;
   var albumId = input2.dataset.albumId;
   var data = {};
-  doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-    data.artist = artist._id;
-    doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
-      data.album = album._id;
+  var audio = document.getElementById("ciao")
+  var stringa ="tracks_folder/"+document.getElementById("mp3_file_toUpload").value.split("\\")[2]
+  audio.src = stringa
+  audio.addEventListener('loadedmetadata', function() {
+    //console.log("Playing " + audio.src + ", for: " + audio.duration + "seconds.");
+    data.duration =Math.round(audio.duration)
+    console.log(data.duration)
+    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+      data.artist = artist._id;
+      doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+        data.album = album._id;
 
-      data.name =document.getElementById("setName").value;
-      data.file = document.getElementById("mp3_file_toUpload").value;
-      data.duration = 0;
-      doJSONRequest("POST", "/tracks" , null, data, function(){
-        alert("Done!")
+        data.name =document.getElementById("setName").value;
+        data.file = stringa;
+        //data.duration = 0;
+        doJSONRequest("POST", "/tracks" , null, data, function(){
+          alert("Done!")
+        })
       })
     })
-  })
+    //audio.play();
+  });
+
 
 
 }
