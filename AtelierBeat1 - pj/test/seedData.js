@@ -11,7 +11,7 @@ var artists = {
       "_id"          : ObjectId(),
       "name"         : "Rolling Stones",
       "genre"        : " ",
-      "artwork"      : "Stones.png",
+      "artwork"      : "http://wwwrollingstones.wpengine.netdna-cdn.com/files/2014/03/1004820_1461060177444768_1815036466_n-1.jpg",
       "dateCreated"  : "Sat Sep 27 2014 10:39:20 GMT+0200 (CEST)"
     },
 
@@ -19,7 +19,7 @@ var artists = {
       "_id"          : ObjectId(),
       "name"         : "AC/DC",
       "genre"        : "Hard Rock",
-      "artwork"      : "AcDc.jpg",
+      "artwork"      : "http://www.thissongslaps.com/wp-content/uploads/2014/09/acdc2009.jpg",
       "dateCreated"  : "Sat Sep 27 2014 10:40:40 GMT+0200 (CEST)"
     },
 
@@ -27,7 +27,7 @@ var artists = {
       "_id"          : ObjectId(),
       "name"         : "Muse",
       "genre"        : "Post Rock",
-      "artwork"      : "muse.jpg",
+      "artwork"      : "http://static.gigwise.com/artists/wenn20404434_600.jpg",
       "dateCreated"  : "Sat Sep 27 2014 10:41:20 GMT+0200 (CEST)"
     },
 
@@ -35,7 +35,7 @@ var artists = {
       "_id"          : ObjectId(),
       "name"         : "Marco Mengoni",
       "genre"        : "Post Rock",
-      "artwork"      : "marco3.jpg",
+      "artwork"      : "http://cdn.mondoreality.com/wp-content/uploads/2013/02/Mengoni.jpg",
       "dateCreated"  : "Sat Sep 27 2014 10:41:43 GMT+0200 (CEST)"
     },
 
@@ -66,7 +66,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[0]._id,
       "name"         : "Flash Point",
-      "artwork"      : "Flashpoint.jpg",
+      "artwork"      : "http://images.uulyrics.com/cover/t/the-rolling-stones/album-flashpoint.jpg",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "EMI"
@@ -76,7 +76,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[0]._id,
       "name"         : "Love You Live",
-      "artwork"      : "LoveYouLive.jpg",
+      "artwork"      : "http://upload.wikimedia.org/wikipedia/en/7/75/Loveyoulive.jpg",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "EMI"
@@ -86,7 +86,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[0]._id,
       "name"         : "Live Licks",
-      "artwork"      : "LiveLicks.jpg",
+      "artwork"      : "http://ecx.images-amazon.com/images/I/61T4YWTPH8L.jpg",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "EMI"
@@ -96,7 +96,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[0]._id,
       "name"         : "Hyde Park Live",
-      "artwork"      : "HydeParkLive.jpg",
+      "artwork"      : "http://www.mbmusic.it/wp-content/uploads/2013/07/the-rolling-stones-hyde-park-live-album-cover-2013.jpg",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "EMI"

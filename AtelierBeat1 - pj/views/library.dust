@@ -45,14 +45,14 @@
         <div class="pl-info-wrapper">
                         <div class="pl-artwork">
                           <div class="media-object">
-                            <div class="mo-image" style="background-image: url('./images/albums/thin_lizzy-live_and_dangerous.jpg')"></div>
+                            <div id="image_of_song" class="mo-image" style="background-image: url('./images/albums/thin_lizzy-live_and_dangerous.jpg')"></div>
                           </div>
                         </div>
                             <div class="pl-track-info">
-                                <a class="pl-track-title" href="albums/Thin%20Lizzy%20-%20Live%20And%20Dangerous">Don't Believe A Word</a>
+                                <a id="album_of_song" class="pl-track-title" href="albums/Thin%20Lizzy%20-%20Live%20And%20Dangerous">Don't Believe A Word</a>
 
                                                     <div class="pl-track-subtitle text-muted one-line">
-                                                        <a title="Thin Lizzy" href="artists/Thin%20Lizzy">Thin Lizzy</a>
+                                                        <a id="title_of_song" title="Thin Lizzy" href="artists/Thin%20Lizzy">Thin Lizzy</a>
 
                                                     </div>
                             </div>

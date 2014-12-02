@@ -942,7 +942,7 @@ function setupPlayer() {
       for (var i= 0;i < lista.length; i++){
         newTrackList.push(lista[i]);
       }
-      //console.log(newTrackList);
+      //console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
       //var muteButton = document.getElementById("mute");
@@ -963,6 +963,12 @@ function setupPlayer() {
       var timeElapsed = document.getElementById("time-elapsed");
       var timeTotal = document.getElementById("time-total");
 
+      //Image and title
+      var image = document.getElementById("image_of_song");
+      var title = document.getElementById("title_of_song");
+      var artist_of_song = document.getElementById("album_of_song");
+      //console.log(image.style.backgroundImage);
+
       // Audio element
       var audio = document.createElement('audio');
       audio.addEventListener("loadedmetadata", function () {
@@ -976,16 +982,26 @@ function setupPlayer() {
       document.body.appendChild(audio);
 
       audio.addEventListener("ended", function () {
-          if (! newTrackList[counter]) {
-            counter = 0;
-          }
-          else{
-            counter++;
-          }
-        console.log(counter);
+        if (!newTrackList[counter]) {
+          counter = 0;
+        }
+        else {
+          counter++;
+        }
         setSong(counter, newTrackList, audio);
         audio.play();
+        //console.log(newTrackList[counter].name);
+        title.innerHTML = newTrackList[counter].name;
+        //console.log(newTrackList[counter].album.artwork)
+        var new_image = newTrackList[counter].album.artwork;
+        image.style.backgroundImage = "url(" + new_image + ")";
+        //artist_of_song.innerHTML=;
+        //console.log(newTrackList[counter].artist._id)
+        var id_of_artist = newTrackList[counter].artist._id;
+        doJSONRequest("GET", "/artists/" + id_of_artist, null, null, function (artist) {
+          artist_of_song.innerHTML = artist.name;
 
+        });
       })
 
       // Event listener for the play/pause button
@@ -1005,6 +1021,8 @@ function setupPlayer() {
               playButton.classList.remove('fa-pause')
               playButton.classList.add('fa-play')
             }
+
+            //title
 
       });
 
@@ -1087,17 +1105,12 @@ function shuffle(o){ //to shuffle an array
 function setSong(i, tracklist,audio){
   //Song to be played
   if(document.getElementById("playMode").value=='sequential'){
-    //console.log("seq, "+i);
-    console.log(tracklist);
-
     audio.src=tracklist[i].file;
   }
   else{
-    console.log("shuffle, "+i);
     tracklist = shuffle(tracklist)
     audio.src=tracklist[i].file;
   }
-  // Need to make the picture change and also the title and so on depending on the song that is playing
 
 }
 function setupMode(){
@@ -1282,7 +1295,7 @@ input2.addEventListener("change", function(){
   input2.dataset.albumId = el.id;
 
 });
-var funzione = function(){
+var funzione = function(){  //With this one I am not uploading the song, I'm not using anymore multer
   var artistId = input.dataset.artistId;
   var albumId = input2.dataset.albumId;
   var data = {};
@@ -1293,6 +1306,7 @@ var funzione = function(){
 
       data.name =document.getElementById("setName").value;
       data.file = document.getElementById("mp3_file_toUpload").value;
+      data.duration = 0;
       doJSONRequest("POST", "/tracks" , null, data, function(){
         alert("Done!")
       })
