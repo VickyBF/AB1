@@ -106,7 +106,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[1]._id,
       "name"         : "Highway to Hell",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Highway_to_Hell#mediaviewer/File:HighwayHellCover.jpg",
+      "artwork"      :  "http://www.jesus-is-savior.com/Evils%20in%20America/Rock-n-Roll/highway_to_hell-large.jpg",
       "dateReleased" : "Fri Jul 25 1980 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Albert/Atlantic Records"
@@ -116,7 +116,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[1]._id,
       "name"         : "High Voltage",
-      "artwork"      : "https://ru.wikipedia.org/wiki/High_Voltage_(1976)#mediaviewer/File:Acdc_high_voltage_international_album.jpg",
+      "artwork"      : "http://1.bp.blogspot.com/-DWtwrzH2igg/UFOqE6kdgLI/AAAAAAAAEzk/YPjlopdwtlI/s1600/acdc+-+high-voltage.jpg",
       "dateReleased" : "Fri Jul 25 1980 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Albert/Atlantic Records"
@@ -138,7 +138,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "Showbiz",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Showbiz#mediaviewer/File:Museshowbizalbumcover.jpg",
+      "artwork"      : "http://ecx.images-amazon.com/images/I/51W-KlsfVnL.jpg",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -147,7 +147,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "Origin Of Symmetry",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Origin_of_Symmetry#mediaviewer/File:Museoosalbcov.jpg",
+      "artwork"      : "http://www.grayflannelsuit.net/blog/wp-content/uploads/2011/02/muse_origin_of_symmetry.jpg",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -156,7 +156,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "Hullabaloo",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Hullabaloo#mediaviewer/File:Hullabaloo_cd.jpg",
+      "artwork"      : "http://artwork-cdn.7static.com/static/img/sleeveart/00/000/311/0000031189_500.jpg",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -165,7 +165,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "Absolution",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Absolution#mediaviewer/File:MuseAbsAlbCov.jpg",
+      "artwork"      : "http://www.lyrics007.com/images/covers/0/16/49",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -174,7 +174,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "Back Hotels and Revelations",
-      "artwork"      : "https://ru.wikipedia.org/wiki/Black_Holes_and_Revelations#mediaviewer/File:BHARCOVER.jpg",
+      "artwork"      : "http://www.discology.be/jaquettes2/Muse_Black-Holes-And-Revelations.jpg",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -183,7 +183,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "HAARP",
-      "artwork"      : "https://ru.wikipedia.org/wiki/HAARP_(альбом)#mediaviewer/File:Haarp1.jpg",
+      "artwork"      : "http://3.bp.blogspot.com/_NGeOXNeQU3k/TUmWOeQnD_I/AAAAAAAAARI/og_CSTIGdfI/s1600/Muse%20-%20HAARP.jpg",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -192,7 +192,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "The Resistance",
-      "artwork"      : "https://ru.wikipedia.org/wiki/The_Resistance#mediaviewer/File:Theresistance.jpg",
+      "artwork"      : "http://fc07.deviantart.net/fs70/f/2012/017/f/a/muse___the_resistance_by_larryhazard-d4mqbn8.png",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Megaforce"
@@ -203,7 +203,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[2]._id,
       "name"         : "The 2nd Law",
-      "artwork"      : "https://ru.wikipedia.org/wiki/The_2nd_Law#mediaviewer/File:Muse_The_2nd_Law.png",
+      "artwork"      : "http://ecx.images-amazon.com/images/I/51Tf346S0uL.jpg",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Elektra/Asylum"
@@ -225,7 +225,7 @@ var albums = {
       "_id"          : ObjectId(),
       "artist"       : artists.data[4]._id,
       "name"         : "Sheer Heart Attack",
-      "artwork"      : "http://queen.wikia.com/wiki/Sheer_Heart_Attack?file=Album_SheerHeartAttack.png",
+      "artwork"      : "http://www.clemsmusicreviews.com/sheerheartattack.jpg",
       "dateReleased" : "Fri Feb 04 2005 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Revive Records"

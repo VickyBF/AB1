@@ -6,10 +6,12 @@ window.onload = function(){
 
   updatePage();
   setupPlayer();
-
+  setupPlaylists();
   setupSearch();
   loadArtist();
   loadAlbums();
+
+  bindPLTracksDelete();
 
 }
 
@@ -34,6 +36,162 @@ function bindMenu(){
 //<!-- /build -->
 
 /* UI */
+
+
+
+
+/////////////////////////////////////////////////////////////////
+/* Player */
+//<!-- /build -->
+/* Search */
+
+//Library.dust =>
+//<input id="main-search" list="suggestions" onkeyup = "previewResults(event, this.value)" placeholder="Search" type="search" class="nav-menu-search">
+//<datalist id="suggestions"></datalist>
+var lastSearch = '';
+function previewResults(evt, query) {
+  console.log(query);
+  if (query != lastSearch) {
+    console.log(evt.keyCode);
+    previewR(query);
+  } else if (evt.keyCode == 13 || evt.keyCode == 10){
+    search(window.location.hash, query);
+  }
+  lastSearch = query;
+}
+
+function suggestItems(obj, query) {
+  var output = '';
+  obj.forEach(function (curr) {
+    if (curr.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+      output += '<option value="'+curr.name+'">' + curr.name + '</option>';
+  });
+  document.getElementById('suggestions').innerHTML = output;
+}
+
+function previewR(query) {
+  if (query == '') {
+    document.getElementById('suggestions').innerHTML = '';
+    return;
+  }
+  if (window.location.hash.indexOf('#album') == 0)
+    doJSONRequest('GET', '/albums', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+  else if (window.location.hash.indexOf('#artist') == 0)
+    doJSONRequest('GET', '/artists', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+  else // should this search also in albums and artists?
+    doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+}
+
+
+
+
+function search(from, query) {
+
+  var content;
+  var tracksCont = '<h2>Tracks</h2>';
+  var albumsCont = '<h2>Albums</h2>';
+  var artistsCont = '<h2>Artists</h2>';
+  var timesCalled = 0;
+
+  function viewFoundedResult() {
+
+    timesCalled += 1;
+    if (timesCalled == 2) {
+      timesCalled = 0;
+      console.log(from);
+      switch (from) {
+        case '#albums':
+          content = albumsCont + tracksCont + artistsCont;
+          break;
+        case '#artists':
+          content = artistsCont + tracksCont + albumsCont;
+          break;
+        case '#library':
+          content = tracksCont + albumsCont + artistsCont;
+      }
+      console.log(content);
+      document.getElementById("content").innerHTML = content;
+    }
+    console.log("search done");
+  }
+
+
+  // function doJSONRequest(method, url, headers, data, callback)
+  // returns callback()
+  // {Function} callback The function to call when the response is ready.
+  // render example
+  //  dust.render("tmp_skill", json_object, function(err, html_out) {
+  // HTML output
+  // $('#page').html(html_out);
+  // console.log(html_out);
+  // });
+
+
+  doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('tracks', {tracks: result}, function (err, html) {
+      tracksCont += html;
+    });
+    if (result.length == 0)
+      tracksCont = '<h5>* No tracks found with such name</h5>';
+    viewFoundedResult();
+  });
+
+
+
+
+  doJSONRequest('GET', '/albums', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('albums', {albums: result}, function (err, html) {
+      albumsCont += html;
+    });
+    if (result.length == 0)
+      albumsCont = '<h5>* No albums with such name</h5>';
+    viewFoundedResult();
+  });
+
+
+
+
+  doJSONRequest('GET', '/artists', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('artists', {artists: result}, function (err, html) {
+      artistsCont += html;
+    });
+    if (result.length == 0)
+      artistsCont = '<h5>* No artists found with such name</h5>';
+    viewFoundedResult();
+  });
+}
+
+// add track search
+
+
+/* Search */
+
+
+
 
 /* Library */
 
@@ -719,81 +877,65 @@ function findOne(arr, prop, val){
 /* Playlist: Not working after the switch to AJAX */
 function setupPlaylists(){
   loadPlaylistsFromLocalStorage();
-
   var createPlBtn = document.getElementById("create-pl-btn");
   createPlBtn.addEventListener('click', function(){
-
     localStorage.pl_cnt =  localStorage.pl_cnt || 0;
     var cnt = localStorage.pl_cnt;
     var _id = "pl-"+cnt
     var name = 'New Playlist ' + (++cnt);
-    var newPlaylist =  playlist(_id, name, model.users[0]._id, []); 
-
+    var newPlaylist =  playlist(_id, name, model.users[0]._id, []);
     //update localStorage counter
     localStorage.pl_cnt = cnt;
-    
+
     //persist to localStorage
     savePlaylist(newPlaylist);
-    appendNewPlaylistToMenu(newPlaylist);    
+    appendNewPlaylistToMenu(newPlaylist);
   })
-
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('edit-btn') ) {
       return onEditPlaylistClicked(e.target)
     }
-
     if (e.target.classList.contains('pl-name-input') ) {
       return e.preventDefault();
     }
-
     if (e.target.classList.contains('pl-name') ) {
       e.preventDefault();
       return onPlaylistClicked(e.target)
     }
-
     //the click was outside an edit element, close currently edited ones
     var currentlyEditing = document.querySelectorAll('#playlists > li.edit .edit-btn');
     for (var i = currentlyEditing.length - 1; i >= 0; i--) {
       onEditPlaylistClicked(currentlyEditing[i]);
     };
-
   });
 }
-
 function allowDrop(evt) {
   evt.preventDefault();
 }
-
 function drag(evt) {
   evt.dataTransfer.setData("text/plain", evt.currentTarget.id);
 }
-
 function drop(evt) {
   evt.preventDefault();
   var trackId = evt.dataTransfer.getData("text/plain");
   var playlistId = evt.currentTarget.id
   addTrackToPlaylist(playlistId, trackId)
 }
-
 function addTrackToPlaylist(playlistId, trackId){
   var playlists =  JSON.parse(localStorage.playlists);
   var pl = playlists[playlistId];
   if(typeof pl === "undefined"){
     throw new Error("playlist doesn't exist in localStorage")
   }
-
   var track = findOne(model.tracks, "_id", trackId);
   if(typeof track === "undefined" || track === null){
     throw new Error("track doesn't exist in the model")
   }
-
   pl.tracks.push(trackId);
-
   //persist
   playlists[playlistId]= pl;
   localStorage.playlists = JSON.stringify(playlists);
 }
-
 function onPlaylistClicked(link){
   localStorage.playlists = localStorage.playlists || JSON.stringify({});
   var playlists =  JSON.parse(localStorage.playlists);
@@ -802,83 +944,92 @@ function onPlaylistClicked(link){
   var tracks = playlist.tracks;
   var container = document.getElementById('tracks-list');
   var classList = container.classList;
-
   if (tracks.length < 1){
     return container.innerHTML = "Playlist " + playlist.name + " is empty."
   }
-
   var newHtml = '<div class="fl-tl-thead fl-tl-row">\n\
   <div class="fl-tl-th fl-tl-name">Song</div>\n\
   <div class="fl-tl-th fl-tl-artist">Artist</div>\n\
   <div class="fl-tl-th fl-tl-album">Album</div>\n\
   <div class="fl-tl-th fl-tl-time">Time</div>\n\
   </div>';
-
   tracks.forEach(function(track){
     track = findOne(model.tracks, "_id", track)
     var artist = findOne(model.artists, "_id", track.artist);
     var album = findOne(model.albums, "_id", track.album);
-
     newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true">'
     newHtml+= '<div class="fl-tl-cell fl-tl-name"><a href="#">'+ track.name + '</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-album"><a href="albums/'+ encodeURI(album.name)+ '">'+ album.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-time">'+ formatTime(track.duration) + '</div>\n';
+    newHtml+= '<div class="fl-tl-th fl-tl-delete"><a href="#" >×</a></div>';
     newHtml+= '</div>\n';
   })
-
   container.innerHTML = newHtml;
 }
-
+function bindPLTracksDelete(){
+  var tracks = document.querySelectorAll(".fl-tl-delete a");
+  for (var elem = 0; elem < tracks.length; ++elem) {
+    tracks[elem].onclick = deletePLTrack;
+  }
+}
+function deletePLTrack(e){
+  var href;
+  var target = e.target;
+  if(e && e.target){
+    e.preventDefault();
+    href = target.getAttribute("href");
+  }
+  //execute the AJAX call to the delete a single album
+  doJSONRequest("DELETE", href, null, null, removePLTrack);
+  function removePLTrack(){
+    var toDelete = target.parentNode.parentNode;
+    var parent = document.getElementById(e._id);
+    parent.removeChild(toDelete);
+  }
+}
 function onEditPlaylistClicked(btn){
   var id = btn.dataset["for"];
   var el = document.getElementById(id);
   var input = document.querySelector('#'+id + " > input[type='text']");
-
   if(el.classList.contains("edit")){
     el.classList.remove('edit')
     btn.innerHTML = '<i class="fa fa-pencil" ></i>'
     var input = document.querySelector('#'+id + " > input[type='text']");
     var nameLink =  document.querySelector('#'+id + " > .pl-name");
-
-     //return on empty string
-     if(input.value.trim() == '') return;
-
-     nameLink.innerHTML = '<i class="nav-menu-icon fa fa-bars"></i> ' + input.value;
-     nameLink.href = "playlists/" + encodeURI(input.value)
-
-     //persist change
-     var playlists =  JSON.parse(localStorage.playlists);
-     playlists[id]["name"] = input.value;
-     localStorage.playlists = JSON.stringify(playlists);
-   }else{
+    //return on empty string
+    if(input.value.trim() == '') return;
+    nameLink.innerHTML = '<i class="nav-menu-icon fa fa-bars"></i> ' + input.value;
+    nameLink.href = "playlists/" + encodeURI(input.value)
+    //persist change
+    var playlists =  JSON.parse(localStorage.playlists);
+    playlists[id]["name"] = input.value;
+    localStorage.playlists = JSON.stringify(playlists);
+  }else{
     el.classList.add('edit')
     btn.innerHTML = '<i class="fa fa-check" ></i>'
     input.focus();
   }
 }
-
 function loadPlaylistsFromLocalStorage(){
   localStorage.playlists = localStorage.playlists || JSON.stringify({});
   var playlists =  JSON.parse(localStorage.playlists);
   //merge localStorage playlists with model playlists
-  /*
+  // ---------------------------------- IMPORTANT --------------------------\\
   model.playlists.forEach(function(playlist){
     if (!playlists.hasOwnProperty(playlist._id))
       playlists[playlist._id] = playlist;
   });
-*/
-
-var keys = Object.keys(playlists);
-var newHtml ='';
-keys.forEach(function(key){
-  appendNewPlaylistToMenu(playlists[key]);
-});
-
+  // ---------------------------------- IMPORTANT --------------------------\\
+  var keys = Object.keys(playlists);
+  var newHtml ='';
+  keys.forEach(function(key){
+    appendNewPlaylistToMenu(playlists[key]);
+  });
   //persist playlists
   localStorage.playlists = JSON.stringify(playlists);
+  //console.log(localStorage.playlists)
 }
-
 function appendNewPlaylistToMenu(pl){
   var id = pl._id;
   var name = pl.name;
@@ -887,13 +1038,11 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '    <a class="pl-name" data-for="' + id + '" href="playlists/' + encodeURI(name) + '">';
   newHtml += '      <i class="nav-menu-icon fa fa-bars"></i>' + name;
   newHtml += '    </a>';
-  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a>';
+  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a><a class="del-pl-btn" href="#"><img src="./images/trash48.jpg" style="width:20px;height:20px"></x></a>';
   newHtml += '    <input  class="pl-name-input" name="' + id + '" type="text" value="' + name + '">';
   newHtml += '  </li>';
-
   document.getElementById('playlists').innerHTML += newHtml;
 }
-/* Playlist: Not working after the switch to AJAX */
 
 /* Player */
 
