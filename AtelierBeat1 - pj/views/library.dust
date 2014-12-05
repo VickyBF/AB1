@@ -37,7 +37,6 @@
                <!-- Playlists will be rendered here -->
 
 
-
                </ul>
       </div> <!-- /.main-nav-content -->
     </nav>
@@ -66,7 +65,7 @@
 
                                 <div class="pl-controls">
                                         <button id="previous" class="btn btn-icon fa fa-step-backward"></button>
-                                        <button id="play-pause" class="btn btn-icon fa fa-play"></button>
+                                        <button id="play-pause" class="btn btn-icon fa fa-play" onclick="setupPlayer"></button>
                                         <button id="next" class="btn btn-icon fa fa-step-forward"></button>
                                         <button id="playMode" class="btn btn-icon fa fa-refresh" value="sequential"> Play Mode</button>
                                 </div>
@@ -102,20 +101,22 @@
                                               <p>Complete the form below to upload a Track:</p>
 
                                               <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
+
                                               <p><label>Name<strong>*</strong><br>
-                                              <input type="text" id="setName" size="27" name="name" value="" required></label></p>
+                                              <input type="text" id="setName" size="27" name="name" value="" ></label></p>
                                                <p><label>Artist<strong>*</strong><br>
-                                               <input type="text" required="" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist"></label></p>
+                                               <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist"></label></p>
                                                <datalist id="json-datalist"></datalist>
                                                <p><label>Album<strong>*</strong><br>
-                                               <input type="text" required size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
+                                               <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
                                                <datalist id="json-datalist2"></datalist>
-                                               <input required type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" />
-                                               <audio id="ciao" hidden></audio>
+
+                                               <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" multiple />
+
+
 
                                                </form>
-                                               <input type="submit" onclick="funzione()" value="Upload mp3" name="submit">
-
+                                               <button onclick="postSong()" value="Upload mp3" id="upload_button">Upload</button>
                                               </div> <!-- #modal_window -->
                                               </div> <!-- #modal_wrapper -->
 

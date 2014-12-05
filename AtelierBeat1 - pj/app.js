@@ -13,11 +13,11 @@ mongoose.connect(config.mongoUrl + config.mongoDbName);
 
 
 /*--- Configure the multer. used to upload the track from our pc on the server ---*/
-app.use(multer({ dest: './public/tracks_folder/',
+/*app.use(multer({ dest: './public/tracks_folder/',
     rename: function (fieldname, filename) {
         return filename;
     }
-}));
+}));*/
 
 // Register model definition here
 require('./models');

@@ -89,8 +89,6 @@ function previewR(query) {
 }
 
 
-
-
 function search(from, query) {
 
   var content;
@@ -1282,10 +1280,9 @@ function setupMode(){
 }
 
 /*--------------- Modal Window---------------*/
-var modal_init = function() {
+var modalWrapper = document.getElementById("modal_wrapper");
+var modalWindow  = document.getElementById("modal_window");var modal_init = function() {
 
-  var modalWrapper = document.getElementById("modal_wrapper");
-  var modalWindow  = document.getElementById("modal_window");
 
   var openModal = function(e)
   {
@@ -1329,7 +1326,7 @@ if(document.addEventListener) {
   window.attachEvent("onload", modal_init);
 }
 
-/*---------------Autocomplete for artist and album in the modal window----------------------*/
+//Autocomplete for artist and album in the modal window---------
 var loadArtist = function(){
   var dataList = document.getElementById('json-datalist');
   var input = document.getElementById('ajax');
@@ -1402,7 +1399,7 @@ var loadAlbums = function(){
 
 
         // Update the placeholder text.
-        input.placeholder = "e.g. datalist";
+        input.placeholder = "Datalist";
       } else {
         // An error occured :(
         input.placeholder = "Couldn't load datalist options :(";
@@ -1444,37 +1441,64 @@ input2.addEventListener("change", function(){
   input2.dataset.albumId = el.id;
 
 });
-var funzione = function(){  //With this one I am not uploading the song, I'm not using anymore multer
-  var artistId = input.dataset.artistId;
-  var albumId = input2.dataset.albumId;
-  var data = {};
-  var audio = document.getElementById("ciao")
-  var stringa ="tracks_folder/"+document.getElementById("mp3_file_toUpload").value.split("\\")[2]
-  audio.src = stringa
-  audio.addEventListener('loadedmetadata', function() {
-    //console.log("Playing " + audio.src + ", for: " + audio.duration + "seconds.");
-    data.duration =Math.round(audio.duration)
-    console.log(data.duration)
-    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-      data.artist = artist._id;
-      doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
-        data.album = album._id;
-
-        data.name =document.getElementById("setName").value;
-        data.file = stringa;
-        //data.duration = 0;
-        doJSONRequest("POST", "/tracks" , null, data, function(){
-          alert("Done!")
-        })
-      })
+//Post the new song
+  var postSong = function(){
+      var artistId = input.dataset.artistId;
+      var albumId = input2.dataset.albumId;
+      var data = {};
+      doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+          data.artist = artist._id;
+          doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+              data.album = album._id;
+              data.duration = 0;
+                  data.name =document.getElementById("setName").value;
+              data.file = document.getElementById("mp3_file_toUpload").files[0].name;
+              doJSONRequest("POST", "/tracks" , null, data, function(){
+                location.reload();
+                })
+            })
     })
-    //audio.play();
-  });
 
+  }
 
+//Trying....
+/*
+ //var form = document.getElementById("modal_feedback");
+ //var fileSelect = document.getElementById("mp3_file_toUpload");
+ //var uploadButton = document.getElementById("upload_button");
 
-}
+form.onsubmit=function(e){
+  e.preventDefault();
+  uploadButton.innerHTML="Uploading...";
+  //Get the selected files from the input
+  var files = fileSelect.files;
+  // Create a new FormData object.
+  var formData = new FormData();
 
+  // Loop through each of the selected files.
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    formData.append('mp3_file_toUpload[]', file);
+    console.log(formData);
+  }
+    // Files
+     //formData.append(name, file);
+  // Set up the request.
+  var xhr = new XMLHttpRequest();
+  // Open the connection.
+  xhr.open('POST', "/tracks", true);
+  // Set up a handler for when the request finishes.
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // File(s) uploaded.
+      uploadButton.innerHTML = 'Upload';
+    } else {
+      alert('An error occurred!');
+    }
+  };
+  // Send the Data.
+  xhr.send(formData);
+}*/
 
 //<!-- /build -->
 

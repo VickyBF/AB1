@@ -9,6 +9,7 @@ var ObjectId = mongoose.Types.ObjectId;
 var Track = mongoose.model('Track');
 var Artist = mongoose.model('Artist');
 var config = require("../../config");
+var done=false;
 
 
 //fields we don't want to show to the client
