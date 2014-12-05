@@ -17,14 +17,14 @@
     <div class="vertical-align-box">
       <h1 class="slogan">Now listen.</h1>
       <div class="form-signup-wrapper">
-        <form action="/" method="GET" class="form-signup">
-           <input class="form-control form-stacked" name="firstname" placeholder="Firstname" type="text" required="true" id="Firstname">
-           <input class="form-control form-stacked" name="lastname" placeholder="Lastname" type="text" required="true" id="Lastname">
-           <input class="form-control form-stacked" name="username" placeholder="Username" type="text" required="true" id="username">
-           <input class="form-control form-stacked" name="email" placeholder="email" type="email" required="true" id="e-mail">
+        <form action="/users" method="POST" class="form-signup">
+           <input class="form-control form-stacked" name="firstName" placeholder="Firstname" type="text" required="true">
+           <input class="form-control form-stacked" name="lastName" placeholder="Lastname" type="text" required="true">
+           <input class="form-control form-stacked" name="userName" placeholder="Username" type="text" required="true" id="username">
+           <input class="form-control form-stacked" name="email" placeholder="email" type="email" required="true">
            <input class="form-control form-stacked" name="password" id="password" placeholder="Password" type="password" required="true" >
-           <input class="form-control form-stacked last" name="repeatPassword" id="repeat" placeholder="Repeat password" type="password" onkeyup="enable()" required="true">
-           <input class="btn btn-beats btn-block btn-stacked" value="Sign up" id = "btnPlaceOrder" type="submit" onclick="setuplogin()">
+           <input class="form-control form-stacked last" name="repeatPassword" id="repeat" placeholder="Repeat password" type="password" onkeyup="enable()">
+           <input class="btn btn-beats btn-block btn-stacked" value="Sign up" id = "btnPlaceOrder" type="submit">
         </form>
         <p>Already have an account? <a href="/" class="beats"><strong>login</strong></a> now!</p>
       </div> 

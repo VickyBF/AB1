@@ -23,11 +23,11 @@
            <span class="nav-menu-icon search-icon glyphicon glyphicon-search"></span>
            <input id="main-search" placeholder="Search" type="search" class="nav-menu-search">
           </li>
-          <li><a href="library.html"><i class="nav-menu-icon glyphicon glyphicon-music"></i>Library</a></li>
-          <li><a href="artists.html"><i class="nav-menu-icon fa fa-users"></i>Artists</a></li>
-          <li><a href="albums.html"><i class="nav-menu-icon icons8-music-record"></i>Albums</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-user"></i>triglian</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
+          <li><a href="library"><i class="nav-menu-icon glyphicon glyphicon-music"></i>Library</a></li>
+          <li><a href="artists"><i class="nav-menu-icon fa fa-users"></i>Artists</a></li>
+          <li><a href="albums"><i class="nav-menu-icon icons8-music-record"></i>Albums</a></li>
+          <li class="mm-user-item"><a href="login"><i class="nav-menu-icon fa fa-user"></i>triglian</a></li>
+          <li class="mm-user-item"><a href="login"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
 
        <a href="#" class="create-playlist" id="create-pl-btn"><i class="fa fa-plus"></i> new playlist</a>

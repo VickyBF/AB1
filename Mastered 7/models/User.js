@@ -24,13 +24,12 @@ var PlaylistSchema = require('./Playlist');
  */
 var userSchema = new mongoose.Schema(
     {
-        userName : { type: String, required: true },
         firstName: { type: String },
         lastName : { type: String },
-        password : { type: String, required: true },
+        userName : { type: String, required: true },
         email   : { type: String, required: true },
-        dateCreated : { type: Date, default: Date.now },
-        playlists : { type: [PlaylistSchema], default: [] }
+        password : { type: String, required: true },
+        repeatPassword : {type: String, required: true}
     }
 );
 
@@ -72,6 +71,7 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.isValidPassword = function isValidPassword(candidate, callback) {
     bcrypt.compare(candidate, this.password, function onPwdCompare(err, isMatch) {
+
         if (err) {
             return callback(err);
         }

@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var User = mongoose.model('User');
 var config = require("../../config");
+var passport = require('passport');
 
 //fields we don't want to show to the client
 var fieldsFilter = { 'password': 0, '__v': 0 };
@@ -19,7 +20,6 @@ router.all('/', middleware.supportedMethods('GET, POST, OPTIONS'));
 
 //list users
 router.get('/', function(req, res, next) {
-
     User.find({}, fieldsFilter).lean().exec(function(err, users){
         if (err) return next (err);
         users.forEach(function(user){
@@ -55,7 +55,6 @@ router.get('/:userid', function(req, res, next) {
 //update a user
 router.put('/:userid', function(req, res, next) {
     var data = req.body;
-
     User.findById(req.params.userid, fieldsFilter , function(err, user){
         if (err) return next (err);
         if (user){
@@ -63,8 +62,7 @@ router.put('/:userid', function(req, res, next) {
             user.firstName = data.firstName;
             user.lastName = data.lastName;
             user.email = data.email;
-            user.playlists = data.playlists;
-
+            user.password = data.password;
             user.save(onModelSave(res));
         }else{
             //user does not exist create it
@@ -112,7 +110,7 @@ router.get('/:userid/playlists', function(req, res, next) {
 
 //update a user's playlists
 router.put('/:userid/playlists', function(req, res, next) {
-    var data = req.body;
+//  var data = req.body;
 
     User.findById(req.params.userid, fieldsFilter , function(err, user){
         if (err) return next (err);
@@ -150,8 +148,9 @@ function onModelSave(res, status, sendItAsResponse){
             delete obj.password;
             delete obj.__v;
             addLinks(obj);
-            res.status(statusCode)
-            return res.json(obj);
+            res.status(statusCode);
+            return res.render("login");
+
         }else{
             return res.status(statusCode).end();
         }
@@ -170,6 +169,9 @@ function addLinks(user){
         }
     ];
 }
+
+
+
 
 /** router for /users */
 module.exports = router;

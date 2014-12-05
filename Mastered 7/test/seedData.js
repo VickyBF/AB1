@@ -140,7 +140,7 @@ var albums = {
       "dateReleased" : "Fri Feb 04 2005 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:42:10 GMT+0200 (CEST)",
       "label"        : "Revive Records"
-    },
+    }
 ]
 }
 

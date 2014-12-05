@@ -5,13 +5,61 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var dustjs = require('adaro');
 var app = express();
+var passport = require('passport');
+LocalStrategy = require('passport-local').Strategy;
+var mongoose   = require('mongoose');
+require('./models');
+require('express-session');
+
+//passport
+var User = mongoose.model('User');
+passport.use(new LocalStrategy({
+        usernameField:'userName',
+        passwordField:'password'
+
+    },
+    function(username, password, done) {
+        console.log(password);
+        User.findOne({ userName: username }, function (err, user) {
+            if (err) { return done(err); }
+            // Return an error as in Node
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+                // If user does not exist return the error and the message
+            }
+            user.isValidPassword(password, function(err,isMatch){
+                if (isMatch==true){
+                    return done(null, true);
+                    // Authentication is good, the password is valid
+                }else{
+                    return done(null, false, {message:"Incorrect password! "})
+                }
+            });
+            return done(null, user);
+            //If the credentials are valid, the callback invokes Passport with the user that authenticated
+        });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user._id);
+    // Invoke passport with user._id authenticated
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+        // Deserializza e cerca attraverso l'id
+        done(err, user);
+    });
+});
+
 
 // Connect to MongoDB here
-var mongoose   = require('mongoose');
+
 mongoose.connect(config.mongoUrl + config.mongoDbName);
 
 // Register model definition here
-require('./models');
+
 
 // dustjs view engine setup
 app.engine('dust', dustjs.dust());
@@ -23,6 +71,11 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));    // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());    // parse application/json
 app.use(express.static(path.join(__dirname, 'public')));
+////passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Initialize Passport. As we use persistent local session --> passport.session(). They are middleware.
 
 // Initialize routers here
 
@@ -33,5 +86,15 @@ app.use('/artists', routers.artists);
 app.use('/tracks', routers.tracks);
 app.use('/users', routers.users);
 app.use('/signup', routers.signup);
+app.use('/library', routers.library);
+app.get('/login',function(req,res){
+    res.render('login')
+
+});
+
+app.post('/login',
+    passport.authenticate('local', { successRedirect: '/library',
+        failureRedirect: '/signup' }));
+
 
 module.exports = app;

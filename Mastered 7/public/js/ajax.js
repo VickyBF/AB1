@@ -145,6 +145,8 @@ function doRequestChecks(method, isAsynchronous, data){
     }
   }
 
+
 //<!-- /build -->
 
 /* AJAX */
+
