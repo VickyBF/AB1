@@ -581,6 +581,7 @@
     display:flex;
     width:100%;
     border-bottom: 1px solid #b5b5b5;
+    background-color: inherit;
   }
 
   .fl-tl-row:hover{

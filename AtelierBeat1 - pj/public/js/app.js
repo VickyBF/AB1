@@ -277,22 +277,17 @@ function createHTMLLibrary(tracks){
     var artist = findOne(model.artists, "_id", track.artist);
     var album = findOne(model.albums, "_id", track.album);
 
-    newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true" ondragstart="drag(event)" onClick="prova()" >';
-    newHtml+= '<div class="fl-tl-cell fl-tl-name" onselect="prova()"><a href="#" >'+ track.name + '</a></div>\n';
+    newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true" ondragstart="drag(event)" ondblclick="prova(this)" >';
+    newHtml+= '<div class="fl-tl-cell fl-tl-name" onselect="prova()"><a href="#">'+ track.name + '</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-album"><a href="albums/'+ encodeURI(album.name)+ '">'+ album.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-time">'+ formatTime(track.duration) + '</div>\n';
     newHtml+= '</div>\n';
+
   })
 
   return newHtml;
 }
-function prova(){
-  //var tracks = document.querySelectorAll(".fl-tl-cell fl-tl-name");
-  //fl-tl-cell fl-tl-name
-  console.log("miao")
-}
-//prova()
 
 function bindTracksDelete(){
   var tracks = document.querySelectorAll(".fl-tl-delete a").firstC;
@@ -1082,18 +1077,17 @@ function appendNewPlaylistToMenu(pl){
 * - When a track finishes your player should play the next one
 */
 
+var newTrackList =[]
+var equalnewTrackList=[]
+var counter=0;
+var initPlaymode = "Sequential";
 
 function setupPlayer() {
-  var counter=0;
-  var initPlaymode = "Sequential";
-
 
   if (! document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
 
     doJSONRequest("GET", "/tracks", null, null, setList);
     function setList(lista){
-      var newTrackList =[]
-      var equalnewTrackList=[]
       for (var i= 0;i < lista.length; i++){
         newTrackList.push(lista[i]);
         equalnewTrackList.push(lista[i]);
@@ -1126,7 +1120,7 @@ function setupPlayer() {
       var artist_of_song = document.getElementById("album_of_song");
       //console.log(image.style.backgroundImage);
 
-      //Setup player situation: album, song and image
+      //Setup player situation: album, title and image
       function setUpTitleStuff(tracklist) {
         title.innerHTML = tracklist[counter].name;
         var new_image = tracklist[counter].album.artwork;
@@ -1136,6 +1130,7 @@ function setupPlayer() {
           artist_of_song.innerHTML = artist.name;
         });
       }
+
       setUpTitleStuff(newTrackList);
 
       // Audio element
@@ -1151,6 +1146,7 @@ function setupPlayer() {
       document.body.appendChild(audio);
 
       audio.addEventListener("ended", function () {
+        var oldCounter = counter; //Otherwise the new played song won't we blue but grey
         if (!newTrackList[counter]) {
           counter = 0;
         }
@@ -1160,11 +1156,14 @@ function setupPlayer() {
         setSong(counter, newTrackList,equalnewTrackList, audio);
         audio.play();
         //console.log(newTrackList[counter].name);
+
         if(initPlaymode == "Sequential"){
           setUpTitleStuff(newTrackList)
+          document.getElementById(newTrackList[oldCounter]._id).style.background ='#d9d9d9'; //old/finished song becomes grey
         }
         else{
           setUpTitleStuff(equalnewTrackList)
+          document.getElementById(equalnewTrackList[oldCounter]._id).style.background ='#d9d9d9';
         }
 
       })
@@ -1172,36 +1171,58 @@ function setupPlayer() {
       // Event listener for the play/pause button
       playButton.addEventListener("click", function () {
         //console.log(counter)
+        if(initPlaymode == "Sequential"){
+          setUpTitleStuff(newTrackList)
+        }
+        else{
+          setUpTitleStuff(equalnewTrackList)
+        }
             if (audio.paused == true) {
               setSong(counter, newTrackList,equalnewTrackList,audio);
               // Play the track
               audio.play();
 
               // Update the button icon to 'Pause'
-              playButton.classList.remove('fa-play')
-              playButton.classList.add('fa-pause')
+              playButton.classList.remove('fa-play');
+              playButton.classList.add('fa-pause');
+              playButton.value="clicked"
             } else {
               // Pause the track
               audio.pause();
 
               // Update the button icon to 'Play'
-              playButton.classList.remove('fa-pause')
-              playButton.classList.add('fa-play')
+              playButton.classList.remove('fa-pause');
+              playButton.classList.add('fa-play');
+              playButton.value="unclicked";
+              if(initPlaymode == "Sequential"){
+                document.getElementById(newTrackList[counter]._id).style.background ='#d9d9d9';
+              }
+              else{
+                document.getElementById(equalnewTrackList[counter]._id).style.background ='#d9d9d9';
+              }
+
             }
       });
 
       playMode.addEventListener("click", function (){
+        var oldCounter = counter;
         if (initPlaymode == "Sequential") {
           initPlaymode = "Random";
           playMode.classList.remove('fa-refresh');
           playMode.classList.add('fa-random');
+          document.getElementById(newTrackList[oldCounter]._id).style.background ='#d9d9d9';
         }
         else {
           initPlaymode = "Sequential";
           playMode.classList.remove('fa-random');
           playMode.classList.add('fa-refresh');
+          document.getElementById(equalnewTrackList[oldCounter]._id).style.background ='#d9d9d9';
         }
         counter = 0;
+        var i=0;
+        for (var i= 0;i < newTrackList.length; i++){ //reset table with original color
+          document.getElementById(newTrackList[i]._id).style.background ='#f5f5f5';
+        }
         //console.log(counter)
       });
 
@@ -1295,10 +1316,12 @@ function setupPlayer() {
         //Song to be played
         if(initPlaymode == "Sequential"){
           audio.src=tracklist[i].file;
+          document.getElementById(tracklist[i]._id).style.background ='#3B79FF';
           return audio.src;
         }
         else {
           audio.src = shuffled[i].file;
+          document.getElementById(shuffled[i]._id).style.background ='#3B79FF';
           return audio.src;
         }
 
@@ -1308,6 +1331,32 @@ function setupPlayer() {
   }
 }
 
+function PlaySelectedSong(object){
+  //console.log(object.id)
+  if(initPlaymode == "Sequential"){
+    document.getElementById(newTrackList[counter]._id).style.background ='#d9d9d9';
+  }
+  else{
+    document.getElementById(equalnewTrackList[counter]._id).style.background ='#d9d9d9';
+  }
+  var trackID=object.id;
+  for(var i= 0;i < newTrackList.length; i++){
+    //console.log(newTrackList[i]._id)
+    if(newTrackList[i]._id==trackID){
+      counter = newTrackList.indexOf(newTrackList[i]);
+      //console.log(counter)
+      if(document.getElementById("play-pause").value=="unclicked"){
+        document.getElementById("play-pause").click();
+      }
+      else{
+        document.getElementById("play-pause").click(); //we need to stop it and then make it play again otherwise just stop the play
+        document.getElementById("play-pause").click();
+      }
+
+    }
+  }
+
+}
 
 /*--------------- Modal Window---------------*/
 var modalWrapper = document.getElementById("modal_wrapper");
