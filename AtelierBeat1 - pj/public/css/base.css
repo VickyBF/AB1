@@ -320,6 +320,34 @@
 
   /* ---------------- Buttons ---------------- */
 
+
+.buttons{
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.buttons button{
+    margin-right: 11px;
+    margin-left: 21px;
+    background: transparent;
+    border-radius: 100px;
+    width: 105px;
+    height: 36px;
+    color: #525252;
+    border-bottom-style: solid;
+    border-color: #3b79ff;
+    border-right-color: #3b79ff;
+    border-width: 2px;
+}
+.buttons button:hover{
+    background: #3b79ff;
+    color: white;
+    border-bottom-style: solid;
+    border-color: #d9d9d9;
+    border-right-color: #f7f7f7;
+    border-width: 2px;
+}
+
   button{
     outline: none;
   }
@@ -367,8 +395,8 @@
     cursor: pointer;
     margin: 0;
     padding: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     font-size: 16px!important;
     opacity: 0.65;
     -webkit-transition: all 0.2s ease-out;
@@ -426,10 +454,10 @@
 
   .pl-controls{
     flex: 0 0 auto;
-    padding: 2px 5px 5px;
-    margin-left: -7px;
-    width: 100px;
-    height: 30px;
+      width: 110px;
+      height: 30px;
+      margin-top: 4px;
+      margin-left: -9px;
   }
 
 
@@ -519,11 +547,11 @@
   }
 
   .pl-track-info{
-    margin-left:50px;
-    padding-top: 3px;
-    padding-left: 5px;
-    width: 200px;
-    height:50px;
+      margin-left: 50px;
+      padding-top: 3px;
+      padding-left: 5px;
+      width: 400px;
+      height: 50px;
   }
 
   .media-object{
@@ -540,7 +568,7 @@
     padding-bottom: 100%;
     position: relative;
     opacity: 0.7;
-    border-radius: 5px;
+    border-radius: 10px;
 
   }
   .mo-image:hover{
@@ -554,7 +582,7 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     border-bottom: 0;
-    line-height: 19px;
+    line-height: 15px;
     max-height: 38px;
     color: #000000;
   }
@@ -638,7 +666,7 @@
     flex: 0 0 30px;
     text-align: right;
     /* width: 80px; */
-    padding: 3px 11px 4px 0px;
+    padding: 0px 0px 4px 0px;
     font-size: 17px;
   }
 
@@ -1009,85 +1037,68 @@ a.create-playlist{
   white-space: nowrap;
   overflow: hidden;
 }
-
 a.create-playlist:hover, a.create-playlist:active{
   background: rgb(59, 121, 255);
   color: #f7f7f7;
   text-decoration: none;
-
 }
-
 #playlists > li{
   position:relative;
 }
-
 #playlists > li:hover{
   background: rgb(59, 121, 255);
   box-shadow: inset 0 -1px rgba(0,0,0,0);
 }
-
 #tracks-list  > div > div.fl-tl-name:not(.fl-tl-th) {
   position:relative;
 }
-
 #tracks-list  > div > div.fl-tl-name:hover:not(.fl-tl-th){
-    background: rgb(59, 121, 255);
-    color: #ffffff;
-
+  background: rgb(59, 121, 255);
+  color: #ffffff;
 }
-
-
-
 #playlists .edit-btn {
   display: none;
   position:absolute;
   top: 10px;
   right: 25px;
   z-index:10;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
   line-height: 1;
   border: none;
   box-shadow:none;
   text-shadow:none;
   color: rgb(247, 247, 247);
 }
-
 #playlists .del-pl-btn{
-
-    position:absolute;
-    top: 10px;
-    right: 0px;
-    z-index:10;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    line-height: 1;
-    border: none;
-    box-shadow:none;
-    text-shadow:none;
-    color: rgb(247, 247, 247);
-
+  position:absolute;
+  top: 10px;
+  right: 0px;
+  z-index:10;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 1;
+  border: none;
+  box-shadow:none;
+  text-shadow:none;
+  color: rgb(247, 247, 247);
 }
 #playlists .del-pl-btn a:hover {
-
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    z-index: 10;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    line-height: 1;
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
-    color: rgb(251, 251, 251);
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 1;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: rgb(251, 251, 251);
 }
-
-
-
 #tracks-list .edit-btn{
   display: none;
   position: absolute;
@@ -1104,7 +1115,6 @@ a.create-playlist:hover, a.create-playlist:active{
   text-shadow: none;
   color: rgb(251, 251, 251);
 }
-
 #playlists > li:hover .edit-btn,
 #playlists > li.edit .edit-btn
 {
@@ -1139,22 +1149,19 @@ a.create-playlist:hover, a.create-playlist:active{
 #playlists .pl-name-input{
   display: none;
   position: relative;
-  padding-left: 25px;
-  margin-left: 5px;
+  padding-left: 12px;
   width:100%;
   outline: none;
   border: none;
   background: transparent;
   color: #f7f7f7;
-  font-size: 18px;
+  font-size: 1.4em;
   font-weight: 300;
   font-family: 'Lato', Arial, sans-serif;
   cursor: pointer;
   line-height: 60px;
   box-shadow: inset 0 -1px rgba(0,0,0,0.2);
 }
-
-
 
 #playlists > li.edit .pl-name-input{
   display: block;
@@ -1426,3 +1433,63 @@ ul.grid-list > li{
   bottom: 10px;
   right: 10px;
 }
+
+/*--------------- Modal Window---------------*/
+#modal_wrapper.overlay:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background: #000;
+  background: rgba(0,0,0,0.7);
+}
+
+#modal_window {
+    display: none;
+    z-index: 200;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 371px;
+    height: 371px;
+    padding: 19px 20px;
+    background: #fff;
+    border: 2px solid rgba(59, 124, 255, 0.82);
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,1.5);
+}
+
+#upload_button{
+    margin-top: 30px;
+    background: #f8f8f8;
+    border-radius: 100px;
+    width: 105px;
+    height: 36px;
+    color: #525252;
+    border-bottom-style: solid;
+    border-color: #3b79ff;
+    border-right-color: #3b79ff;
+    border-width: 2px;
+}
+
+#modal_close{
+    color: #525252;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#modal_close:hover{
+    color: #3b79ff;
+}
+
+
+#modal_wrapper.overlay #modal_window {
+  display: block;
+}
+
+/* ---------------- Autocomplete of artists and albums(Modal window) ---------------- */
+
+

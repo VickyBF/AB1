@@ -5,10 +5,19 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var dustjs = require('adaro');
 var app = express();
+var multer  = require('multer');
 
 // Connect to MongoDB here
 var mongoose   = require('mongoose');
 mongoose.connect(config.mongoUrl + config.mongoDbName);
+
+
+/*--- Configure the multer. used to upload the track from our pc on the server ---*/
+/*app.use(multer({ dest: './public/tracks_folder/',
+    rename: function (fieldname, filename) {
+        return filename;
+    }
+}));*/
 
 // Register model definition here
 require('./models');
@@ -32,7 +41,6 @@ app.use('/albums', routers.albums);
 app.use('/artists', routers.artists);
 app.use('/tracks', routers.tracks);
 app.use('/users', routers.users);
-app.use('/signup', routers.signup);
-app.use('/library', routers.library);
+
 
 module.exports = app;

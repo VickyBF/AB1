@@ -7,7 +7,10 @@ var middleware =  require('../middleware');
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var Track = mongoose.model('Track');
+var Artist = mongoose.model('Artist');
 var config = require("../../config");
+var done=false;
+
 
 //fields we don't want to show to the client
 var fieldsFilter = { '__v': 0 };
@@ -41,10 +44,14 @@ router.get('/', function(req, res, next) {
 });
 
 //create new track
-router.post('/', function(req, res, next) {
-
+router.post('/',function(req, res, next) {
+  console.log(req.body)
+  //req.body.file = req.files.mp3_file_toUpload.path;
+  //req.body.duration=0;
+  //req.body.artist = req.body.artist._id
+  //req.body.album = req.body.album._id
   var newTrack = new Track(req.body);
-  newTrack.save(onModelSave(res, 201, true));
+  newTrack.save(onModelSave(res, 201, true,next));
 });
 
 //get a track
@@ -117,6 +124,7 @@ router.put('/:trackid', function(req, res, next) {
       var newTrack = new Track(data);
       newTrack._id = ObjectId(req.params.trackid);
       newTrack.save(onModelSave(res, 201, true));
+      //res.redirect(303,"/")
     }
   });
 });
@@ -140,7 +148,7 @@ router.delete('/:trackid', function(req, res, next) {
   });
 });
 
-function onModelSave(res, status, sendItAsResponse){
+function onModelSave(res, status, sendItAsResponse,next){
   var statusCode = status || 204;
   var sendItAsResponse = sendItAsResponse || false;
   return function(err, saved){

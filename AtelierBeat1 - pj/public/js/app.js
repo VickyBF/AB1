@@ -2,19 +2,18 @@
 //<!-- build:remove -->
 window.onload = function(){
 
-        bindMenu();
+  bindMenu();
 
-        updatePage();
-        setupPlayer();
+  updatePage();
+  setupPlayer();
+  setupPlaylists();
+  setupSearch();
+  loadArtist();
+  loadAlbums();
 
-        setupPlaylists();
-        setupSearch();
+  bindPLTracksDelete();
 
-        bindPLTracksDelete()
-
-};
-
-
+}
 
 function bindMenu(){
   var menu = document.querySelectorAll("#main-menu > li > a");
@@ -38,6 +37,160 @@ function bindMenu(){
 
 /* UI */
 
+
+
+
+/////////////////////////////////////////////////////////////////
+/* Player */
+//<!-- /build -->
+/* Search */
+
+//Library.dust =>
+//<input id="main-search" list="suggestions" onkeyup = "previewResults(event, this.value)" placeholder="Search" type="search" class="nav-menu-search">
+//<datalist id="suggestions"></datalist>
+var lastSearch = '';
+function previewResults(evt, query) {
+  console.log(query);
+  if (query != lastSearch) {
+    console.log(evt.keyCode);
+    previewR(query);
+  } else if (evt.keyCode == 13 || evt.keyCode == 10){
+    search(window.location.hash, query);
+  }
+  lastSearch = query;
+}
+
+function suggestItems(obj, query) {
+  var output = '';
+  obj.forEach(function (curr) {
+    if (curr.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+      output += '<option value="'+curr.name+'">' + curr.name + '</option>';
+  });
+  document.getElementById('suggestions').innerHTML = output;
+}
+
+function previewR(query) {
+  if (query == '') {
+    document.getElementById('suggestions').innerHTML = '';
+    return;
+  }
+  if (window.location.hash.indexOf('#album') == 0)
+    doJSONRequest('GET', '/albums', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+  else if (window.location.hash.indexOf('#artist') == 0)
+    doJSONRequest('GET', '/artists', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+  else // should this search also in albums and artists?
+    doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+      suggestItems(obj, query);
+    });
+}
+
+
+function search(from, query) {
+
+  var content;
+  var tracksCont = '<h2>Tracks</h2>';
+  var albumsCont = '<h2>Albums</h2>';
+  var artistsCont = '<h2>Artists</h2>';
+  var timesCalled = 0;
+
+  function viewFoundedResult() {
+
+    timesCalled += 1;
+    if (timesCalled == 2) {
+      timesCalled = 0;
+      console.log(from);
+      switch (from) {
+        case '#albums':
+          content = albumsCont + tracksCont + artistsCont;
+          break;
+        case '#artists':
+          content = artistsCont + tracksCont + albumsCont;
+          break;
+        case '#library':
+          content = tracksCont + albumsCont + artistsCont;
+      }
+      console.log(content);
+      document.getElementById("content").innerHTML = content;
+    }
+    console.log("search done");
+  }
+
+
+  // function doJSONRequest(method, url, headers, data, callback)
+  // returns callback()
+  // {Function} callback The function to call when the response is ready.
+  // render example
+  //  dust.render("tmp_skill", json_object, function(err, html_out) {
+  // HTML output
+  // $('#page').html(html_out);
+  // console.log(html_out);
+  // });
+
+
+  doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('tracks', {tracks: result}, function (err, html) {
+      tracksCont += html;
+    });
+    if (result.length == 0)
+      tracksCont = '<h5>* No tracks found with such name</h5>';
+    viewFoundedResult();
+  });
+
+
+
+
+  doJSONRequest('GET', '/albums', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('albums', {albums: result}, function (err, html) {
+      albumsCont += html;
+    });
+    if (result.length == 0)
+      albumsCont = '<h5>* No albums with such name</h5>';
+    viewFoundedResult();
+  });
+
+
+
+
+  doJSONRequest('GET', '/artists', {}, null, function (obj) {
+    var result = [];
+    obj.forEach(function (current) {
+      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+        result.push(current);
+    });
+
+    dust.render('artists', {artists: result}, function (err, html) {
+      artistsCont += html;
+    });
+    if (result.length == 0)
+      artistsCont = '<h5>* No artists found with such name</h5>';
+    viewFoundedResult();
+  });
+}
+
+// add track search
+
+
+/* Search */
+
+
+
+
 /* Library */
 
 function drawLibrary(e, addHistory){
@@ -52,9 +205,7 @@ function drawLibrary(e, addHistory){
   doJSONRequest("GET", "/tracks", null, null, renderTracks);
 
   function renderTracks(tracks){
-
     var tracksData = buildTracksData(tracks);
-
     var data = {
       "tracks" : tracksData
     };
@@ -72,8 +223,6 @@ function drawLibrary(e, addHistory){
       bindTracksDelete();
 
       bindEditTrackName();
-
-
 
     });
 
@@ -193,8 +342,6 @@ function deleteTrack(e){
 
     var editable = target.previousSibling;
 
-    //console.log(editable.contentEditable);
-    //console.log(editable.contentEditable ==  "false");
 
     if(editable.contentEditable == "false" || editable.contentEditable == "inherit"){ //we have to enable the editing
 
@@ -369,7 +516,6 @@ function drawArtist(e, addHistory){
       var artists = document.querySelectorAll(".artist-link");
 
       for (var elem = 0; elem < artists.length; ++elem) {
-        //console.log(artists[elem])
         artists[elem].onclick = drawArtist;
       }
     }
@@ -378,7 +524,6 @@ function drawArtist(e, addHistory){
       var artists = document.querySelectorAll(".delete-btn");
 
       for (var elem = 0; elem < artists.length; ++elem) {
-      //console.log(albums[elem])
       artists[elem].onclick = deleteArtist;
     }
   }
@@ -730,82 +875,65 @@ function findOne(arr, prop, val){
 /* Playlist: Not working after the switch to AJAX */
 function setupPlaylists(){
   loadPlaylistsFromLocalStorage();
-
   var createPlBtn = document.getElementById("create-pl-btn");
   createPlBtn.addEventListener('click', function(){
-
     localStorage.pl_cnt =  localStorage.pl_cnt || 0;
     var cnt = localStorage.pl_cnt;
     var _id = "pl-"+cnt
     var name = 'New Playlist ' + (++cnt);
-    var newPlaylist =  playlist(_id, name, model.users[0]._id, []); 
-
+    var newPlaylist =  playlist(_id, name, model.users[0]._id, []);
     //update localStorage counter
     localStorage.pl_cnt = cnt;
-    
+
     //persist to localStorage
     savePlaylist(newPlaylist);
-    appendNewPlaylistToMenu(newPlaylist);    
+    appendNewPlaylistToMenu(newPlaylist);
   })
-
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('edit-btn') ) {
       return onEditPlaylistClicked(e.target)
     }
-
     if (e.target.classList.contains('pl-name-input') ) {
       return e.preventDefault();
     }
-
     if (e.target.classList.contains('pl-name') ) {
       e.preventDefault();
       return onPlaylistClicked(e.target)
     }
-
-
     //the click was outside an edit element, close currently edited ones
     var currentlyEditing = document.querySelectorAll('#playlists > li.edit .edit-btn');
     for (var i = currentlyEditing.length - 1; i >= 0; i--) {
       onEditPlaylistClicked(currentlyEditing[i]);
     };
-
   });
 }
-
 function allowDrop(evt) {
   evt.preventDefault();
 }
-
 function drag(evt) {
   evt.dataTransfer.setData("text/plain", evt.currentTarget.id);
 }
-
 function drop(evt) {
   evt.preventDefault();
   var trackId = evt.dataTransfer.getData("text/plain");
   var playlistId = evt.currentTarget.id
   addTrackToPlaylist(playlistId, trackId)
 }
-
 function addTrackToPlaylist(playlistId, trackId){
   var playlists =  JSON.parse(localStorage.playlists);
   var pl = playlists[playlistId];
   if(typeof pl === "undefined"){
     throw new Error("playlist doesn't exist in localStorage")
   }
-
   var track = findOne(model.tracks, "_id", trackId);
   if(typeof track === "undefined" || track === null){
     throw new Error("track doesn't exist in the model")
   }
-
   pl.tracks.push(trackId);
-
   //persist
   playlists[playlistId]= pl;
   localStorage.playlists = JSON.stringify(playlists);
 }
-
 function onPlaylistClicked(link){
   localStorage.playlists = localStorage.playlists || JSON.stringify({});
   var playlists =  JSON.parse(localStorage.playlists);
@@ -814,23 +942,19 @@ function onPlaylistClicked(link){
   var tracks = playlist.tracks;
   var container = document.getElementById('tracks-list');
   var classList = container.classList;
-
   if (tracks.length < 1){
     return container.innerHTML = "Playlist " + playlist.name + " is empty."
   }
-
   var newHtml = '<div class="fl-tl-thead fl-tl-row">\n\
   <div class="fl-tl-th fl-tl-name">Song</div>\n\
   <div class="fl-tl-th fl-tl-artist">Artist</div>\n\
   <div class="fl-tl-th fl-tl-album">Album</div>\n\
   <div class="fl-tl-th fl-tl-time">Time</div>\n\
   </div>';
-
   tracks.forEach(function(track){
     track = findOne(model.tracks, "_id", track)
     var artist = findOne(model.artists, "_id", track.artist);
     var album = findOne(model.albums, "_id", track.album);
-
     newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true">'
     newHtml+= '<div class="fl-tl-cell fl-tl-name"><a href="#">'+ track.name + '</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
@@ -838,99 +962,72 @@ function onPlaylistClicked(link){
     newHtml+= '<div class="fl-tl-cell fl-tl-time">'+ formatTime(track.duration) + '</div>\n';
     newHtml+= '<div class="fl-tl-th fl-tl-delete"><a href="#" >×</a></div>';
     newHtml+= '</div>\n';
-
-
   })
-
   container.innerHTML = newHtml;
 }
-
 function bindPLTracksDelete(){
-    var tracks = document.querySelectorAll(".fl-tl-delete a");
-
-    for (var elem = 0; elem < tracks.length; ++elem) {
-        tracks[elem].onclick = deletePLTrack;
-    }
+  var tracks = document.querySelectorAll(".fl-tl-delete a");
+  for (var elem = 0; elem < tracks.length; ++elem) {
+    tracks[elem].onclick = deletePLTrack;
+  }
 }
-
 function deletePLTrack(e){
-
-    var href;
-    var target = e.target;
-
-    if(e && e.target){
-        e.preventDefault();
-        href = target.getAttribute("href");
-    }
-
-    //execute the AJAX call to the delete a single album
-    doJSONRequest("DELETE", href, null, null, removePLTrack);
-
-    function removePLTrack(){
-
-        var toDelete = target.parentNode.parentNode;
-        var parent = document.getElementById(e._id);
-
-        parent.removeChild(toDelete);
-
-    }
-
+  var href;
+  var target = e.target;
+  if(e && e.target){
+    e.preventDefault();
+    href = target.getAttribute("href");
+  }
+  //execute the AJAX call to the delete a single album
+  doJSONRequest("DELETE", href, null, null, removePLTrack);
+  function removePLTrack(){
+    var toDelete = target.parentNode.parentNode;
+    var parent = document.getElementById(e._id);
+    parent.removeChild(toDelete);
+  }
 }
-
-
-
-
 function onEditPlaylistClicked(btn){
   var id = btn.dataset["for"];
   var el = document.getElementById(id);
   var input = document.querySelector('#'+id + " > input[type='text']");
-
   if(el.classList.contains("edit")){
     el.classList.remove('edit')
     btn.innerHTML = '<i class="fa fa-pencil" ></i>'
     var input = document.querySelector('#'+id + " > input[type='text']");
     var nameLink =  document.querySelector('#'+id + " > .pl-name");
-
-     //return on empty string
-     if(input.value.trim() == '') return;
-
-     nameLink.innerHTML = '<i class="nav-menu-icon fa fa-bars"></i> ' + input.value;
-     nameLink.href = "playlists/" + encodeURI(input.value)
-
-     //persist change
-     var playlists =  JSON.parse(localStorage.playlists);
-     playlists[id]["name"] = input.value;
-     localStorage.playlists = JSON.stringify(playlists);
-   }else{
+    //return on empty string
+    if(input.value.trim() == '') return;
+    nameLink.innerHTML = '<i class="nav-menu-icon fa fa-bars"></i> ' + input.value;
+    nameLink.href = "playlists/" + encodeURI(input.value)
+    //persist change
+    var playlists =  JSON.parse(localStorage.playlists);
+    playlists[id]["name"] = input.value;
+    localStorage.playlists = JSON.stringify(playlists);
+  }else{
     el.classList.add('edit')
     btn.innerHTML = '<i class="fa fa-check" ></i>'
     input.focus();
   }
 }
-
 function loadPlaylistsFromLocalStorage(){
   localStorage.playlists = localStorage.playlists || JSON.stringify({});
   var playlists =  JSON.parse(localStorage.playlists);
   //merge localStorage playlists with model playlists
-    // ---------------------------------- IMPORTANT --------------------------\\
+  // ---------------------------------- IMPORTANT --------------------------\\
   model.playlists.forEach(function(playlist){
     if (!playlists.hasOwnProperty(playlist._id))
       playlists[playlist._id] = playlist;
   });
-   // ---------------------------------- IMPORTANT --------------------------\\
-
-var keys = Object.keys(playlists);
-var newHtml ='';
-keys.forEach(function(key){
-  appendNewPlaylistToMenu(playlists[key]);
-});
-
+  // ---------------------------------- IMPORTANT --------------------------\\
+  var keys = Object.keys(playlists);
+  var newHtml ='';
+  keys.forEach(function(key){
+    appendNewPlaylistToMenu(playlists[key]);
+  });
   //persist playlists
   localStorage.playlists = JSON.stringify(playlists);
-
   //console.log(localStorage.playlists)
 }
-
 function appendNewPlaylistToMenu(pl){
   var id = pl._id;
   var name = pl.name;
@@ -942,13 +1039,8 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a><a class="del-pl-btn" href="#"><img src="./images/trash48.jpg" style="width:20px;height:20px"></x></a>';
   newHtml += '    <input  class="pl-name-input" name="' + id + '" type="text" value="' + name + '">';
   newHtml += '  </li>';
-
   document.getElementById('playlists').innerHTML += newHtml;
 }
-
-
-
-
 
 /* Player */
 
@@ -984,105 +1076,429 @@ function appendNewPlaylistToMenu(pl){
 * - When a track finishes your player should play the next one
 */
 
-function setupPlayer(){
-  // Buttons
-  var playButton = document.getElementById("play-pause");
-  var muteButton = document.getElementById("mute");
-  var fullScreenButton = document.getElementById("full-screen");
-  var volumeOff = document.getElementById("volume-off");
-  var volumeUp = document.getElementById("volume-up");
-
-  // Sliders
-  var seekRail = document.getElementById("pl-timeline-rail");
-  var seekBar = document.getElementById("pl-timeline-bar");
-  var volumeRail = document.getElementById("pl-volume-rail");
-  var volumeBar = document.getElementById("pl-volume-bar");
-
-  //Labels
-  var timeElapsed = document.getElementById("time-elapsed");
-  var timeTotal = document.getElementById("time-total");
-
-  // Audio element
-  var audio = document.createElement('audio');
-
-  audio.addEventListener("loadedmetadata",function(){
-    //set total time
-    timeTotal.innerHTML = formatTime(Math.floor(audio.duration));
-
-    //set volume
-    volumeBar.style.width = (audio.volume * 100) + "%";
-  })
-  audio.src = 'https://archive.org/download/testmp3testfile/mpthreetest.mp3';
-  document.body.appendChild(audio);
+document.getElementById("playMode").addEventListener('click', setupMode(),true );
+function setupPlayer() {
+  var counter=0;
 
 
-  // Event listener for the play/pause button
-  playButton.addEventListener("click", function() {
-    if (audio.paused == true) {
-      // Play the track
-      audio.play();
+  if (! document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
 
-      // Update the button icon to 'Pause'
-      playButton.classList.remove('fa-play')
-      playButton.classList.add('fa-pause')
-    } else {
-      // Pause the track
-      audio.pause();
+    doJSONRequest("GET", "/tracks", null, null, setList);
+    function setList(lista){
+      var newTrackList =[]
+      for (var i= 0;i < lista.length; i++){
+        newTrackList.push(lista[i]);
+      }
+      //console.log(newTrackList)
+      // Buttons
+      var playButton = document.getElementById("play-pause");
+      //var muteButton = document.getElementById("mute");
+      //var fullScreenButton = document.getElementById("full-screen");
+      var volumeOff = document.getElementById("volume-off");
+      var volumeUp = document.getElementById("volume-up");
+      var next = document.getElementById("next");
+      var previous = document.getElementById("previous");
+      var playMode = document.getElementById("playMode");
 
-      // Update the button icon to 'Play'
-      playButton.classList.remove('fa-pause')
-      playButton.classList.add('fa-play')
+      // Sliders
+      var seekRail = document.getElementById("pl-timeline-rail");
+      var seekBar = document.getElementById("pl-timeline-bar");
+      var volumeRail = document.getElementById("pl-volume-rail");
+      var volumeBar = document.getElementById("pl-volume-bar");
+
+      //Labels
+      var timeElapsed = document.getElementById("time-elapsed");
+      var timeTotal = document.getElementById("time-total");
+
+      //Image and title
+      var image = document.getElementById("image_of_song");
+      var title = document.getElementById("title_of_song");
+      var artist_of_song = document.getElementById("album_of_song");
+      //console.log(image.style.backgroundImage);
+
+      // Audio element
+      var audio = document.createElement('audio');
+      audio.addEventListener("loadedmetadata", function () {
+        //set total time
+        timeTotal.innerHTML = formatTime(Math.floor(audio.duration));
+
+        //set volume
+        volumeBar.style.width = (audio.volume * 100) + "%";
+      })
+      setSong(0, newTrackList,audio);
+      document.body.appendChild(audio);
+
+      audio.addEventListener("ended", function () {
+        if (!newTrackList[counter]) {
+          counter = 0;
+        }
+        else {
+          counter++;
+        }
+        setSong(counter, newTrackList, audio);
+        audio.play();
+        //console.log(newTrackList[counter].name);
+        title.innerHTML = newTrackList[counter].name;
+        //console.log(newTrackList[counter].album.artwork)
+        var new_image = newTrackList[counter].album.artwork;
+        image.style.backgroundImage = "url(" + new_image + ")";
+        //artist_of_song.innerHTML=;
+        //console.log(newTrackList[counter].artist._id)
+        var id_of_artist = newTrackList[counter].artist._id;
+        doJSONRequest("GET", "/artists/" + id_of_artist, null, null, function (artist) {
+          artist_of_song.innerHTML = artist.name;
+
+        });
+      })
+
+      // Event listener for the play/pause button
+      playButton.addEventListener("click", function () {
+            if (audio.paused == true) {
+              // Play the track
+              audio.play();
+
+              // Update the button icon to 'Pause'
+              playButton.classList.remove('fa-play')
+              playButton.classList.add('fa-pause')
+            } else {
+              // Pause the track
+              audio.pause();
+
+              // Update the button icon to 'Play'
+              playButton.classList.remove('fa-pause')
+              playButton.classList.add('fa-play')
+            }
+
+            //title
+
+      });
+
+      // Event listener for the seek bar
+      seekRail.addEventListener("click", function (evt) {
+        var frac = (evt.offsetX / seekRail.offsetWidth)
+        seekBar.style.width = (frac * 100) + "%";
+
+        // Calculate the new time
+        var time = audio.duration * frac;
+        audio.currentTime = time;
+      });
+
+      // Update the seek bar as the track plays
+      audio.addEventListener("timeupdate", function () {
+        // Calculate the slider value
+        var value = (100 / audio.duration) * audio.currentTime;
+
+        // Update the seek bar
+        seekBar.style.width = value + "%";
+
+        // Update the elapsed time
+        timeElapsed.innerHTML = formatTime(Math.floor(audio.currentTime));
+      });
+
+      // Event listener for the volume bar
+      volumeRail.addEventListener("click", function (evt) {
+        var frac = (evt.offsetX / volumeRail.offsetWidth)
+        volumeBar.style.width = (frac * 100) + "%";
+
+        audio.volume = frac;
+      });
+
+      //Click listener for volume buttons
+      volumeOff.addEventListener("click", function (evt) {
+        volumeBar.style.width = "0%";
+        audio.volume = 0;
+
+        volumeOff.classList.add("active")
+        volumeUp.classList.remove("active")
+      });
+
+      volumeUp.addEventListener("click", function (evt) {
+        volumeBar.style.width = "100%";
+        audio.volume = 1;
+
+        volumeUp.classList.add("active")
+        volumeOff.classList.remove("active")
+      });
+
+      // Event listener for botton "next"
+      next.addEventListener("click", function (evt) {
+        counter++;
+        if (newTrackList[counter]){
+          setSong(counter, newTrackList,audio) ;
+        }
+        else{
+          setSong(0, newTrackList,audio);
+        }
+      });
+
+      // Event listener for botton "previous"
+      previous.addEventListener("click", function (evt) {
+        counter--;
+        if (newTrackList[counter]){
+          setSong(counter, newTrackList,audio);
+        }
+        else{
+          setSong(0, newTrackList,audio);
+        }
+      });
     }
-  });
+  }
+}
+function shuffle(o){ //to shuffle an array
+  for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
 
-  // Event listener for the seek bar
-  seekRail.addEventListener("click", function(evt) {
-    var frac = (evt.offsetX / seekRail.offsetWidth)
-    seekBar.style.width = (frac * 100) + "%";
+function setSong(i, tracklist,audio){
+  //Song to be played
+  if(document.getElementById("playMode").value=='sequential'){
+    audio.src=tracklist[i].file;
+  }
+  else{
+    tracklist = shuffle(tracklist)
+    audio.src=tracklist[i].file;
+  }
 
-    // Calculate the new time
-    var time = audio.duration * frac;
-    audio.currentTime = time;
-  });
-
-  // Update the seek bar as the track plays
-  audio.addEventListener("timeupdate", function() {
-    // Calculate the slider value
-    var value = (100 / audio.duration) * audio.currentTime;
-
-    // Update the seek bar
-    seekBar.style.width = value + "%";
-
-    // Update the elapsed time
-    timeElapsed.innerHTML = formatTime(Math.floor(audio.currentTime));
-  });
-
-  // Event listener for the volume bar
-  volumeRail.addEventListener("click", function(evt) {
-    var frac = (evt.offsetX / volumeRail.offsetWidth)
-    volumeBar.style.width = (frac * 100) + "%";
-
-    audio.volume = frac;
-  });
-
-  //Click listener for volume buttons
-  volumeOff.addEventListener("click", function(evt) {
-    volumeBar.style.width = "0%";
-    audio.volume = 0;
-
-    volumeOff.classList.add("active")
-    volumeUp.classList.remove("active")
-  });
-
-  volumeUp.addEventListener("click", function(evt) {
-    volumeBar.style.width = "100%";
-    audio.volume = 1;
-
-    volumeUp.classList.add("active")
-    volumeOff.classList.remove("active")
-  });
+}
+function setupMode(){
+  var initial_state = "Sequential";
+  var x = function player_toggle() {
+    if (initial_state == "Sequential") {
+      initial_state = "Random";
+      playMode.classList.remove('fa-refresh');
+      playMode.classList.add('fa-random');
+      playMode.value="random";
+    }
+    else {
+      initial_state = "Sequential";
+      playMode.classList.remove('fa-random');
+      playMode.classList.add('fa-refresh');
+      playMode.value='sequential';
+    }
+  };
+  return x;
 }
 
-/* Player */
+/*--------------- Modal Window---------------*/
+var modalWrapper = document.getElementById("modal_wrapper");
+var modalWindow  = document.getElementById("modal_window");var modal_init = function() {
+
+
+  var openModal = function(e)
+  {
+    modalWrapper.className = "overlay";
+    modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
+    modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+  };
+
+  var closeModal = function(e)
+  {
+    modalWrapper.className = "";
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+  };
+
+  var clickHandler = function(e) {
+    if(!e.target) e.target = e.srcElement;
+    if(e.target.tagName == "DIV") {
+      if(e.target.id != "modal_window") closeModal(e);
+    }
+  };
+
+  var keyHandler = function(e) {
+    if(e.keyCode == 27) closeModal(e);
+  };
+  if(document.addEventListener) {
+    document.getElementById("modal_open").addEventListener("click", openModal, false);
+    document.getElementById("modal_close").addEventListener("click", closeModal, false);
+    document.addEventListener("click", clickHandler, false);
+    document.addEventListener("keydown", keyHandler, false);
+  } else {
+    document.getElementById("modal_open").attachEvent("onclick", openModal);
+    document.getElementById("modal_close").attachEvent("onclick", closeModal);
+    document.attachEvent("onclick", clickHandler);
+    document.attachEvent("onkeydown", keyHandler);
+  }
+}
+if(document.addEventListener) {
+  document.addEventListener("DOMContentLoaded", modal_init, false);
+} else {
+  window.attachEvent("onload", modal_init);
+}
+
+//Autocomplete for artist and album in the modal window---------
+var loadArtist = function(){
+  var dataList = document.getElementById('json-datalist');
+  var input = document.getElementById('ajax');
+// Create a new XMLHttpRequest.
+  var request = new XMLHttpRequest();
+
+// Handle state changes for the request.
+  request.onreadystatechange = function (response) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        // Parse the JSON
+        var jsonOptions = JSON.parse(request.responseText);
+
+        // Loop over the JSON array.
+        jsonOptions.forEach(function (item) {
+          // Create a new <option> element.
+          var option = document.createElement('option');
+          //console.log(option)
+          // Set the value using the item in the JSON array.
+          option.value = item.name;
+          option.id=item._id;
+          option.onclick = test2(option.value,option.id)
+          // Add the <option> element to the <datalist>.
+          dataList.appendChild(option);
+        });
+
+
+        // Update the placeholder text.
+        input.placeholder = "e.g. datalist";
+      } else {
+        // An error occured :(
+        input.placeholder = "Couldn't load datalist options :(";
+      }
+    }
+  };
+
+// Update the placeholder text.
+  input.placeholder = "Loading options...";
+
+// Set up and make the request.
+  request.open('GET', '/artists', true);
+  request.send();
+
+}
+var loadAlbums = function(){
+  var dataList = document.getElementById('json-datalist2');
+  var input = document.getElementById('ajax');
+// Create a new XMLHttpRequest.
+  var request = new XMLHttpRequest();
+
+// Handle state changes for the request.
+  request.onreadystatechange = function (response) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        // Parse the JSON
+        var jsonOptions = JSON.parse(request.responseText);
+
+        // Loop over the JSON array.
+        jsonOptions.forEach(function (item) {
+          // Create a new <option> element.
+          var option = document.createElement('option');
+          //console.log(option)
+          // Set the value using the item in the JSON array.
+          option.value = item.name;
+          option.id=item._id;
+          option.onclick = test3(option.value,option.id)
+          // Add the <option> element to the <datalist>.
+          dataList.appendChild(option);
+        });
+
+
+        // Update the placeholder text.
+        input.placeholder = "Datalist";
+      } else {
+        // An error occured :(
+        input.placeholder = "Couldn't load datalist options :(";
+      }
+    }
+  };
+
+// Update the placeholder text.
+  input.placeholder = "Loading options...";
+
+// Set up and make the request.
+  request.open('GET', '/albums', true);
+  request.send();
+}
+var array = []
+var AlbumArray = []
+var test2 = function(value,id){
+  array.push({name:value,id:id})
+  //console.log(array)
+}
+var test3 = function(value,id){
+  AlbumArray.push({name:value,id:id})
+  //console.log(array)
+}
+
+//Vassillis help:
+var input = document.getElementById('ajax');
+var input2 = document.getElementById('ajax2');
+
+input.addEventListener("change", function(){
+  var el = document.querySelector("#json-datalist option[value='" + input.value + "']");
+  console.log(el.id);  //the user sees the name while the server get the ID
+  input.dataset.artistId = el.id;
+
+});
+input2.addEventListener("change", function(){
+  var el = document.querySelector("#json-datalist2 option[value='" + input2.value + "']");
+  console.log(el.id); //the user sees the name while the server get the ID
+  input2.dataset.albumId = el.id;
+
+});
+//Post the new song
+  var postSong = function(){
+      var artistId = input.dataset.artistId;
+      var albumId = input2.dataset.albumId;
+      var data = {};
+      doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+          data.artist = artist._id;
+          doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+              data.album = album._id;
+              data.duration = 0;
+                  data.name =document.getElementById("setName").value;
+              data.file = document.getElementById("mp3_file_toUpload").files[0].name;
+              doJSONRequest("POST", "/tracks" , null, data, function(){
+                location.reload();
+                })
+            })
+    })
+
+  }
+
+//Trying....
+/*
+ //var form = document.getElementById("modal_feedback");
+ //var fileSelect = document.getElementById("mp3_file_toUpload");
+ //var uploadButton = document.getElementById("upload_button");
+
+form.onsubmit=function(e){
+  e.preventDefault();
+  uploadButton.innerHTML="Uploading...";
+  //Get the selected files from the input
+  var files = fileSelect.files;
+  // Create a new FormData object.
+  var formData = new FormData();
+
+  // Loop through each of the selected files.
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    formData.append('mp3_file_toUpload[]', file);
+    console.log(formData);
+  }
+    // Files
+     //formData.append(name, file);
+  // Set up the request.
+  var xhr = new XMLHttpRequest();
+  // Open the connection.
+  xhr.open('POST', "/tracks", true);
+  // Set up a handler for when the request finishes.
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // File(s) uploaded.
+      uploadButton.innerHTML = 'Upload';
+    } else {
+      alert('An error occurred!');
+    }
+  };
+  // Send the Data.
+  xhr.send(formData);
+}*/
 
 //<!-- /build -->
+
