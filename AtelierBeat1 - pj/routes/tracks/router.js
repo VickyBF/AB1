@@ -118,6 +118,11 @@ router.put('/:trackid', function(req, res, next) {
       else
         track.dateReleased = track.dateReleased;
 
+      if(data.vote)
+        track.vote = data.vote;
+      else
+        track.vote = track.vote;
+
       track.save(onModelSave(res));
     }else{
       //track does not exist create it

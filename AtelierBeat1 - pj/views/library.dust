@@ -39,6 +39,7 @@
 
                </ul>
       </div> <!-- /.main-nav-content -->
+
     </nav>
     <section class="main-content main-content-float-menu clearfix">
       <nav id="user-nav" class="clearfix">
@@ -111,10 +112,10 @@
                                                <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
                                                <datalist id="json-datalist2"></datalist>
 
-                                               <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" multiple />
-
+                                               <input type="file" id="mp3_file_toUpload" name="file" multiple />
+                                               <input type="submit" value="Stash the file!" id="upload_button" />
                                                </form>
-                                               <button onclick="postSong()" value="Upload mp3" id="upload_button">Upload</button>
+
                                               </div> <!-- #modal_window -->
                                               </div> <!-- #modal_wrapper -->
 
@@ -137,6 +138,7 @@
 
   </section> <!-- /.main-content -->
   </div>
+
   <script src="js/dust-core.min.js"></script>
   <script src="js/library.js"></script>
   <script src="js/model.js"></script>
@@ -144,7 +146,6 @@
   <script src="views/views.js"></script>
   <script src="js/ajax.js"></script>
   <script src="js/app.js"></script>
-
 
 </body>
 </html>

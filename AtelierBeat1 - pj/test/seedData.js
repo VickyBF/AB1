@@ -277,7 +277,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 0
     },
 
     {

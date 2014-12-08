@@ -278,7 +278,7 @@ function createHTMLLibrary(tracks){
     var album = findOne(model.albums, "_id", track.album);
 
     newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true" ondragstart="drag(event)" ondblclick="prova(this)" >';
-    newHtml+= '<div class="fl-tl-cell fl-tl-name" onselect="prova()"><a href="#">'+ track.name + '</a></div>\n';
+    newHtml+= '<div class="fl-tl-cell fl-tl-name fa-star" onselect="prova()"><a href="#">'+ track.name + '</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-album"><a href="albums/'+ encodeURI(album.name)+ '">'+ album.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-time">'+ formatTime(track.duration) + '</div>\n';
@@ -291,6 +291,7 @@ function createHTMLLibrary(tracks){
 
 function bindTracksDelete(){
   var tracks = document.querySelectorAll(".fl-tl-delete a").firstC;
+  console.log(tracks)
 
   for (var elem = 0; elem < tracks.length; ++elem) {
     tracks[elem].onclick = deleteTrack;
@@ -1093,7 +1094,7 @@ function setupPlayer() {
         equalnewTrackList.push(lista[i]);
       }
       shuffle(equalnewTrackList);
-      //console.log(newTrackList)
+      console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
       //var muteButton = document.getElementById("mute");
@@ -1147,7 +1148,7 @@ function setupPlayer() {
 
       audio.addEventListener("ended", function () {
         var oldCounter = counter; //Otherwise the new played song won't we blue but grey
-        if (!newTrackList[counter]) {
+        if (!newTrackList[counter+1]) {
           counter = 0;
         }
         else {
@@ -1540,28 +1541,25 @@ input2.addEventListener("change", function(){
   }
 
 //Trying....
-/*
- //var form = document.getElementById("modal_feedback");
- //var fileSelect = document.getElementById("mp3_file_toUpload");
- //var uploadButton = document.getElementById("upload_button");
 
-form.onsubmit=function(e){
-  e.preventDefault();
+ var form = document.getElementById("modal_feedback");
+ var fileSelect = document.getElementById("mp3_file_toUpload");
+ var uploadButton = document.getElementById("upload_button");
+ var nm = document.getElementById("setName");
+
+form.addEventListener('submit', function(ev) {
+  ev.preventDefault();
   uploadButton.innerHTML="Uploading...";
   //Get the selected files from the input
-  var files = fileSelect.files;
-  // Create a new FormData object.
-  var formData = new FormData();
+  var f=ev.target;
+  var myfile = fileSelect.files[0];
+  var oData = new FormData(f);
+  oData.append('name',nm.value);
+  oData.append('ajax',input.value);
+  oData.append('ajax2', input2.value);
+  oData.append("file",myfile);
 
-  // Loop through each of the selected files.
-  for (var i = 0; i < files.length; i++) {
-    var file = files[i];
-    formData.append('mp3_file_toUpload[]', file);
-    console.log(formData);
-  }
-    // Files
-     //formData.append(name, file);
-  // Set up the request.
+
   var xhr = new XMLHttpRequest();
   // Open the connection.
   xhr.open('POST', "/tracks", true);
@@ -1571,12 +1569,47 @@ form.onsubmit=function(e){
       // File(s) uploaded.
       uploadButton.innerHTML = 'Upload';
     } else {
-      alert('An error occurred!');
+      uploadButton.innerHTML = 'Not Upload';
     }
   };
   // Send the Data.
-  xhr.send(formData);
-}*/
+  //console.log(oData)
+  xhr.send(oData);
+}, false);
 
 //<!-- /build -->
 
+/*
+var form = document.forms.namedItem("fileinfo");
+form.addEventListener('submit', function(ev) {
+
+  var
+      oData = new FormData(document.forms.namedItem("fileinfo"));
+
+  oData.append("CustomField", "This is some extra data");
+
+  var oReq = new XMLHttpRequest();
+  oReq.open("POST", "stash.php", true);
+  oReq.onload = function(oEvent) {
+    console.log(oEvent);
+  };
+
+  oReq.send(oData);
+  ev.preventDefault();
+}, false);
+*/
+
+
+//Like for songs (not finished)
+function prova(obj){
+  //console.log(obj)
+  if(obj.classList=="fa fa-star-o") {
+    obj.classList.remove('fa-star-o');
+    obj.classList.add('fa-star');
+  }
+  else{
+    obj.classList.remove('fa-star');
+    obj.classList.add('fa-star-o');
+  }
+  //console.log()
+}

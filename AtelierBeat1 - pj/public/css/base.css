@@ -656,6 +656,7 @@
       flex-wrap: wrap;
       position:relative;
       padding-bottom: 5px;
+      background: inherit;
     }
 
     .fl-tl-cell{
@@ -1438,5 +1439,3 @@ ul.grid-list > li{
 }
 
 /* ---------------- Autocomplete of artists and albums(Modal window) ---------------- */
-
-
