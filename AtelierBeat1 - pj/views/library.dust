@@ -112,10 +112,10 @@
                                                <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
                                                <datalist id="json-datalist2"></datalist>
 
-                                               <input type="file" id="mp3_file_toUpload" name="file" multiple />
-                                               <input type="submit" value="Stash the file!" id="upload_button" />
-                                               </form>
+                                               <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" multiple />
 
+                                               </form>
+                                               <button onclick="postSong()" value="Upload mp3" id="upload_button" type="submit">Upload</button>
                                               </div> <!-- #modal_window -->
                                               </div> <!-- #modal_wrapper -->
 

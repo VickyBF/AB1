@@ -291,7 +291,6 @@ function createHTMLLibrary(tracks){
 
 function bindTracksDelete(){
   var tracks = document.querySelectorAll(".fl-tl-delete a").firstC;
-  console.log(tracks)
 
   for (var elem = 0; elem < tracks.length; ++elem) {
     tracks[elem].onclick = deleteTrack;
@@ -1094,7 +1093,7 @@ function setupPlayer() {
         equalnewTrackList.push(lista[i]);
       }
       shuffle(equalnewTrackList);
-      console.log(newTrackList)
+      //console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
       //var muteButton = document.getElementById("mute");
@@ -1541,7 +1540,7 @@ input2.addEventListener("change", function(){
   }
 
 //Trying....
-
+/*
  var form = document.getElementById("modal_feedback");
  var fileSelect = document.getElementById("mp3_file_toUpload");
  var uploadButton = document.getElementById("upload_button");
@@ -1575,7 +1574,7 @@ form.addEventListener('submit', function(ev) {
   // Send the Data.
   //console.log(oData)
   xhr.send(oData);
-}, false);
+}, false);*/
 
 //<!-- /build -->
 
