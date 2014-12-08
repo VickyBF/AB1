@@ -1624,15 +1624,30 @@ form.addEventListener('submit', function(ev) {
 
 
 //Like for songs (not finished)
-function prova(obj){
-  //console.log(obj)
-  if(obj.classList=="fa fa-star-o") {
+function like(obj){
+  console.log(obj.name)
+  //console.log(obj.id.split("/")[1])
+  var trackID = obj.id.split("/")[1];
+  data={}
+
+  if(obj.name == "voted") { //Vote
+    obj.name = "nonVoted"
     obj.classList.remove('fa-star-o');
     obj.classList.add('fa-star');
+
+    data.vote = 1;
+    doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
+      console.log("You have successfully voted the song!")
+    })
   }
-  else{
+
+  else {                      //Undo the vote
+    obj.name="voted";
     obj.classList.remove('fa-star');
     obj.classList.add('fa-star-o');
+    data.vote = -1;
+    doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
+      console.log("You have successfully unvoted the song!")
+    })
   }
-  //console.log()
 }

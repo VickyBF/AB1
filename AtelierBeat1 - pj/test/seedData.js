@@ -278,7 +278,7 @@ var tracks = {
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
       "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
-      "vote"         : 0
+      "vote"         : 1
     },
 
     {
@@ -290,7 +290,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -302,7 +303,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -315,7 +317,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -328,7 +331,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -342,7 +346,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -356,7 +361,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -368,7 +374,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -380,7 +387,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -393,7 +401,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -408,7 +417,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -423,7 +433,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -438,7 +449,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -453,7 +465,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -468,7 +481,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -480,7 +494,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -492,7 +507,8 @@ var tracks = {
       "file"         : "tracks_folder/1.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 29 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 ///////////////////       Songs of Love You Live (Rolling Stones)   ////////////////////////
     {
@@ -504,7 +520,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -515,7 +532,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -527,7 +545,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -540,7 +559,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -554,7 +574,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -568,7 +589,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -582,7 +604,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -597,7 +620,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -611,7 +635,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -625,7 +650,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -640,7 +666,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -654,7 +681,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -666,7 +694,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -678,7 +707,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -690,7 +720,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -702,7 +733,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
     {
@@ -714,7 +746,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 ///////////////////       Songs of Live Licks (Rolling Stones)   ////////////////////////
     {
@@ -726,7 +759,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -737,7 +771,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -748,7 +783,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -759,7 +795,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -770,7 +807,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -781,7 +819,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -792,7 +831,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -803,7 +843,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -814,7 +855,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -825,7 +867,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -836,7 +879,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -847,7 +891,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -858,7 +903,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -869,7 +915,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -880,7 +927,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -891,7 +939,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -902,7 +951,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -913,7 +963,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -924,7 +975,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -935,7 +987,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -946,7 +999,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -957,7 +1011,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -973,7 +1028,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -984,7 +1040,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -995,7 +1052,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1006,7 +1064,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1017,7 +1076,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1028,7 +1088,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1039,7 +1100,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1050,7 +1112,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1061,7 +1124,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1072,7 +1136,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1083,7 +1148,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1094,7 +1160,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1105,7 +1172,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1116,7 +1184,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1127,7 +1196,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1138,7 +1208,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1149,7 +1220,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1160,7 +1232,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -1176,7 +1249,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1187,7 +1261,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1198,7 +1273,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1209,7 +1285,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1220,7 +1297,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1231,7 +1309,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1242,7 +1321,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1253,7 +1333,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1264,7 +1345,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1275,7 +1357,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -1289,7 +1372,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1300,7 +1384,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1311,7 +1396,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1322,7 +1408,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1333,7 +1420,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1344,7 +1432,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1355,7 +1444,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1366,7 +1456,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1377,7 +1468,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -1392,7 +1484,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1403,7 +1496,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1414,7 +1508,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1425,7 +1520,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1436,7 +1532,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1447,7 +1544,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1458,7 +1556,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1469,7 +1568,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1480,7 +1580,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1491,7 +1592,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1502,7 +1604,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1513,7 +1616,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 ///////////////////       Songs of Showbiz (7) (Muse - nr.2)   ////////////////////////
@@ -1527,7 +1631,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1538,7 +1643,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1549,7 +1655,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1560,7 +1667,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1571,7 +1679,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1582,7 +1691,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1593,7 +1703,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1604,7 +1715,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1615,7 +1727,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1626,7 +1739,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1637,7 +1751,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1648,7 +1763,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1659,7 +1775,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -1674,7 +1791,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1685,7 +1803,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1696,7 +1815,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1707,7 +1827,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1718,7 +1839,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1729,7 +1851,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1740,7 +1863,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1751,7 +1875,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1762,7 +1887,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1773,7 +1899,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1784,7 +1911,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1795,7 +1923,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -1811,7 +1940,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1822,7 +1952,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1833,7 +1964,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1844,7 +1976,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1855,7 +1988,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1866,7 +2000,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1877,7 +2012,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1888,7 +2024,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1899,7 +2036,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1910,7 +2048,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1921,7 +2060,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1932,7 +2072,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1943,7 +2084,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1954,7 +2096,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1965,7 +2108,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1976,7 +2120,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1987,7 +2132,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -1998,7 +2144,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2009,7 +2156,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2020,7 +2168,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2031,7 +2180,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -2046,7 +2196,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2057,7 +2208,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2068,7 +2220,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2079,7 +2232,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2090,7 +2244,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2101,7 +2256,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2112,7 +2268,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2123,7 +2280,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2134,7 +2292,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2145,7 +2304,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2156,7 +2316,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2167,7 +2328,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2178,7 +2340,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2189,7 +2352,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -2203,7 +2367,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2214,7 +2379,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2225,7 +2391,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2236,7 +2403,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2247,7 +2415,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2258,7 +2427,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2269,7 +2439,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2280,7 +2451,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2291,7 +2463,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2302,7 +2475,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2313,7 +2487,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2324,7 +2499,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -2338,7 +2514,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2349,7 +2526,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2360,7 +2538,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2371,7 +2550,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2382,7 +2562,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2393,7 +2574,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2404,7 +2586,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2415,7 +2598,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2426,7 +2610,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2437,7 +2622,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2448,7 +2634,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2459,7 +2646,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2470,7 +2658,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2481,7 +2670,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -2495,7 +2685,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2506,7 +2697,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2517,7 +2709,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2528,7 +2721,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2539,7 +2733,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2550,7 +2745,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2561,7 +2757,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2572,7 +2769,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -2586,7 +2784,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2597,7 +2796,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2608,7 +2808,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2619,7 +2820,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2630,7 +2832,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2641,7 +2844,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2652,7 +2856,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2663,7 +2868,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2674,7 +2880,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2685,7 +2892,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2696,7 +2904,8 @@ var tracks = {
       "file"         : "tracks_folder/2.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Apr 11 1988 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 ///////////////////       Songs of Dal Inferno (15) (Marco Mengoni - nr.3)   ////////////////////////
@@ -2710,7 +2919,8 @@ var tracks = {
       "file"         : "tracks_folder/3.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 ///////////////////       Songs of Sheer Heart Attack (16) (Queen - nr.4)   ////////////////////////
@@ -2725,7 +2935,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2736,7 +2947,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2747,7 +2959,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2758,7 +2971,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2769,7 +2983,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2780,7 +2995,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2791,7 +3007,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2802,7 +3019,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2813,7 +3031,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2824,7 +3043,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2835,7 +3055,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2846,7 +3067,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2857,7 +3079,8 @@ var tracks = {
       "file"         : "tracks_folder/4.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Sep 24 1990 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 ///////////////////       Songs of Return Of The Champions (17) (Queen - nr.4)   ////////////////////////
@@ -2871,7 +3094,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2882,7 +3106,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2893,7 +3118,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2904,7 +3130,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2915,7 +3142,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2926,7 +3154,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2937,7 +3166,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2948,7 +3178,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2959,7 +3190,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2970,7 +3202,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2981,7 +3214,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -2992,7 +3226,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3003,7 +3238,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3014,7 +3250,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3025,7 +3262,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3036,7 +3274,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3047,7 +3286,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3058,7 +3298,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3069,7 +3310,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3080,7 +3322,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3091,7 +3334,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3102,7 +3346,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3113,7 +3358,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3124,7 +3370,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3135,7 +3382,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3146,7 +3394,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3157,7 +3406,8 @@ var tracks = {
       "file"         : "tracks_folder/5.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Fri Jul 27 1984 00:00:00 GMT+0200 (CEST)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 
@@ -3173,7 +3423,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3184,7 +3435,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3195,7 +3447,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3206,7 +3459,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3217,7 +3471,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3228,7 +3483,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3239,7 +3495,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3250,7 +3507,8 @@ var tracks = {
       "file"         : "tracks_folder/6.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
 
 ///////////////////       Songs of Rock Montreal (19) (Queen - nr.4)   ////////////////////////
@@ -3264,7 +3522,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3275,7 +3534,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3286,7 +3546,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3297,7 +3558,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3308,7 +3570,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3319,7 +3582,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3330,7 +3594,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3341,7 +3606,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3352,7 +3618,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3363,7 +3630,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3374,7 +3642,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3385,7 +3654,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3396,7 +3666,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3407,7 +3678,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3418,7 +3690,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3429,7 +3702,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3440,7 +3714,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3451,7 +3726,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3462,7 +3738,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3473,7 +3750,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3484,7 +3762,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3495,7 +3774,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3506,7 +3786,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3517,7 +3798,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3528,7 +3810,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3539,7 +3822,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3550,7 +3834,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     },
     {
       "_id"          : ObjectId(),
@@ -3561,7 +3846,8 @@ var tracks = {
       "file"         : "tracks_folder/7.mp3",
       "id3Tags"      : "",
       "dateReleased" : "Mon Feb 24 1986 00:00:00 GMT+0100 (CET)",
-      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)"
+      "dateCreated"  : "Sat Sep 27 2014 10:26:46 GMT+0200 (CEST)",
+      "vote"         : 1
     }
   ]
 }

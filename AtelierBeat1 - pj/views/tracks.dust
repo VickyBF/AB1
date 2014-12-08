@@ -10,7 +10,7 @@
 	<div id="{_id}" class="fl-tl-row" draggable="true" ondragstart="drag(event)" ondblclick="PlaySelectedSong(this)" >
 		<div class="fl-tl-cell fl-tl-name">
 			<span href="tracks/{_id}">
-			<i id="icon/{_id}" class="fa fa-star-o" onclick="prova(this)" value=0>  </i>
+			<i id="icon/{_id}" class="fa fa-star-o" onclick="like(this)" name="nonVoted"></i>
 				{name}
 			</span>
 			<a class="edit-btn" href="#"><i class="fa fa-pencil fl-tl-pencil"></i></a>

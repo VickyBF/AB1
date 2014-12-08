@@ -115,7 +115,8 @@ router.put('/:trackid', function(req, res, next) {
         track.dateReleased = track.dateReleased;
 
       if(data.vote)
-        track.vote = data.vote;
+          track.vote = track.vote + data.vote;
+
       else
         track.vote = track.vote;
 
