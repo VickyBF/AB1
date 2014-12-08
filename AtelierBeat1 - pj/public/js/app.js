@@ -1519,84 +1519,108 @@ input2.addEventListener("change", function(){
   input2.dataset.albumId = el.id;
 
 });
-//Post the new song
-  var postSong = function(){
-      var artistId = input.dataset.artistId;
-      var albumId = input2.dataset.albumId;
-      var data = {};
-      doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-          data.artist = artist._id;
-          doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
-              data.album = album._id;
-              data.duration = 0;
-                  data.name =document.getElementById("setName").value;
-              data.file = document.getElementById("mp3_file_toUpload").files[0].name;
-              doJSONRequest("POST", "/tracks" , null, data, function(){
-                location.reload();
-                })
-            })
-    })
 
-  }
-
-//Trying....
-/*
  var form = document.getElementById("modal_feedback");
  var fileSelect = document.getElementById("mp3_file_toUpload");
- var uploadButton = document.getElementById("upload_button");
  var nm = document.getElementById("setName");
 
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
-  uploadButton.innerHTML="Uploading...";
-  //Get the selected files from the input
-  var f=ev.target;
+  var artistId = input.dataset.artistId;
+  var albumId = input2.dataset.albumId;
   var myfile = fileSelect.files[0];
-  var oData = new FormData(f);
-  oData.append('name',nm.value);
-  oData.append('ajax',input.value);
-  oData.append('ajax2', input2.value);
-  oData.append("file",myfile);
+  var oData = new FormData();
 
+  if(artistId && albumId){ // Upload the song if both artist and album exist
+    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+      oData.append("artist",artist._id );
 
-  var xhr = new XMLHttpRequest();
-  // Open the connection.
-  xhr.open('POST', "/tracks", true);
-  // Set up a handler for when the request finishes.
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      // File(s) uploaded.
-      uploadButton.innerHTML = 'Upload';
-    } else {
-      uploadButton.innerHTML = 'Not Upload';
-    }
-  };
-  // Send the Data.
-  //console.log(oData)
-  xhr.send(oData);
-}, false);*/
+      doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+        oData.append("album", album._id);
+        oData.append('name',nm.value);
+        oData.append("duration",0);
+        oData.append("file",myfile, myfile.name);//multer
+        oData.append("file", myfile.name);//field
 
-//<!-- /build -->
+        var xhr = new XMLHttpRequest();
+        // Open the connection.
+        xhr.open('POST', "/tracks", true);
+        // Set up a handler for when the request finishes.
+        xhr.onload = function () {
+          if (xhr.status === 201) {
+            console.log("Upload done!");
+          }
+        };
+        // Send the Data.
+        xhr.send(oData);
+      })
 
-/*
-var form = document.forms.namedItem("fileinfo");
-form.addEventListener('submit', function(ev) {
+    });
+  }
+  else if(!artistId){ //Create artist, album and then upload the song
+    data={};
+    data.name=input.value;
+    data2={};
+    data2.name=input2.value;
+    doJSONRequest("POST", "/artists/", null, data, function(artist){
+      oData.append("artist",artist._id );
+      data2.artist=artist._id;
 
-  var
-      oData = new FormData(document.forms.namedItem("fileinfo"));
+      doJSONRequest("POST", "/albums/", null, data2, function(album){
+      //doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
 
-  oData.append("CustomField", "This is some extra data");
+        oData.append("album", album._id);
+        oData.append('name',nm.value);
+        oData.append("duration",0);
+        oData.append("file",myfile, myfile.name);//multer
+        oData.append("file", myfile.name);//field
 
-  var oReq = new XMLHttpRequest();
-  oReq.open("POST", "stash.php", true);
-  oReq.onload = function(oEvent) {
-    console.log(oEvent);
-  };
+        var xhr = new XMLHttpRequest();
+        // Open the connection.
+        xhr.open('POST', "/tracks", true);
+        // Set up a handler for when the request finishes.
+        xhr.onload = function () {
+          if (xhr.status === 201) {
+            console.log("Upload done!");
+          }
+        };
+        // Send the Data.
+        xhr.send(oData);
+      })
 
-  oReq.send(oData);
-  ev.preventDefault();
+    });
+  }
+  else if(!albumId){ // Create the album and then upload the song.
+    data={};
+    data.name=input2.value;
+    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
+      oData.append("artist",artist._id );
+      data.artist=artist._id;
+      doJSONRequest("POST", "/albums/", null, data, function(album){
+
+        oData.append("album", album._id);
+        oData.append('name',nm.value);
+        oData.append("duration",0);
+        oData.append("file",myfile, myfile.name);//multer
+        oData.append("file", myfile.name);//field
+
+        var xhr = new XMLHttpRequest();
+        // Open the connection.
+        xhr.open('POST', "/tracks", true);
+        // Set up a handler for when the request finishes.
+        xhr.onload = function () {
+          if (xhr.status === 201) {
+            console.log("Upload done!");
+          }
+        };
+        // Send the Data.
+        xhr.send(oData);
+      })
+
+    });
+  }
+
 }, false);
-*/
 
 
 //Like for songs (not finished)
