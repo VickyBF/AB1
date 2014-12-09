@@ -1509,13 +1509,13 @@ var input2 = document.getElementById('ajax2');
 
 input.addEventListener("change", function(){
   var el = document.querySelector("#json-datalist option[value='" + input.value + "']");
-  console.log(el.id);  //the user sees the name while the server get the ID
+  //console.log(el.id);  //the user sees the name while the server get the ID
   input.dataset.artistId = el.id;
 
 });
 input2.addEventListener("change", function(){
   var el = document.querySelector("#json-datalist2 option[value='" + input2.value + "']");
-  console.log(el.id); //the user sees the name while the server get the ID
+  //console.log(el.id); //the user sees the name while the server get the ID
   input2.dataset.albumId = el.id;
 
 });
@@ -1527,16 +1527,14 @@ input2.addEventListener("change", function(){
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
   var artistId = input.dataset.artistId;
+  console.log(artistId)
   var albumId = input2.dataset.albumId;
   var myfile = fileSelect.files[0];
   var oData = new FormData();
 
   if(artistId && albumId){ // Upload the song if both artist and album exist
-    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-      oData.append("artist",artist._id );
-
-      doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
-        oData.append("album", album._id);
+        oData.append("artist",artistId );
+        oData.append("album", albumId);
         oData.append('name',nm.value);
         oData.append("duration",0);
         oData.append("file",myfile, myfile.name);//multer
@@ -1553,9 +1551,7 @@ form.addEventListener('submit', function(ev) {
         };
         // Send the Data.
         xhr.send(oData);
-      })
 
-    });
   }
   else if(!artistId){ //Create artist, album and then upload the song
     data={};
@@ -1567,7 +1563,7 @@ form.addEventListener('submit', function(ev) {
       data2.artist=artist._id;
 
       doJSONRequest("POST", "/albums/", null, data2, function(album){
-      //doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+        //doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
 
         oData.append("album", album._id);
         oData.append('name',nm.value);
@@ -1593,11 +1589,9 @@ form.addEventListener('submit', function(ev) {
   else if(!albumId){ // Create the album and then upload the song.
     data={};
     data.name=input2.value;
-    doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-      oData.append("artist",artist._id );
+      oData.append("artist",artistId);
       data.artist=artist._id;
       doJSONRequest("POST", "/albums/", null, data, function(album){
-
         oData.append("album", album._id);
         oData.append('name',nm.value);
         oData.append("duration",0);
@@ -1617,21 +1611,19 @@ form.addEventListener('submit', function(ev) {
         xhr.send(oData);
       })
 
-    });
   }
-
+  document.getElementById("modal_close").click();
 }, false);
-
 
 //Like for songs (not finished)
 function like(obj){
-  console.log(obj.name)
+  console.log(obj.value);
   //console.log(obj.id.split("/")[1])
   var trackID = obj.id.split("/")[1];
-  data={}
+  data={};
 
-  if(obj.name == "voted") { //Vote
-    obj.name = "nonVoted"
+  if(obj.value == "voted") { //Vote
+    obj.value = "nonVoted";
     obj.classList.remove('fa-star-o');
     obj.classList.add('fa-star');
 
@@ -1642,7 +1634,7 @@ function like(obj){
   }
 
   else {                      //Undo the vote
-    obj.name="voted";
+    obj.value="voted";
     obj.classList.remove('fa-star');
     obj.classList.add('fa-star-o');
     data.vote = -1;
