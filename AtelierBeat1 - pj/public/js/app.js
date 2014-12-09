@@ -277,7 +277,7 @@ function createHTMLLibrary(tracks){
     var artist = findOne(model.artists, "_id", track.artist);
     var album = findOne(model.albums, "_id", track.album);
 
-    newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true" ondragstart="drag(event)">';
+    newHtml+= '<div id="'+ track._id +'"" class="fl-tl-row" draggable="true" ondragstart="drag(event)" ondblclick="PlaySelectedSong(this) >';
     newHtml+= '<div class="fl-tl-cell fl-tl-name"><a href="#">'+ track.name + '</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-artist"><a href="artists/'+ encodeURI(artist.name)+ '">'+ artist.name +'</a></div>\n';
     newHtml+= '<div class="fl-tl-cell fl-tl-album"><a href="albums/'+ encodeURI(album.name)+ '">'+ album.name +'</a></div>\n';
@@ -1075,20 +1075,22 @@ function appendNewPlaylistToMenu(pl){
 *
 * - When a track finishes your player should play the next one
 */
+var newTrackList =[]
+var equalnewTrackList=[]
+var counter=0;
+var initPlaymode = "Sequential";
 
-document.getElementById("playMode").addEventListener('click', setupMode(),true );
 function setupPlayer() {
-  var counter=0;
-
 
   if (! document.getElementsByTagName('audio')[0]) {  //Cretate the list of tracks
 
     doJSONRequest("GET", "/tracks", null, null, setList);
     function setList(lista){
-      var newTrackList =[]
       for (var i= 0;i < lista.length; i++){
         newTrackList.push(lista[i]);
+        equalnewTrackList.push(lista[i]);
       }
+      shuffle(equalnewTrackList);
       //console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
@@ -1116,6 +1118,19 @@ function setupPlayer() {
       var artist_of_song = document.getElementById("album_of_song");
       //console.log(image.style.backgroundImage);
 
+      //Setup player situation: album, title and image
+      function setUpTitleStuff(tracklist) {
+        title.innerHTML = tracklist[counter].name;
+        var new_image = tracklist[counter].album.artwork;
+        image.style.backgroundImage = "url(" + new_image + ")";
+        var id_of_artist = tracklist[counter].artist._id;
+        doJSONRequest("GET", "/artists/" + id_of_artist, null, null, function (artist) {
+          artist_of_song.innerHTML = artist.name;
+        });
+      }
+
+      setUpTitleStuff(newTrackList);
+
       // Audio element
       var audio = document.createElement('audio');
       audio.addEventListener("loadedmetadata", function () {
@@ -1125,52 +1140,88 @@ function setupPlayer() {
         //set volume
         volumeBar.style.width = (audio.volume * 100) + "%";
       })
-      setSong(0, newTrackList,audio);
+      //setSong(0, newTrackList,audio);
       document.body.appendChild(audio);
 
       audio.addEventListener("ended", function () {
-        if (!newTrackList[counter]) {
+        var oldCounter = counter; //Otherwise the new played song won't we blue but grey
+        if (!newTrackList[counter+1]) {
           counter = 0;
         }
         else {
           counter++;
         }
-        setSong(counter, newTrackList, audio);
+        setSong(counter, newTrackList,equalnewTrackList, audio);
         audio.play();
         //console.log(newTrackList[counter].name);
-        title.innerHTML = newTrackList[counter].name;
-        //console.log(newTrackList[counter].album.artwork)
-        var new_image = newTrackList[counter].album.artwork;
-        image.style.backgroundImage = "url(" + new_image + ")";
-        //artist_of_song.innerHTML=;
-        //console.log(newTrackList[counter].artist._id)
-        var id_of_artist = newTrackList[counter].artist._id;
-        doJSONRequest("GET", "/artists/" + id_of_artist, null, null, function (artist) {
-          artist_of_song.innerHTML = artist.name;
 
-        });
+        if(initPlaymode == "Sequential"){
+          setUpTitleStuff(newTrackList)
+          document.getElementById(newTrackList[oldCounter]._id).style.background ='#d9d9d9'; //old/finished song becomes grey
+        }
+        else{
+          setUpTitleStuff(equalnewTrackList)
+          document.getElementById(equalnewTrackList[oldCounter]._id).style.background ='#d9d9d9';
+        }
+
       })
 
       // Event listener for the play/pause button
       playButton.addEventListener("click", function () {
-            if (audio.paused == true) {
-              // Play the track
-              audio.play();
+        //console.log(counter)
+        if(initPlaymode == "Sequential"){
+          setUpTitleStuff(newTrackList)
+        }
+        else{
+          setUpTitleStuff(equalnewTrackList)
+        }
+        if (audio.paused == true) {
+          setSong(counter, newTrackList,equalnewTrackList,audio);
+          // Play the track
+          audio.play();
 
-              // Update the button icon to 'Pause'
-              playButton.classList.remove('fa-play')
-              playButton.classList.add('fa-pause')
-            } else {
-              // Pause the track
-              audio.pause();
+          // Update the button icon to 'Pause'
+          playButton.classList.remove('fa-play');
+          playButton.classList.add('fa-pause');
+          playButton.value="clicked"
+        } else {
+          // Pause the track
+          audio.pause();
 
-              // Update the button icon to 'Play'
-              playButton.classList.remove('fa-pause')
-              playButton.classList.add('fa-play')
-            }
+          // Update the button icon to 'Play'
+          playButton.classList.remove('fa-pause');
+          playButton.classList.add('fa-play');
+          playButton.value="unclicked";
+          if(initPlaymode == "Sequential"){
+            document.getElementById(newTrackList[counter]._id).style.background ='#d9d9d9';
+          }
+          else{
+            document.getElementById(equalnewTrackList[counter]._id).style.background ='#d9d9d9';
+          }
 
-            //title
+        }
+      });
 
+      playMode.addEventListener("click", function (){
+        var oldCounter = counter;
+        if (initPlaymode == "Sequential") {
+          initPlaymode = "Random";
+          playMode.classList.remove('fa-refresh');
+          playMode.classList.add('fa-random');
+          document.getElementById(newTrackList[oldCounter]._id).style.background ='#d9d9d9';
+        }
+        else {
+          initPlaymode = "Sequential";
+          playMode.classList.remove('fa-random');
+          playMode.classList.add('fa-refresh');
+          document.getElementById(equalnewTrackList[oldCounter]._id).style.background ='#d9d9d9';
+        }
+        counter = 0;
+        var i=0;
+        for (var i= 0;i < newTrackList.length; i++){ //reset table with original color
+          document.getElementById(newTrackList[i]._id).style.background ='#f5f5f5';
+        }
+        //console.log(counter)
       });
 
       // Event listener for the seek bar
@@ -1224,10 +1275,16 @@ function setupPlayer() {
       next.addEventListener("click", function (evt) {
         counter++;
         if (newTrackList[counter]){
-          setSong(counter, newTrackList,audio) ;
+          setSong(counter, newTrackList,equalnewTrackList,audio) ;
         }
         else{
-          setSong(0, newTrackList,audio);
+          setSong(0, newTrackList,equalnewTrackList,audio);
+        }
+        if(initPlaymode == "Sequential"){
+          setUpTitleStuff(newTrackList)
+        }
+        else{
+          setUpTitleStuff(equalnewTrackList)
         }
       });
 
@@ -1235,48 +1292,68 @@ function setupPlayer() {
       previous.addEventListener("click", function (evt) {
         counter--;
         if (newTrackList[counter]){
-          setSong(counter, newTrackList,audio);
+          setSong(counter, newTrackList,equalnewTrackList,audio);
         }
         else{
-          setSong(0, newTrackList,audio);
+          setSong(0, newTrackList,equalnewTrackList,audio);
+        }
+        if(initPlaymode == "Sequential"){
+          setUpTitleStuff(newTrackList)
+        }
+        else{
+          setUpTitleStuff(equalnewTrackList)
         }
       });
+
+      function shuffle(o){ //to shuffle an array
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+      };
+
+      function setSong(i, tracklist,shuffled,audio){
+        //Song to be played
+        if(initPlaymode == "Sequential"){
+          audio.src=tracklist[i].file;
+          document.getElementById(tracklist[i]._id).style.background ='#3B79FF';
+          return audio.src;
+        }
+        else {
+          audio.src = shuffled[i].file;
+          document.getElementById(shuffled[i]._id).style.background ='#3B79FF';
+          return audio.src;
+        }
+
+      }
+
     }
   }
 }
-function shuffle(o){ //to shuffle an array
-  for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-  return o;
-};
 
-function setSong(i, tracklist,audio){
-  //Song to be played
-  if(document.getElementById("playMode").value=='sequential'){
-    audio.src=tracklist[i].file;
+function PlaySelectedSong(object){
+  //console.log(object.id)
+  if(initPlaymode == "Sequential"){
+    document.getElementById(newTrackList[counter]._id).style.background ='#d9d9d9';
   }
   else{
-    tracklist = shuffle(tracklist)
-    audio.src=tracklist[i].file;
+    document.getElementById(equalnewTrackList[counter]._id).style.background ='#d9d9d9';
+  }
+  var trackID=object.id;
+  for(var i= 0;i < newTrackList.length; i++){
+    //console.log(newTrackList[i]._id)
+    if(newTrackList[i]._id==trackID){
+      counter = newTrackList.indexOf(newTrackList[i]);
+      //console.log(counter)
+      if(document.getElementById("play-pause").value=="unclicked"){
+        document.getElementById("play-pause").click();
+      }
+      else{
+        document.getElementById("play-pause").click(); //we need to stop it and then make it play again otherwise just stop the play
+        document.getElementById("play-pause").click();
+      }
+
+    }
   }
 
-}
-function setupMode(){
-  var initial_state = "Sequential";
-  var x = function player_toggle() {
-    if (initial_state == "Sequential") {
-      initial_state = "Random";
-      playMode.classList.remove('fa-refresh');
-      playMode.classList.add('fa-random');
-      playMode.value="random";
-    }
-    else {
-      initial_state = "Sequential";
-      playMode.classList.remove('fa-random');
-      playMode.classList.add('fa-refresh');
-      playMode.value='sequential';
-    }
-  };
-  return x;
 }
 
 /*--------------- Modal Window---------------*/
@@ -1353,9 +1430,8 @@ var loadArtist = function(){
           dataList.appendChild(option);
         });
 
-
         // Update the placeholder text.
-        input.placeholder = "e.g. datalist";
+        input.placeholder = "Datalist";
       } else {
         // An error occured :(
         input.placeholder = "Couldn't load datalist options :(";
@@ -1373,7 +1449,7 @@ var loadArtist = function(){
 }
 var loadAlbums = function(){
   var dataList = document.getElementById('json-datalist2');
-  var input = document.getElementById('ajax');
+  var input = document.getElementById('ajax2');
 // Create a new XMLHttpRequest.
   var request = new XMLHttpRequest();
 
@@ -1431,74 +1507,137 @@ var input2 = document.getElementById('ajax2');
 
 input.addEventListener("change", function(){
   var el = document.querySelector("#json-datalist option[value='" + input.value + "']");
-  console.log(el.id);  //the user sees the name while the server get the ID
+  //console.log(el.id);  //the user sees the name while the server get the ID
   input.dataset.artistId = el.id;
 
 });
 input2.addEventListener("change", function(){
   var el = document.querySelector("#json-datalist2 option[value='" + input2.value + "']");
-  console.log(el.id); //the user sees the name while the server get the ID
+  //console.log(el.id); //the user sees the name while the server get the ID
   input2.dataset.albumId = el.id;
 
 });
-//Post the new song
-  var postSong = function(){
-      var artistId = input.dataset.artistId;
-      var albumId = input2.dataset.albumId;
-      var data = {};
-      doJSONRequest("GET", "/artists/" + artistId , null, null, function(artist){
-          data.artist = artist._id;
-          doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
-              data.album = album._id;
-              data.duration = 0;
-                  data.name =document.getElementById("setName").value;
-              data.file = document.getElementById("mp3_file_toUpload").files[0].name;
-              doJSONRequest("POST", "/tracks" , null, data, function(){
-                location.reload();
-                })
-            })
+
+var form = document.getElementById("modal_feedback");
+var fileSelect = document.getElementById("mp3_file_toUpload");
+var nm = document.getElementById("setName");
+
+form.addEventListener('submit', function(ev) {
+  ev.preventDefault();
+  var artistId = input.dataset.artistId;
+  console.log(artistId)
+  var albumId = input2.dataset.albumId;
+  var myfile = fileSelect.files[0];
+  var oData = new FormData();
+
+  if(artistId && albumId){ // Upload the song if both artist and album exist
+    oData.append("artist",artistId );
+    oData.append("album", albumId);
+    oData.append('name',nm.value);
+    oData.append("duration",0);
+    oData.append("file",myfile, myfile.name);//multer
+    oData.append("file", myfile.name);//field
+
+    var xhr = new XMLHttpRequest();
+    // Open the connection.
+    xhr.open('POST', "/tracks", true);
+    // Set up a handler for when the request finishes.
+    xhr.onload = function () {
+      if (xhr.status === 201) {
+        console.log("Upload done!");
+      }
+    };
+    // Send the Data.
+    xhr.send(oData);
+
+  }
+  else if(!artistId){ //Create artist, album and then upload the song
+    data={};
+    data.name=input.value;
+    data2={};
+    data2.name=input2.value;
+    doJSONRequest("POST", "/artists/", null, data, function(artist){
+      oData.append("artist",artist._id );
+      data2.artist=artist._id;
+
+      doJSONRequest("POST", "/albums/", null, data2, function(album){
+        //doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
+
+        oData.append("album", album._id);
+        oData.append('name',nm.value);
+        oData.append("duration",0);
+        oData.append("file",myfile, myfile.name);//multer
+        oData.append("file", myfile.name);//field
+
+        var xhr = new XMLHttpRequest();
+        // Open the connection.
+        xhr.open('POST', "/tracks", true);
+        // Set up a handler for when the request finishes.
+        xhr.onload = function () {
+          if (xhr.status === 201) {
+            console.log("Upload done!");
+          }
+        };
+        // Send the Data.
+        xhr.send(oData);
+      })
+
+    });
+  }
+  else if(!albumId){ // Create the album and then upload the song.
+    data={};
+    data.name=input2.value;
+    oData.append("artist",artistId);
+    data.artist=artist._id;
+    doJSONRequest("POST", "/albums/", null, data, function(album){
+      oData.append("album", album._id);
+      oData.append('name',nm.value);
+      oData.append("duration",0);
+      oData.append("file",myfile, myfile.name);//multer
+      oData.append("file", myfile.name);//field
+
+      var xhr = new XMLHttpRequest();
+      // Open the connection.
+      xhr.open('POST', "/tracks", true);
+      // Set up a handler for when the request finishes.
+      xhr.onload = function () {
+        if (xhr.status === 201) {
+          console.log("Upload done!");
+        }
+      };
+      // Send the Data.
+      xhr.send(oData);
     })
 
   }
+  document.getElementById("modal_close").click();
+}, false);
 
-//Trying....
-/*
- //var form = document.getElementById("modal_feedback");
- //var fileSelect = document.getElementById("mp3_file_toUpload");
- //var uploadButton = document.getElementById("upload_button");
+//Like for songs (not finished)
+function like(obj){
+  console.log(obj.value);
+  //console.log(obj.id.split("/")[1])
+  var trackID = obj.id.split("/")[1];
+  data={};
 
-form.onsubmit=function(e){
-  e.preventDefault();
-  uploadButton.innerHTML="Uploading...";
-  //Get the selected files from the input
-  var files = fileSelect.files;
-  // Create a new FormData object.
-  var formData = new FormData();
+  if(obj.value == "voted") { //Vote
+    obj.value = "nonVoted";
+    obj.classList.remove('fa-star-o');
+    obj.classList.add('fa-star');
 
-  // Loop through each of the selected files.
-  for (var i = 0; i < files.length; i++) {
-    var file = files[i];
-    formData.append('mp3_file_toUpload[]', file);
-    console.log(formData);
+    data.vote = 1;
+    doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
+      console.log("You have successfully voted the song!")
+    })
   }
-    // Files
-     //formData.append(name, file);
-  // Set up the request.
-  var xhr = new XMLHttpRequest();
-  // Open the connection.
-  xhr.open('POST', "/tracks", true);
-  // Set up a handler for when the request finishes.
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      // File(s) uploaded.
-      uploadButton.innerHTML = 'Upload';
-    } else {
-      alert('An error occurred!');
-    }
-  };
-  // Send the Data.
-  xhr.send(formData);
-}*/
 
-//<!-- /build -->
-
+  else {                      //Undo the vote
+    obj.value="voted";
+    obj.classList.remove('fa-star');
+    obj.classList.add('fa-star-o');
+    data.vote = -1;
+    doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
+      console.log("You have successfully unvoted the song!")
+    })
+  }
+}

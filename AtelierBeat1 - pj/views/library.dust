@@ -96,32 +96,28 @@
                             </div>
 
                        <div id="modal_wrapper">
-                                              <div id="modal_window">
-                                              <div style="text-align: right;"><a id="modal_close" href="#">x</a></div>
+                                                                     <div id="modal_window">
+                                                                     <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
 
-                                              <p>Complete the form below to upload a Track:</p>
+                                                                     <p>Complete the form below to upload a Track:</p>
 
-                                              <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
+                                                                     <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
 
-                                              <p><label>Name<strong>*</strong><br>
-                                              <input type="text" id="setName" size="27" name="name" value="" ></label></p>
-                                               <p><label>Artist<strong>*</strong><br>
-                                               <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist"></label></p>
-                                               <datalist id="json-datalist"></datalist>
-                                               <p><label>Album<strong>*</strong><br>
-                                               <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
-                                               <datalist id="json-datalist2"></datalist>
+                                                                     <p><label>Name<strong>*</strong><br>
+                                                                     <input type="text" id="setName" size="27" name="name" value="" ></label></p>
+                                                                      <p><label>Artist<strong>*</strong><br>
+                                                                      <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist"></label></p>
+                                                                      <datalist id="json-datalist"></datalist>
+                                                                      <p><label>Album<strong>*</strong><br>
+                                                                      <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
+                                                                      <datalist id="json-datalist2"></datalist>
 
-                                               <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" multiple />
+                                                                      <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" />
+                                                                      <input class="upload" type="submit" name="bla"/>
+                                                                      </form>
 
-
-
-                                               </form>
-                                               <div class = "upload">
-                                               <button onclick="postSong()" value="Upload mp3" id="upload_button">Upload</button>
-                                               </div>
-                                              </div> <!-- #modal_window -->
-                                              </div> <!-- #modal_wrapper -->
+                                                                     </div> <!-- #modal_window -->
+                                                                     </div> <!-- #modal_wrapper -->
 
                       </div>
 
@@ -149,10 +145,6 @@
   <script src="views/views.js"></script>
   <script src="js/ajax.js"></script>
   <script src="js/app.js"></script>
-
-
-/* ---------------- Autocomplete of artists(Modal window) ---------------- */
-
 
 </body>
 </html>

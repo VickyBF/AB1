@@ -7,9 +7,10 @@
 		<div class="fl-tl-th fl-tl-delete"></div>
 	</div>
 	{#tracks}
-	<div id="{_id}" class="fl-tl-row" draggable="true" ondragstart="drag(event)">
+	<div id="{_id}" class="fl-tl-row" draggable="true" ondragstart="drag(event)" ondblclick="PlaySelectedSong(this)" >
 		<div class="fl-tl-cell fl-tl-name">
 			<span href="tracks/{_id}">
+			<i id="icon/{_id}" class="fa fa-star-o" onclick="like(this)" value="nonVoted"></i>
 				{name}
 			</span>
 			<a class="edit-btn" href="#"><i class="fa fa-pencil fl-tl-pencil"></i></a>
@@ -25,7 +26,4 @@
 	</div>
 	{/tracks}
 </section>
-
-
-
 

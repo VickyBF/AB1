@@ -31,7 +31,8 @@ var trackSchema = new mongoose.Schema(
   album : { type: ObjectId, ref:'Album' },
   id3Tags : { type: Array, default:[]},
   dateReleased : { type: String, default: Date.now },
-  dateCreated : { type: String, default: Date.now }
+  dateCreated : { type: String, default: Date.now },
+  vote: {type: Number, default:0}
 }
 
 );
