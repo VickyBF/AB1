@@ -27,8 +27,8 @@
           <li><a href="library.html"><i class="nav-menu-icon glyphicon glyphicon-music"></i> Tracks</a></li>
           <li><a href="artists.html"><i class="nav-menu-icon fa fa-users"></i> Artists</a></li>
           <li><a href="albums.html"><i class="nav-menu-icon icons8-music-record"></i> Albums</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
+          <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
+          <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
         <div class = "buttons">
        <button id="modal_open" type="button"> Add Track</button>
@@ -124,7 +124,7 @@
        <div id = "loguser">
         <ul class="nav-menu vertical-menu float-right clearfix">
           <li><a href="#">username</a></li>
-          <li><a href="#">logout</a></li>
+          <li><a href="/">logout</a></li>
         </ul>
        </div>
       </nav>

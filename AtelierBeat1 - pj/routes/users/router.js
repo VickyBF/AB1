@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var User = mongoose.model('User');
 var config = require("../../config");
+var passport = require('passport')
 
 //fields we don't want to show to the client
 var fieldsFilter = { 'password': 0, '__v': 0 };
@@ -31,7 +32,6 @@ router.get('/', function(req, res, next) {
 
 //create new user
 router.post('/', function(req, res, next) {
-
     var newUser = new User(req.body);
     newUser.save(onModelSave(res, 201, true));
 });
@@ -152,7 +152,7 @@ function onModelSave(res, status, sendItAsResponse){
       delete obj.__v;
       addLinks(obj);
       res.status(statusCode)
-      return res.json(obj);
+      return res.render('login');
     }else{
       return res.status(statusCode).end();
     }

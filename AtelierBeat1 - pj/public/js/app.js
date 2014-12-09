@@ -1,7 +1,9 @@
 /* Setup on Page Load */
 //<!-- build:remove -->
 window.onload = function(){
-
+    if(document.getElementById("Firstname")){
+        enable();
+    } else {
   bindMenu();
 
   updatePage();
@@ -12,7 +14,18 @@ window.onload = function(){
   loadAlbums();
 
   bindPLTracksDelete();
+    }
+}
 
+
+function goLogout(){
+    window.location = "/";
+}
+
+function enable(){
+    var password = document.getElementById("password");
+    var repeat = document.getElementById("repeat");
+    document.getElementById("btnPlaceOrder").disabled = password.value !== repeat.value;
 }
 
 function bindMenu(){
@@ -870,9 +883,37 @@ function findOne(arr, prop, val){
 }
 }
 
-/* Search */
+// delete playlist
+var delpl = document.getElementsByClassName("del-pl-btn");
 
-/* Playlist: Not working after the switch to AJAX */
+function allStorage(){
+
+    var archive = [],
+        keys = Object.keys(localStorage),
+        i = 0;
+
+    for (; i < keys.length; i++) {
+        archive.push( localStorage.getItem(keys[i]) );
+    }
+    console.log(archive)
+    return archive;
+}
+
+
+function deletePlaylist() {
+    console.log("going to del")
+    console.log(localStorage.playlists)
+
+
+};
+
+
+
+
+// end detele playlist
+
+
+
 function setupPlaylists(){
   loadPlaylistsFromLocalStorage();
   var createPlBtn = document.getElementById("create-pl-btn");
@@ -1036,7 +1077,7 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '    <a class="pl-name" data-for="' + id + '" href="playlists/' + encodeURI(name) + '">';
   newHtml += '      <i class="nav-menu-icon fa fa-bars"></i>' + name;
   newHtml += '    </a>';
-  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a><a class="del-pl-btn" href="#"><img src="./images/trash48.jpg" style="width:20px;height:20px"></x></a>';
+  newHtml += '    <a class="edit-btn" data-for="' + id + '" href="#"><i class="fa fa-pencil"></i></a><a class="del-pl-btn" onclick= deletePlaylist()><img src="./images/trash48.jpg" style="width:20px;height:20px"></x></a>';
   newHtml += '    <input  class="pl-name-input" name="' + id + '" type="text" value="' + name + '">';
   newHtml += '  </li>';
   document.getElementById('playlists').innerHTML += newHtml;
