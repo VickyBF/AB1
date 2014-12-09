@@ -224,6 +224,8 @@
     outline: 0;
   }
 
+
+
   a.beats{
     color: #d9d9d9;
   }
@@ -237,12 +239,12 @@
     margin-bottom: 50px;
     width:100%;
     text-align: center;
-    font-size: 58px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",  Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 57px;
+    font-family: "Myriad"
     text-transform: uppercase;
-    font-weight: 300;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
-    font-style: italic;
+    font-weight: 200;
+    text-shadow: 1px 1px 0 rgba(248, 248, 248, 0.50);
+
   }
 
   .text-muted, .text-muted a, a.text-muted{
@@ -257,7 +259,7 @@
   }
 
   .login .slogan{
-    color: #000000;
+    color: #3b7cff;
   }
 
   /* Unprefixed pulse class. Prefixed is below */
@@ -381,7 +383,7 @@
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.33;
-    border-radius: 6px;
+    border-radius: 15px;
   }
 
   .btn-block {
@@ -423,8 +425,8 @@
 
   .btn-beats:hover, .btn-beats:focus, .btn-beats:active, .btn-beats.active {
     color: #fff;
-    background-color: #d9d9d9;
-    border-color: #0b4bd0;
+    background-color: #3b7cff;
+    border-color: #d9d9d9;
   }
 
   .btn-icon:hover, .btn-icon:focus, .btn-icon.active{
@@ -850,7 +852,7 @@
     padding: 12px 24px;
     font-size: 20px;
     line-height: 1.42857143;
-    border-radius: 4px;
+    border-radius: 37px;
   }
 
   input[type="text"].form-stacked:first-of-type,
