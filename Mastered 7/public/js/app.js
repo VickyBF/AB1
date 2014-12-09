@@ -3,52 +3,14 @@
 window.onload = function(){
   if (document.getElementById("Firstname")){
       enable();
-      //setuplogin();
   }else{
   bindMenu();
-
-  //updatePage();
-  //setupPlayer();
-
-  //setupPlaylists();
-  //setupSearch();
+  updatePage();
+  setupPlayer();
+  setupPlaylists();
+  setupSearch();
   }
 };
-
-
-//function setuplogin(){
-//        var userName = document.getElementById("username").value;
-//        var password = document.getElementById("password").value;
-//        var data = {
-//            userName : userName,
-//            password : password
-//        };
-//        doJSONRequest("POST", "/users/", null, data, function(){
-//            document.location = location.location;
-//        });
-//}
-//
-//function validation(){
-//    var userName_login = document.getElementById("username_login").value;
-//    var password_login = document.getElementById("password_login").value;
-//    var data = {
-//        userName : userName_login,
-//        password : password_login
-//    };
-//    doJSONRequest("GET", "/users", null, data, function(users){
-//            for (var key in users) {
-//                if ((data.userName != "") && (data.password != "")){
-//                    if (users[key].userName === data.userName) {
-//                        //if(users.password == data.password){
-//                            window.location = "/library";
-//                        //}
-//                    }else{
-//                        window.location = "/"
-//                    }
-//                }
-//            }
-//        }
-//    )}
 
 function enable(){
     var password = document.getElementById("password");

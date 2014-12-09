@@ -19,8 +19,7 @@ passport.use(new LocalStrategy({
 
     },
     function(username, password, done) {
-        console.log(password);
-        User.findOne({ userName: username }, function (err, user) {
+        User.findOne({userName: username}, function (err, user) {
             if (err) { return done(err); }
             // Return an error as in Node
             if (!user) {
@@ -35,14 +34,12 @@ passport.use(new LocalStrategy({
                     return done(null, false, {message:"Incorrect password! "})
                 }
             });
-            return done(null, user);
-            //If the credentials are valid, the callback invokes Passport with the user that authenticated
         });
     }
 ));
 
-passport.serializeUser(function(user, done) {
-    done(null, user._id);
+passport.serializeUser(function(users, done) {
+    done(null, 0);
     // Invoke passport with user._id authenticated
 });
 
@@ -89,7 +86,6 @@ app.use('/signup', routers.signup);
 app.use('/library', routers.library);
 app.get('/login',function(req,res){
     res.render('login')
-
 });
 
 app.post('/login',

@@ -52,7 +52,6 @@ userSchema.pre('save', function (next) {
 
 userSchema.pre('save', function(next) {
     var user = this;
-
     // return if the password was not modified.
     if (!user.isModified('password')) { return next(); }
 
@@ -71,7 +70,6 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.isValidPassword = function isValidPassword(candidate, callback) {
     bcrypt.compare(candidate, this.password, function onPwdCompare(err, isMatch) {
-
         if (err) {
             return callback(err);
         }
