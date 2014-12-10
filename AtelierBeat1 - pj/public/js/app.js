@@ -22,6 +22,13 @@ function goLogout(){
     window.location = "/";
 }
 
+function showDiv(){
+    var password = document.getElementById("password");
+    var repeat = document.getElementById("repeat");
+    if(password.value !== repeat.value){
+        document.getElementById('welcomeDiv').style.display = "block";
+    }
+}
 function enable(){
     var password = document.getElementById("password");
     var repeat = document.getElementById("repeat");
