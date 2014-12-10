@@ -56,6 +56,10 @@ function bindMenu(){
 /////////////////////////////////////////////////////////////////
 /* Player */
 //<!-- /build -->
+
+/////////////////////////////////////////////////////////////////
+/* Player */
+//<!-- /build -->
 /* Search */
 
 //Library.dust =>
@@ -63,143 +67,140 @@ function bindMenu(){
 //<datalist id="suggestions"></datalist>
 var lastSearch = '';
 function previewResults(evt, query) {
-  console.log(query);
-  if (query != lastSearch) {
-    console.log(evt.keyCode);
-    previewR(query);
-  } else if (evt.keyCode == 13 || evt.keyCode == 10){
-    search(window.location.hash, query);
-  }
-  lastSearch = query;
+    console.log(query);
+    if (query != lastSearch) {
+        console.log(evt.keyCode);
+        previewR(query);
+    } else if (evt.keyCode == 13 || evt.keyCode == 10){
+        search(window.location.hash, query);
+    }
+    lastSearch = query;
 }
 
 function suggestItems(obj, query) {
-  var output = '';
-  obj.forEach(function (curr) {
-    if (curr.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
-      output += '<option value="'+curr.name+'">' + curr.name + '</option>';
-  });
-  document.getElementById('suggestions').innerHTML = output;
+    var output = '';
+    obj.forEach(function (curr) {
+        if (curr.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+            output += '<option value="'+curr.name+'">' + curr.name + '</option>';
+    });
+    document.getElementById('suggestions').innerHTML = output;
 }
 
 function previewR(query) {
-  if (query == '') {
-    document.getElementById('suggestions').innerHTML = '';
-    return;
-  }
-  if (window.location.hash.indexOf('#album') == 0)
-    doJSONRequest('GET', '/albums', {}, null, function (obj) {
-      suggestItems(obj, query);
-    });
-  else if (window.location.hash.indexOf('#artist') == 0)
-    doJSONRequest('GET', '/artists', {}, null, function (obj) {
-      suggestItems(obj, query);
-    });
-  else // should this search also in albums and artists?
-    doJSONRequest('GET', '/tracks', {}, null, function (obj) {
-      suggestItems(obj, query);
-    });
+    if (query == '') {
+        document.getElementById('suggestions').innerHTML = '';
+        return;
+    }
+    if (window.location.hash.indexOf('#album') == 0)
+        doJSONRequest('GET', '/albums', {}, null, function (obj) {
+            suggestItems(obj, query);
+        });
+    else if (window.location.hash.indexOf('#artist') == 0)
+        doJSONRequest('GET', '/artists', {}, null, function (obj) {
+            suggestItems(obj, query);
+        });
+    else // should this search also in albums and artists?
+        doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+            suggestItems(obj, query);
+        });
 }
+
+
 
 
 function search(from, query) {
 
-  var content;
-  var tracksCont = '<h2>Tracks</h2>';
-  var albumsCont = '<h2>Albums</h2>';
-  var artistsCont = '<h2>Artists</h2>';
-  var timesCalled = 0;
+    var content;
+    var tracksCont = '<h2>Tracks</h2>';
+    var albumsCont = '<h2>Albums</h2>';
+    var artistsCont = '<h2>Artists</h2>';
+    var timesCalled = 0;
 
-  function viewFoundedResult() {
+    function viewFoundedResult() {
 
-    timesCalled += 1;
-    if (timesCalled == 2) {
-      timesCalled = 0;
-      console.log(from);
-      switch (from) {
-        case '#albums':
-          content = albumsCont + tracksCont + artistsCont;
-          break;
-        case '#artists':
-          content = artistsCont + tracksCont + albumsCont;
-          break;
-        case '#library':
-          content = tracksCont + albumsCont + artistsCont;
-      }
-      console.log(content);
-      document.getElementById("content").innerHTML = content;
+        timesCalled += 1;
+        if (timesCalled == 3) {
+            timesCalled = 0;
+            console.log(from);
+            switch (from) {
+                case '#albums':
+                    content = albumsCont + tracksCont + artistsCont;
+                    break;
+                case '#artists':
+                    content = artistsCont + tracksCont + albumsCont;
+                    break;
+                case '#library':
+                    content = tracksCont + albumsCont + artistsCont;
+            }
+            console.log(content);
+            document.getElementById("content").innerHTML = content;
+        }
+        console.log("search done");
     }
-    console.log("search done");
-  }
 
 
-  // function doJSONRequest(method, url, headers, data, callback)
-  // returns callback()
-  // {Function} callback The function to call when the response is ready.
-  // render example
-  //  dust.render("tmp_skill", json_object, function(err, html_out) {
-  // HTML output
-  // $('#page').html(html_out);
-  // console.log(html_out);
-  // });
+    // function doJSONRequest(method, url, headers, data, callback)
+    // returns callback()
+    // {Function} callback The function to call when the response is ready.
 
 
-  doJSONRequest('GET', '/tracks', {}, null, function (obj) {
-    var result = [];
-    obj.forEach(function (current) {
-      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
-        result.push(current);
+
+
+    doJSONRequest('GET', '/tracks', {}, null, function (obj) {
+        var result = [];
+        obj.forEach(function (current) {
+            if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+                result.push(current);
+        });
+
+        dust.render('tracks', {tracks: result}, function (err, html) {
+            tracksCont += html;
+        });
+        if (result.length == 0)
+            tracksCont = '<h4>No tracks found</h4>';
+        viewFoundedResult();
     });
 
-    dust.render('tracks', {tracks: result}, function (err, html) {
-      tracksCont += html;
-    });
-    if (result.length == 0)
-      tracksCont = '<h5>* No tracks found with such name</h5>';
-    viewFoundedResult();
-  });
 
 
 
+    doJSONRequest('GET', '/albums', {}, null, function (obj) {
+        var result = [];
+        obj.forEach(function (current) {
+            if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+                result.push(current);
+        });
 
-  doJSONRequest('GET', '/albums', {}, null, function (obj) {
-    var result = [];
-    obj.forEach(function (current) {
-      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
-        result.push(current);
-    });
-
-    dust.render('albums', {albums: result}, function (err, html) {
-      albumsCont += html;
-    });
-    if (result.length == 0)
-      albumsCont = '<h5>* No albums with such name</h5>';
-    viewFoundedResult();
-  });
-
-
-
-
-  doJSONRequest('GET', '/artists', {}, null, function (obj) {
-    var result = [];
-    obj.forEach(function (current) {
-      if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
-        result.push(current);
+        dust.render('albums', {albums: result}, function (err, html) {
+            albumsCont += html;
+        });
+        if (result.length == 0)
+            albumsCont = '<h5>* No albums with such name</h5>';
+        viewFoundedResult();
     });
 
-    dust.render('artists', {artists: result}, function (err, html) {
-      artistsCont += html;
+
+
+
+    doJSONRequest('GET', '/artists', {}, null, function (obj) {
+        var result = [];
+        obj.forEach(function (current) {
+            if (current.name.toLowerCase().indexOf(query.toLowerCase()) != -1)
+                result.push(current);
+        });
+
+        dust.render('artists', {artists: result}, function (err, html) {
+            artistsCont += html;
+        });
+        if (result.length == 0)
+            artistsCont = '<h5>* No artists found</h5>';
+        viewFoundedResult();
     });
-    if (result.length == 0)
-      artistsCont = '<h5>* No artists found with such name</h5>';
-    viewFoundedResult();
-  });
 }
 
-// add track search
-
-
 /* Search */
+
+
 
 
 

@@ -104,15 +104,15 @@
                                                                      <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
 
                                                                      <p><label>Name<strong>*</strong><br>
-                                                                     <input type="text" id="setName" size="27" name="name" value="" ></label></p>
+                                                                     <input type="text" id="setName" size="27" name="name" value="" required></label></p>
                                                                       <p><label>Artist<strong>*</strong><br>
-                                                                      <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist"></label></p>
+                                                                      <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist" required></label></p>
                                                                       <datalist id="json-datalist"></datalist>
                                                                       <p><label>Album<strong>*</strong><br>
-                                                                      <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2"></label></p>
+                                                                      <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2" required></label></p>
                                                                       <datalist id="json-datalist2"></datalist>
 
-                                                                      <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" />
+                                                                      <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required />
                                                                       <input class="upload" type="submit" name="bla"/>
                                                                       </form>
 
