@@ -28,9 +28,12 @@ var userSchema = new mongoose.Schema(
   firstName: { type: String },
   lastName : { type: String },
   password : { type: String, required: true },
-  email   : { type: String, required: true },
-  dateCreated : { type: Date, required: true, default: Date.now },
-  playlists : { type: [PlaylistSchema], default: [] }
+  repeatPassword : { type: String, required: true },
+  email   : { type: String, required: true }
+
+  //dateCreated : { type: Date, required: true, default: Date.now },
+ // playlists : { type: [PlaylistSchema], default: [] }
+
 }
 );
 

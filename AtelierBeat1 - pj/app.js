@@ -6,11 +6,59 @@ var bodyParser = require('body-parser');
 var dustjs = require('adaro');
 var app = express();
 var multer  = require('multer');
+var passport = require('passport');
+LocalStrategy = require('passport-local').Strategy;
+var mongoose   = require('mongoose');
+require('./models');
+require('express-session');
 
 // Connect to MongoDB here
 var mongoose   = require('mongoose');
 mongoose.connect(config.mongoUrl + config.mongoDbName);
+//passport
 
+ // --------------- USER PART --------------------\\
+
+var User = mongoose.model('User');
+
+passport.use(new LocalStrategy({
+        usernameField:'userName',
+        passwordField:'password'
+
+    },
+    function(username, password, done) {
+        User.findOne({userName: username}, function (err, user) {
+            if (err) { return done(err); }
+            // Return an error as in Node
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+                // If user does not exist return the error and the message
+            }
+            user.isValidPassword(password, function(err,isMatch){
+                if (isMatch==true){
+                    return done(null, true);
+                    // Authentication is good, the password is valid
+                }else{
+                    return done(null, false, {message:"Incorrect password! "})
+                }
+            });
+        });
+    }
+));
+
+passport.serializeUser(function(users, done) {
+    done(null, 0);
+    // Invoke passport with user._id authenticated
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+        // Deserializza e cerca attraverso l'id
+        done(err, user);
+    });
+});
+
+// --------------- EDN USER PART --------------------\\
 
 /*--- Configure the multer. used to upload the track from our pc on the server ---*/
 app.use(multer({ dest: './public/tracks_folder/',
@@ -27,6 +75,10 @@ app.engine('dust', dustjs.dust());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'dust');
 
+// USER
+app.use(passport.initialize());
+app.use(passport.session());
+
 //configure app
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));    // parse application/x-www-form-urlencoded
@@ -42,5 +94,16 @@ app.use('/artists', routers.artists);
 app.use('/tracks', routers.tracks);
 app.use('/users', routers.users);
 
+ // USER
+app.use('/signup', routers.signup);
+app.use('/library', routers.library);
+app.get('/login',function(req,res){
+    res.render('login')
+});
 
+app.post('/login',
+    passport.authenticate('local', { successRedirect: '/library',
+        failureRedirect: '/' }));
+
+// END USER
 module.exports = app;

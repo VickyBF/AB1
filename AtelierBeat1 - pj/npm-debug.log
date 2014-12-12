@@ -17,9 +17,9 @@
 10 error You can get their info via:
 10 error     npm owner ls wa-exercise-6-2014-2015
 10 error There is likely additional logging output above.
-11 error System Darwin 13.4.0
+11 error System Darwin 14.0.0
 12 error command "node" "/usr/local/bin/npm" "start"
-13 error cwd /Users/jelenabudakovic/Desktop/AB1/AtelierBeat1 - pj
+13 error cwd /Users/Umbi/Desktop/AtelierBeat1/AB1/AtelierBeat1 - pj
 14 error node -v v0.10.32
 15 error npm -v 1.4.28
 16 error code ELIFECYCLE
