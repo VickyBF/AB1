@@ -112,11 +112,8 @@
                                                                       <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2" required></label></p>
                                                                       <datalist id="json-datalist2"></datalist>
 
-<<<<<<< Updated upstream
-                                                                      <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required />
-=======
                                                                       <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required/>
->>>>>>> Stashed changes
+
                                                                       <input class="upload" type="submit" name="bla"/>
                                                                       </form>
 

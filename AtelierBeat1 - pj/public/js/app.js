@@ -4,22 +4,21 @@ window.onload = function(){
     if(document.getElementById("Firstname")){
         enable();
     } else {
-  bindMenu();
+        bindMenu();
 
-  updatePage();
-  setupPlayer();
-  setupPlaylists();
-  setupSearch();
-  loadArtist();
-  loadAlbums();
+        updatePage();
+        setupPlayer();
+        setupPlaylists();
+         setupSearch();
+        loadArtist();
+        loadAlbums();
 
-  bindPLTracksDelete();
-<<<<<<< Updated upstream
+        bindPLTracksDelete();
+        //setupVodedSong()
+
     }
 }
-=======
-  //setUpVotedSong();
->>>>>>> Stashed changes
+
 
 
 function goLogout(){
@@ -1137,6 +1136,7 @@ function setupPlayer() {
         equalnewTrackList.push(lista[i]);
       }
       shuffle(equalnewTrackList);
+        //setupVodedSong()
       //console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
@@ -1547,7 +1547,6 @@ var test3 = function(value,id){
   //console.log(array)
 }
 
-//Vassillis help:
 var input = document.getElementById('ajax');
 var input2 = document.getElementById('ajax2');
 
@@ -1582,15 +1581,16 @@ form.addEventListener('submit', function(ev) {
     oData.append('name',nm.value);
     oData.append("duration",0);
     oData.append("file",myfile, myfile.name);//multer
-    oData.append("file", myfile.name);//field
+    oData.append("file", "tracks_folder/"+ myfile.name);//field in the model
 
     var xhr = new XMLHttpRequest();
     // Open the connection.
     xhr.open('POST', "/tracks", true);
     // Set up a handler for when the request finishes.
-    xhr.onload = function () {
+    xhr.onreadystatechange= function () {
       if (xhr.status === 201) {
         console.log("Upload done!");
+          window.location.reload();
       }
     };
     // Send the Data.
@@ -1613,15 +1613,16 @@ form.addEventListener('submit', function(ev) {
         oData.append('name',nm.value);
         oData.append("duration",0);
         oData.append("file",myfile, myfile.name);//multer
-        oData.append("file", myfile.name);//field
+          oData.append("file", "tracks_folder/"+ myfile.name);//field in the model
 
         var xhr = new XMLHttpRequest();
         // Open the connection.
         xhr.open('POST', "/tracks", true);
         // Set up a handler for when the request finishes.
-        xhr.onload = function () {
+        xhr.onreadystatechange = function () {
           if (xhr.status === 201) {
             console.log("Upload done!");
+              window.location.reload();
           }
         };
         // Send the Data.
@@ -1640,15 +1641,16 @@ form.addEventListener('submit', function(ev) {
       oData.append('name',nm.value);
       oData.append("duration",0);
       oData.append("file",myfile, myfile.name);//multer
-      oData.append("file", myfile.name);//field
+        oData.append("file", "tracks_folder/"+ myfile.name);//field in the model
 
       var xhr = new XMLHttpRequest();
       // Open the connection.
       xhr.open('POST', "/tracks", true);
       // Set up a handler for when the request finishes.
-      xhr.onload = function () {
+      xhr.onreadystatechange = function () {
         if (xhr.status === 201) {
           console.log("Upload done!");
+            window.location.reload();
         }
       };
       // Send the Data.
@@ -1688,12 +1690,6 @@ function like(obj){
   }
 }
 
-/*
-function setUpVotedSong(){
-  for (track in tracks){
-    doJSONRequest("GET", "/tracks/", null, null, function(tr){
-      var trackID=tr
-    }
-  }
-};
-*/
+
+/*function setupVodedSong(list){
+};*/
