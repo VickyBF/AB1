@@ -1464,17 +1464,24 @@ ul.grid-list > li{
     box-shadow: 0 0 20px rgba(0,0,0,1.5);
 }
 
-#upload_button{
-    margin-top: 30px;
-    background: #f8f8f8;
-    border-radius: 100px;
-    width: 105px;
-    height: 36px;
-    color: #525252;
-    border-bottom-style: solid;
-    border-color: #3b79ff;
-    border-right-color: #3b79ff;
-    border-width: 2px;
+.upload_button{
+  background: transparent;
+  border-radius: 100px;
+  width: 105px;
+  height: 36px;
+  color: #525252;
+  border-bottom-style: solid;
+  border-color: #3b79ff;
+  border-right-color: #3b79ff;
+  border-width: 2px;
+}
+.upload_button:hover{
+  background: #3b79ff;
+  color: white;
+  border-bottom-style: solid;
+  border-color: #d9d9d9;
+  border-right-color: #f7f7f7;
+  border-width: 2px;
 }
 
 #modal_close{
@@ -1491,7 +1498,3 @@ ul.grid-list > li{
 #modal_wrapper.overlay #modal_window {
   display: block;
 }
-
-/* ---------------- Autocomplete of artists and albums(Modal window) ---------------- */
-
-

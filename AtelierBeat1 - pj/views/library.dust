@@ -27,6 +27,7 @@
           <li><a href="library.html"><i class="nav-menu-icon glyphicon glyphicon-music"></i> Tracks</a></li>
           <li><a href="artists.html"><i class="nav-menu-icon fa fa-users"></i> Artists</a></li>
           <li><a href="albums.html"><i class="nav-menu-icon icons8-music-record"></i> Albums</a></li>
+          <li><a href="top10.html"><i class="nav-menu-icon fa fa-star"></i> Top 10</a></li>
           <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
           <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
@@ -111,10 +112,9 @@
                                                                       <p><label>Album<strong>*</strong><br>
                                                                       <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2" required></label></p>
                                                                       <datalist id="json-datalist2"></datalist>
-
                                                                       <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required/>
 
-                                                                      <input class="upload" type="submit" name="bla"/>
+                                                                      <input class="upload_button" type="submit" name="bla"/>
                                                                       </form>
 
                                                                      </div> <!-- #modal_window -->

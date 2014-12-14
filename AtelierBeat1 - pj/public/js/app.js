@@ -554,9 +554,25 @@ function drawArtist(e, addHistory){
       e.preventDefault();
       href = target.getAttribute("href");
     }
+      var this_id = href.split("/")[1];
+      doJSONRequest("GET", "/tracks/" , null, null, function(trList){
+          for(var i=0;i<trList.length;i++){
+              if (trList[i].artist._id==this_id){
+                  var trackToDel=trList[i]._id;
+                  doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){console.log("Tracks deleted")});
+              }
+          }
+          doJSONRequest("GET", "/albums/" , null, null, function(alList){
+              for(var i=0;i<alList.length;i++){
+                  if (alList[i].artist._id==this_id){
+                      var alToDel=alList[i]._id;
+                      doJSONRequest("DELETE", "/albums/" + alToDel, null, null, function(){console.log("Albums deleted")});
+                  }
+              }
 
-    //execute the AJAX call to the delete a single album
-    doJSONRequest("DELETE", href, null, null, removeArtist);
+              doJSONRequest("DELETE", href, null, null, removeArtist);
+          })
+      })
 
     function removeArtist(){
 
@@ -732,30 +748,44 @@ function drawAlbum(e, addHistory){
       albums[elem].onclick = deleteAlbum;
     }
   }
-
-  function deleteAlbum(e){
+function deleteAlbum(e){
 
     var href;
+
     var target = e.target;
 
     if(e && e.target){
-      e.preventDefault();
-      href = target.getAttribute("href");
+        e.preventDefault();
+        href = target.getAttribute("href");
+
     }
+    var this_id = href.split("/")[1];
 
     //execute the AJAX call to the delete a single album
-    doJSONRequest("DELETE", href, null, null, removeAlbum);
+    doJSONRequest("GET", "/tracks/" , null, null, function(trList){
+        console.log(trList)
+        for(var i=0;i<trList.length;i++){
+            if (trList[i].album._id==this_id){
+                var trackToDel=trList[i]._id;
+                doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){console.log("Album and tracks deleted")});
+
+            }
+        }
+        doJSONRequest("DELETE", href, null, null, removeAlbum);
+
+    });
 
     function removeAlbum(){
 
-      var toDelete = target.parentNode.parentNode; 
-      var parent = document.getElementById("albums-list");
+        var toDelete = target.parentNode.parentNode;
+        var parent = document.getElementById("albums-list");
 
-      parent.removeChild(toDelete);
+        parent.removeChild(toDelete);
 
     }
 
-  }
+}
+
 
   /* Albums */
 
@@ -1136,7 +1166,6 @@ function setupPlayer() {
         equalnewTrackList.push(lista[i]);
       }
       shuffle(equalnewTrackList);
-        //setupVodedSong()
       //console.log(newTrackList)
       // Buttons
       var playButton = document.getElementById("play-pause");
@@ -1661,32 +1690,47 @@ form.addEventListener('submit', function(ev) {
   document.getElementById("modal_close").click();
 }, false);
 
+var my_voted_songs=[];
+
 //Like for songs (not finished)
-function like(obj){
-  console.log(obj.value);
+function like(obj,ar){
   //console.log(obj.id.split("/")[1])
   var trackID = obj.id.split("/")[1];
   data={};
 
-  if(obj.value == "voted") { //Vote
-    obj.value = "nonVoted";
+  if(obj.value == "nonVoted") { //Vote
+    obj.value = "voted";
     obj.classList.remove('fa-star-o');
     obj.classList.add('fa-star');
+      ar.push(trackID);
+      doJSONRequest("PUT", "/users/" + trackID , null, data, function(){
 
+      })
     data.vote = 1;
     doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
-      console.log("You have successfully voted the song!")
+      console.log("You have successfully voted the song!");
+        console.log(ar)
     })
   }
 
-  else {                      //Undo the vote
-    obj.value="voted";
+  else if(obj.value == "voted") {                      //Undo the vote
+    obj.value="nonVoted";
     obj.classList.remove('fa-star');
     obj.classList.add('fa-star-o');
+      var i= ar.indexOf(trackID);
+      if(i!=-1){
+          ar.splice(i,1)
+      }
     data.vote = -1;
     doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
-      console.log("You have successfully unvoted the song!")
+      console.log("You have successfully unvoted the song!");
+        console.log(ar)
     })
+
+  }
+    else{
+      obj.value="nonVoted";
+      console.log("out")
   }
 }
 
