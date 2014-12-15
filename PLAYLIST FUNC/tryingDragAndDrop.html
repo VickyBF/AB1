@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Drag and Drop</title>
+    <style>
+        .dragDropBoxes {
+            width: 10em;
+            height: 1em;
+            background-color: orange;
+            margin-bottom: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div id="dragSource" class="dragDropBoxes" draggable="true">Draggable Text</div>
+<div id="dragTarget" class="dragDropBoxes">Drag Text Here</div>
+<script>
+    var dragoverEventCounter = 0;
+
+    document.getElementById('dragSource').addEventListener('dragstart', function(evt) {
+        console.log("The 'dragstart' event fired.");
+        evt.dataTransfer.setData('text', evt.target.textContent);
+    }, false);
+
+    document.addEventListener("dragover", function (evt) {
+        ++dragoverEventCounter;
+        if (dragoverEventCounter == 1) {
+            console.log("One or more 'dragover' events fired.");
+        }
+        evt.preventDefault(); // Prevent the default behavior in order to enable dropping.
+    }, false);
+
+    document.getElementById('dragTarget').addEventListener("drop", function (evt) {
+        console.log("The 'drop' event fired.");
+        evt.preventDefault(); // Prevent the default action to open as link for some elements.
+        document.getElementById('dragSource').textContent = "";
+        evt.target.textContent = evt.dataTransfer.getData('text');
+    }, false);
+</script>
+</body>
+</html>
