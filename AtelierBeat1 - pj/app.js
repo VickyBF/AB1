@@ -93,6 +93,8 @@ app.use('/albums', routers.albums);
 app.use('/artists', routers.artists);
 app.use('/tracks', routers.tracks);
 app.use('/users', routers.users);
+//app.use('/top10', routers.top10);
+
 
  // USER
 app.use('/signup', routers.signup);

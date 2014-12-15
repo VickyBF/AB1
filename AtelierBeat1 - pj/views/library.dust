@@ -31,6 +31,7 @@
           <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
           <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
+
         <div class = "buttons">
        <button id="modal_open" type="button"> Add Track</button>
        <button id="create-pl-btn" type="button"> Add playlist</button>

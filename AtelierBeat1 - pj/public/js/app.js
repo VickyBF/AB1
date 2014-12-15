@@ -9,12 +9,12 @@ window.onload = function(){
         updatePage();
         setupPlayer();
         setupPlaylists();
-         setupSearch();
+        setupSearch();
         loadArtist();
         loadAlbums();
 
         bindPLTracksDelete();
-        //setupVodedSong()
+        setupVodedSong() // black stars for already voted songs
 
     }
 }
@@ -46,10 +46,77 @@ function bindMenu(){
       menu[elem].onclick = drawArtists;
     else if(menu[elem].getAttribute("href").indexOf("albums.html") > -1)
       menu[elem].onclick = drawAlbums;
+    else if(menu[elem].getAttribute("href").indexOf("top10.html") > -1)
+        menu[elem].onclick = drawVoted;
   }
 }
 
 //<!-- /build -->
+/* Voted Playlist*/
+function drawVoted(e, addHistory){
+
+    if(e && e.target){
+        e.preventDefault();
+    }
+
+    addVotedToHistory(addHistory);
+
+    //execute the AJAX call to the get tracks
+    doJSONRequest("GET", "/tracks", null, null, renderTop10);
+
+    function renderTop10(tracks){
+        var tracksData = buildTracksData(tracks);
+        var newtracksData=[];
+        for (var i=0; i < tracksData.length;i++){
+            if(tracksData[i].vote == 1){
+                newtracksData.push(tracksData[i])
+            }
+        }
+
+        var data = {
+            "tracks" : newtracksData
+        };
+
+        dust.render("tracks", data, function(err, out) {
+
+            var content = document.getElementById("content");
+
+            content.innerHTML = out;
+
+            bindAlbumLink();
+
+            bindArtistLink();
+
+            bindTracksDelete();
+
+            bindEditTrackName();
+
+        });
+        for (var i=0; i < newtracksData.length;i++){
+            if(newtracksData[i].vote == 1){
+                var trackID=newtracksData[i]._id;
+                var element=document.getElementById("icon/"+ trackID)
+                element.classList.remove('fa-star-o');
+                element.classList.add('fa-star');
+            }
+        }
+
+    }
+}
+function addVotedToHistory(addHistory){
+    if((("undefined" == typeof addHistory)
+        || (addHistory === null))
+        || addHistory==true){
+
+        var state = {
+            'function' : 'drawVoted'
+        };
+
+        addToHistory(JSON.stringify(state), "/#Voted");
+    }
+}
+
+/////////////
 
 /* UI */
 
@@ -242,6 +309,7 @@ function drawLibrary(e, addHistory){
       bindEditTrackName();
 
     });
+      setupVodedSong()
 
   }
 }
@@ -265,6 +333,7 @@ function buildTracksData(tracks){
 
     newTracksData.album._id = tracks[track].album._id;
     newTracksData.album.name = tracks[track].album.name;
+      newTracksData.vote = tracks[track].vote;
 
     tracksData.push(newTracksData);
 
@@ -559,14 +628,14 @@ function drawArtist(e, addHistory){
           for(var i=0;i<trList.length;i++){
               if (trList[i].artist._id==this_id){
                   var trackToDel=trList[i]._id;
-                  doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){console.log("Tracks deleted")});
+                  doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){});
               }
           }
           doJSONRequest("GET", "/albums/" , null, null, function(alList){
               for(var i=0;i<alList.length;i++){
                   if (alList[i].artist._id==this_id){
                       var alToDel=alList[i]._id;
-                      doJSONRequest("DELETE", "/albums/" + alToDel, null, null, function(){console.log("Albums deleted")});
+                      doJSONRequest("DELETE", "/albums/" + alToDel, null, null, function(){});
                   }
               }
 
@@ -767,7 +836,7 @@ function deleteAlbum(e){
         for(var i=0;i<trList.length;i++){
             if (trList[i].album._id==this_id){
                 var trackToDel=trList[i]._id;
-                doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){console.log("Album and tracks deleted")});
+                doJSONRequest("DELETE", "/tracks/" + trackToDel, null, null, function(){});
 
             }
         }
@@ -1433,7 +1502,8 @@ function PlaySelectedSong(object){
 
 /*--------------- Modal Window---------------*/
 var modalWrapper = document.getElementById("modal_wrapper");
-var modalWindow  = document.getElementById("modal_window");var modal_init = function() {
+var modalWindow  = document.getElementById("modal_window");
+var modal_init = function() {
 
 
   var openModal = function(e)
@@ -1629,11 +1699,13 @@ form.addEventListener('submit', function(ev) {
   else if(!artistId){ //Create artist, album and then upload the song
     data={};
     data.name=input.value;
+      data.artwork="/images/artists/unknown.png";
     data2={};
     data2.name=input2.value;
     doJSONRequest("POST", "/artists/", null, data, function(artist){
       oData.append("artist",artist._id );
       data2.artist=artist._id;
+        data2.artwork="/images/albums/Unknown_Album.jpg";
 
       doJSONRequest("POST", "/albums/", null, data2, function(album){
         //doJSONRequest("GET", "/albums/" + albumId , null, null, function(album){
@@ -1665,6 +1737,7 @@ form.addEventListener('submit', function(ev) {
     data.name=input2.value;
     oData.append("artist",artistId);
     data.artist=artist._id;
+      data.artwork="/images/albums/Unknown_Album.jpg";
     doJSONRequest("POST", "/albums/", null, data, function(album){
       oData.append("album", album._id);
       oData.append('name',nm.value);
@@ -1690,11 +1763,8 @@ form.addEventListener('submit', function(ev) {
   document.getElementById("modal_close").click();
 }, false);
 
-var my_voted_songs=[];
 
-//Like for songs (not finished)
-function like(obj,ar){
-  //console.log(obj.id.split("/")[1])
+function like(obj){
   var trackID = obj.id.split("/")[1];
   data={};
 
@@ -1702,14 +1772,9 @@ function like(obj,ar){
     obj.value = "voted";
     obj.classList.remove('fa-star-o');
     obj.classList.add('fa-star');
-      ar.push(trackID);
-      doJSONRequest("PUT", "/users/" + trackID , null, data, function(){
-
-      })
     data.vote = 1;
     doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
       console.log("You have successfully voted the song!");
-        console.log(ar)
     })
   }
 
@@ -1717,14 +1782,9 @@ function like(obj,ar){
     obj.value="nonVoted";
     obj.classList.remove('fa-star');
     obj.classList.add('fa-star-o');
-      var i= ar.indexOf(trackID);
-      if(i!=-1){
-          ar.splice(i,1)
-      }
     data.vote = -1;
     doJSONRequest("PUT", "/tracks/" + trackID , null, data, function(){
       console.log("You have successfully unvoted the song!");
-        console.log(ar)
     })
 
   }
@@ -1735,5 +1795,16 @@ function like(obj,ar){
 }
 
 
-/*function setupVodedSong(list){
-};*/
+function setupVodedSong(){
+    doJSONRequest("GET", "/tracks", null, null, function(tracks){
+        for(var i= 0; i<tracks.length;i++){
+            if(tracks[i].vote==1){
+                var trackID=tracks[i]._id;
+                var element=document.getElementById("icon/"+ trackID)
+                element.classList.remove('fa-star-o');
+                element.classList.add('fa-star');
+            }
+        }
+    });
+};
+

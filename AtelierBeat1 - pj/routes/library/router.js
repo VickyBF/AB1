@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
 
     res.render('library');
 
-
 });
 
 /** router for /users */
