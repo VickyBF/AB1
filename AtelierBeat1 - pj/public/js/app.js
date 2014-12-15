@@ -1673,31 +1673,43 @@ form.addEventListener('submit', function(ev) {
   var albumId = input2.dataset.albumId;
   var myfile = fileSelect.files[0];
   var oData = new FormData();
+    var audioForTrack = document.createElement("audio")
 
   if(artistId && albumId){ // Upload the song if both artist and album exist
-    oData.append("artist",artistId );
+      console.log("1a")
+      oData.append("artist",artistId );
     oData.append("album", albumId);
     oData.append('name',nm.value);
     oData.append("duration",0);
     oData.append("file",myfile, myfile.name);//multer
     oData.append("file", "tracks_folder/"+ myfile.name);//field in the model
 
-    var xhr = new XMLHttpRequest();
-    // Open the connection.
-    xhr.open('POST', "/tracks", true);
-    // Set up a handler for when the request finishes.
-    xhr.onreadystatechange= function () {
-      if (xhr.status === 201) {
-        console.log("Upload done!");
-          window.location.reload();
-      }
-    };
-    // Send the Data.
-    xhr.send(oData);
+      var xhr = new XMLHttpRequest();
+      // Open the connection.
+      xhr.open('POST', "/tracks", true);
+      // Set up a handler for when the request finishes.
+      xhr.onreadystatechange= function () {
+          if (xhr.readyState == 4 && xhr.status === 201) {
+              audioForTrack.src = "tracks_folder/"+decodeURI(myfile.name);
+              var track_object = JSON.parse(xhr.responseText);
+              audioForTrack.addEventListener("loadedmetadata", function() {
+                  var ID=track_object._id;
+                  var dataaa={};
+                  dataaa.duration=Math.floor(audioForTrack.duration);
+                  doJSONRequest("PUT", "/tracks/" + ID, null, dataaa, function () {
+                      window.location.reload();
+                  })
 
+
+              });
+          }
+      };
+      // Send the Data.
+      xhr.send(oData);
   }
+
   else if(!artistId){ //Create artist, album and then upload the song
-    data={};
+      data={};
     data.name=input.value;
       data.artwork="/images/artists/unknown.png";
     data2={};
@@ -1720,12 +1732,23 @@ form.addEventListener('submit', function(ev) {
         // Open the connection.
         xhr.open('POST', "/tracks", true);
         // Set up a handler for when the request finishes.
-        xhr.onreadystatechange = function () {
-          if (xhr.status === 201) {
-            console.log("Upload done!");
-              window.location.reload();
-          }
-        };
+          xhr.onreadystatechange= function () {
+              if (xhr.readyState == 4 && xhr.status === 201) {
+                  audioForTrack.src = "tracks_folder/"+decodeURI(myfile.name);
+                  var track_object = JSON.parse(xhr.responseText);
+                  audioForTrack.addEventListener("loadedmetadata", function() {
+                      var ID=track_object._id;
+                      var dataaa={};
+                      dataaa.duration=Math.floor(audioForTrack.duration);
+                      doJSONRequest("PUT", "/tracks/" + ID, null, dataaa, function () {
+                          window.location.reload();
+                      })
+
+
+
+                  });
+              }
+          };
         // Send the Data.
         xhr.send(oData);
       })
@@ -1733,7 +1756,7 @@ form.addEventListener('submit', function(ev) {
     });
   }
   else if(!albumId){ // Create the album and then upload the song.
-    data={};
+      data={};
     data.name=input2.value;
     oData.append("artist",artistId);
     data.artist=artist._id;
@@ -1749,12 +1772,22 @@ form.addEventListener('submit', function(ev) {
       // Open the connection.
       xhr.open('POST', "/tracks", true);
       // Set up a handler for when the request finishes.
-      xhr.onreadystatechange = function () {
-        if (xhr.status === 201) {
-          console.log("Upload done!");
-            window.location.reload();
-        }
-      };
+        xhr.onreadystatechange= function () {
+            if (xhr.readyState == 4 && xhr.status === 201) {
+                audioForTrack.src = "tracks_folder/"+decodeURI(myfile.name);
+                var track_object = JSON.parse(xhr.responseText);
+                audioForTrack.addEventListener("loadedmetadata", function() {
+                    var ID=track_object._id;
+                    var dataaa={};
+                    dataaa.duration=Math.floor(audioForTrack.duration);
+                    doJSONRequest("PUT", "/tracks/" + ID, null, dataaa, function () {
+                        window.location.reload();
+                    });
+
+
+                });
+            }
+        };
       // Send the Data.
       xhr.send(oData);
     })
@@ -1800,7 +1833,7 @@ function setupVodedSong(){
         for(var i= 0; i<tracks.length;i++){
             if(tracks[i].vote==1){
                 var trackID=tracks[i]._id;
-                var element=document.getElementById("icon/"+ trackID)
+                var element=document.getElementById("icon/"+ trackID);
                 element.classList.remove('fa-star-o');
                 element.classList.add('fa-star');
             }
