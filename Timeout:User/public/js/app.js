@@ -71,8 +71,8 @@ var timeOut = function () {
     }
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(Timer, 600000)
-
+        time = setTimeout(Timer, 6000000)
+        document.getElementById('box').style.display = "none";
     }
 
     function Timer(){
