@@ -33,10 +33,11 @@ function user(){
         });
     }
     var user = document.getElementById("actualUser");
+    console.log(user);
     if(user.innerHTML == "User"){
         user.innerHTML = sessionStorage.getItem("userName");
     }
-
+   // window.location.href ="http://localhost:3000/#library"
 }
 
 function goLogout(){
@@ -66,12 +67,23 @@ var timeOut = function () {
     document.onkeypress = resetTimer;
     function logout() {
         window.location.href = "/login";
-        sessionStorage.clear()
-        alert("10 minutes without doing anything? Let's login again!!")
+        sessionStorage.clear();
     }
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(logout, 600000)
+        time = setTimeout(Timer, 600000)
+
+    }
+
+    function Timer(){
+        document.getElementById('box').style.display = "block";
+        document.getElementById("box").style.color="red";
+        document.getElementById("box").style.textAlign = "center";
+        document.getElementById("box").style.marginBottom = "20px";
+        document.getElementById("box").style.marginTop = "20px";
+        document.getElementById("box").style.fontWeight = "900";
+        clearTimeout(time);
+        time = setTimeout(logout, 30000)
     }
 };
 

@@ -8,6 +8,7 @@
 			<div class="mo-info subtitle artist"><a class="mo-title">{artist.name}</a>
 				<div class="mo-subtitle text-muted one-line">{artist.genre}</div>
 			</div>
+			<div id="box" style="display:none" class="boxed">The section will expire in 30 seconds</div>
 		</li>
 	</ul>
 </section>

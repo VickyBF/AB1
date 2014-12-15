@@ -10,6 +10,7 @@
 				<div class="mo-subtitle text-muted one-line">{album.label}</div>
 				<div class="mo-subtitle text-muted one-line">Released: {album.dateReleased}</div>
 			</div>
+			<div id="box" style="display:none" class="boxed">The section will expire in 30 seconds</div>
 		</li>
 	</ul>
 </section>

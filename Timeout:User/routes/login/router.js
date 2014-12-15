@@ -25,9 +25,9 @@ router.post('/', function (req, res) {
             user.isValidPassword(post.password, function(n, isMatch){
                 if(isMatch) {
                     req.session.user_id = user._id;
-                    res.redirect('/library?' + user._id);
+                 //   res.redirect('/library?' + user._id);
+                    res.render('library', {username : user.userName});
                 } else{
-
                     res.redirect('/login');
                 }
             });

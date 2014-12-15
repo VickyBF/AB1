@@ -123,12 +123,12 @@
 
        <div id = "loguser">
         <ul class="nav-menu vertical-menu float-right clearfix">
-          <li><a id="actualUser" href="#">User</a></li>
+          <li><a id="actualUser" href="#">{username}</a></li>
           <li><a href="/login">logout</a></li>
         </ul>
        </div>
       </nav>
-
+<div id="box" style="display:none" class="boxed">The section will expire in 30 seconds</div>
   <section id="content">
          <!-- Content will be rendered here -->
         </section>
