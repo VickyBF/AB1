@@ -11,7 +11,8 @@ window.onload = function(){
   setupSearch();
   loadArtist();
   loadAlbums();
-
+  timeOut();
+  //user();
     }
 };
 
@@ -39,6 +40,49 @@ if(path.indexOf("?") > -1){
 function goLogout(){
     window.location = "/login";
 }
+
+var timeOut = function () {
+    var time;
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    function logout() {
+        window.location.href = "/login";
+        sessionStorage.clear();
+    }
+    function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(Timer, 60000)
+
+    }
+
+    function Timer(){
+        document.getElementById('box').style.display = "block";
+        document.getElementById("box").style.color="red";
+        document.getElementById("box").style.textAlign = "center";
+        document.getElementById("box").style.marginBottom = "20px";
+        document.getElementById("box").style.marginTop = "20px";
+        document.getElementById("box").style.fontWeight = "900";
+        clearTimeout(time);
+        time = setTimeout(logout, 30000)
+    }
+};
+
+//function user(){
+//    if (window.location.search.slice(1)){
+//        var Id = window.location.search.slice(1);
+//        doJSONRequest("GET", "/users/" + Id, null, null, function(data){
+//            sessionStorage.setItem("userName",data.userName);
+//            sessionStorage.setItem("user", Id);
+//        });
+//    }
+//    var user = document.getElementById("actualUser");
+//    console.log(user);
+//    if(user.innerHTML == "User"){
+//        user.innerHTML = sessionStorage.getItem("userName");
+//    }
+//    // window.location.href ="http://localhost:3000/#library"
+//}
 
 function enable(){
     var password = document.getElementById("password");
@@ -161,15 +205,7 @@ function search(from, query) {
   }
 
 
-  // function doJSONRequest(method, url, headers, data, callback)
-  // returns callback()
-  // {Function} callback The function to call when the response is ready.
-  // render example
-  //  dust.render("tmp_skill", json_object, function(err, html_out) {
-  // HTML output
-  // $('#page').html(html_out);
-  // console.log(html_out);
-  // });
+
 
 
   doJSONRequest('GET', '/tracks', {}, null, function (obj) {
@@ -1118,8 +1154,13 @@ function setupPlaylists() {
 
         createPlBtn.addEventListener('click', function () {
 
-                var name = 'New Playlist'
-                var newPlaylist = {'name': name, "tracks": []};
+            localStorage.counter = localStorage.counter || 0;
+            var counter = localStorage.counter;
+            var name = 'New Playlist ' + (++counter);
+            var newPlaylist = {'name': name, "tracks": []};
+
+            localStorage.counter = counter;
+
 
                 doJSONRequest("GET", "/users/" + userID + "/playlists", null, null, addNewPlaylist);
 
@@ -1255,16 +1296,15 @@ function onPlaylistClicked(userID, link){
     var href = link.href
     var hrefElements = href.split("/")
     var playlistName = decodeURI(href.split("/")[hrefElements.length-1])
-    console.log(playlistName)
 
-    //find playlist with corresponding tracks
+    //tracks of the playlist
     doJSONRequest("GET", "users/" + userID + "/playlists", null, null, renderPlaylistTracks);
 
     function renderPlaylistTracks(playlists) {
 
         playlists.forEach(function(playlist) {
             if (playlist.name == playlistName) {
-                console.log("Found playlist: ", playlist.name, playlistName)
+                console.log(playlist)
 
                 //in case playlist just added with no added tracks
                 var container = document.getElementById('content')
@@ -1305,7 +1345,7 @@ function onPlaylistClicked(userID, link){
 
                             bindAlbumLink();
 
-                           bindArtistLink();
+                            bindArtistLink();
 
                             bindTracksDelete();
 
@@ -1330,8 +1370,6 @@ function onPlaylistClicked(userID, link){
 /////////////////// END NEW PLAY \\\\\\\\
 
 function appendNewPlaylistToMenu(pl){
-
-    console.log("ADD PLAYLIST TO MENU")
 
   var id = pl._id;
   var name = pl.name;

@@ -13,6 +13,9 @@
 					<a title="{artist.name}" class="artist-link" href="artists/{artist._id}">{artist.name}</a>
 				</div>
 			</div>
+
+			<div id="box" style="display:none" class="boxed">The section will expire in 30 seconds</div>
+
 		</li>
 		{/albums}
 	</ul>

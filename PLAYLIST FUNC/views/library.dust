@@ -129,6 +129,8 @@
        </div>
       </nav>
 
+  <div id="box" style="display:none" class="boxed">The section will expire in 30 seconds</div>
+
   <section id="content">
          <!-- Content will be rendered here -->
         </section>
