@@ -1,0 +1,55 @@
+<section class="album-section">
+
+	<ul class="grid-list clearfix" id="albums-list">
+		{#albums}
+		<li>
+			<span class="delete-btn"><a href="albums/{_id}">&times;</a></span>
+			<div class="media-object">
+				<div class="mo-image" style="background-image: url({artwork})">
+
+				<!--
+				                   <form name="Upload" action="#" enctype="multipart/form-data" method="post"\n>
+                                   <p><label>Change cover photo:<br>
+                                   <INPUT type="file" name="submitfile" id="submitfile" />
+                                   <INPUT type="button" value="Send" onClick="changePhoto();" />
+                                   </form>
+
+                                   --->
+
+
+                    <button id="change_photo" type="button">Change Cover</button>
+
+                    <script language="JavaScript">
+                        function changePhoto(){
+                            var album = albums/{_id};
+                            console.log(album);
+                        }
+                    </script>
+
+                    <script language="Javascript">
+                           var openModal = function (e) {
+                                modalWrapper.className = "overlay";
+                                modalWindow.style.marginTop = (-modalWindow.offsetHeight) / 2 + "px";
+                                modalWindow.style.marginLeft = (-modalWindow.offsetWidth) / 2 + "px";
+                                e.preventDefault ? e.preventDefault() : e.returnValue = false;
+                            };
+                        document.getElementById("change_photo").attachEvent("onclick", openModal);
+                    </script>
+
+				</div>
+				<div class="mo-overlay"></div>
+			</div>
+			<div class="mo-info subtitle">
+				<a class="mo-title album-link" href="albums/{_id}">{name}</a>
+				<div class="mo-subtitle text-muted one-line">
+					<a title="{artist.name}" class="artist-link" href="artists/{artist._id}">{artist.name}</a>
+
+
+
+
+				</div>
+			</div>
+		</li>
+		{/albums}
+	</ul>
+</section>

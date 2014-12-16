@@ -1,0 +1,57 @@
+<section class="artist-section">
+	<ul class="grid-list clearfix" id="artists-list">
+		{#artists}
+		<li>
+			<span class="delete-btn"><a href="artists/{_id}">&times;</a></span>
+			<div class="media-object">
+				<div class="mo-image" style="background-image: url({artwork})">
+
+				<select id = 'menu-for-changes' onChange = 'OnSelectedIndexChange()'>
+                    <option value="1">Menu</option>
+                    <option value="2">Change Cover</option>
+                    <option value="3">Add Song</option>
+                    <option value="3">Add Description</option>
+                </select>
+
+
+
+
+
+                       <div id="modal_wrapper">
+                            <div id="modal_window">
+                                 <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+
+                                      <p>Complete the form below to upload a Track to this Album:</p>
+
+                                      <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
+
+                                            <p><label>Name<strong>*</strong><br>
+                                            <input type="text" id="setName" size="27" name="name" value="" required></label></p>
+                                            <p><label>Artist<strong>*</strong><br>
+                                            <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist" required></label></p>
+                                            <datalist id="json-datalist"></datalist>
+                                            <p><label>Album<strong>*</strong><br>
+                                            <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2" required></label></p>
+                                            <datalist id="json-datalist2"></datalist>
+
+                                            <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required />
+                                            <input class="upload" type="submit" name="newSongAdded"/>
+
+                                      </form>
+
+                                 </div> <!-- #modal_window -->
+                            </div> <!-- #modal_wrapper -->
+                      </div>
+
+
+
+
+
+				</div>
+				<div class="mo-overlay"></div>
+			</div>
+			<div class="mo-info"><a class="artist-link" href="artists/{_id}">{name}</a></div>
+		</li>
+		{/artists} 
+	</ul>
+</section>	
