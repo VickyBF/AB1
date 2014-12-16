@@ -132,44 +132,6 @@ router.put('/:userid/playlists', function(req, res, next) {
   });
 });
 
-////////////////// PLAYLIST SSERVERRRRR \\\\\\\\\\\\\\\\\\
-
-router.put('/:userid/playlists/:playlistid', function(req, res, next) {
-    var data = req.body;
-});
-
-router.delete('/:userid/playlists/:playlistid', function(req, res, next) {
-    var data = req.body;
-});
-
-
-router.get('/:userid/playlists/:playlistid', function(req, res, next) {
-    User.findById(req.params.userid, fieldsFilter , function(err, user){
-        if (err) return next (err);
-        if (!user) {
-            res.status(404);
-            res.json({
-                statusCode: 404,
-                message: "Not Found"
-            });
-            return;
-        }
-
-        var id = req.params.playlistid;
-        user.playlists.forEach(function(playlist){
-            if (playlist._id == id) {
-                res.json(playlist);
-            }
-        });
-
-        //res.json(user.playlists);
-
-    });
-});
-
-
-////////////////// PLAYLIST SSERVERRRRR \\\\\\\\\\\\\\\\\\
-
 
 function onModelSave(res, status, sendItAsResponse){
   var statusCode = status || 204;

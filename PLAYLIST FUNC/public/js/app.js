@@ -16,27 +16,6 @@ window.onload = function(){
     }
 };
 
-///////////// playlist and user \\\\\\\\\\\\\\\\\\
-var keepUser = function (){
-
-    var pathArray = window.location.href.split('?');
-
-    userID = pathArray[1]
-    sessionStorage.setItem("user_id", userID);
-    console.log(sessionStorage.length)
-    return userID;
-    }
-
-var path = window.location.href
-console.log(path)
-if(path.indexOf("?") > -1){
-    keepUser()
-}
-
-
-///////////// playlist and user \\\\\\\\\\\\\\\\\\
-
-
 function goLogout(){
     window.location = "/login";
 }
@@ -52,8 +31,8 @@ var timeOut = function () {
     }
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(Timer, 60000)
-
+        time = setTimeout(Timer, 5000)
+        document.getElementById('box').style.display = "none";
     }
 
     function Timer(){
@@ -63,6 +42,7 @@ var timeOut = function () {
         document.getElementById("box").style.marginBottom = "20px";
         document.getElementById("box").style.marginTop = "20px";
         document.getElementById("box").style.fontWeight = "900";
+        document.getElementById("box").style.fontFamily = "Myriad";
         clearTimeout(time);
         time = setTimeout(logout, 30000)
     }
@@ -947,29 +927,6 @@ function findOne(arr, prop, val){
 }
 }
 
-// delete playlist
-var delpl = document.getElementsByClassName("del-pl-btn");
-
-function allStorage(){
-
-    var archive = [],
-        keys = Object.keys(localStorage),
-        i = 0;
-
-    for (; i < keys.length; i++) {
-        archive.push( localStorage.getItem(keys[i]) );
-    }
-    console.log(archive)
-    return archive;
-}
-
-
-function deletePlaylist() {
-    console.log("going to del")
-    console.log(localStorage.playlists)
-
-
-};
 
 
 
@@ -1139,6 +1096,38 @@ function deletePlaylist() {
 
 
 
+// -------------------------- START OF PLAYLIST ------------------------------- \\
+
+
+///////////// playlist and user \\\\\\\\\\\\\\\\\\
+var keepUser = function (){
+
+    var pathArray = window.location.href.split('?');
+
+    userID = pathArray[1]
+    sessionStorage.setItem("user_id", userID);
+    console.log(sessionStorage.length)
+    return userID;
+}
+
+var path = window.location.href
+console.log(path)
+if(path.indexOf("?") > -1){
+    keepUser()
+}
+
+
+///////////// playlist and user \\\\\\\\\\\\\\\\\\
+
+// DELETE PLAYLIST
+var delpl = document.getElementsByClassName("del-pl-btn");
+
+function deletePlaylist() {
+    console.log("going to del")
+};
+
+// SET PLAYLISTS
+
 function setupPlaylists() {
 
 
@@ -1148,7 +1137,7 @@ function setupPlaylists() {
 
         var userID = sessionStorage.getItem("user_id");
 
-        loadPlaylistsFromDatabase(userID);
+        DatabasePlaylist(userID);
 
         var createPlBtn = document.getElementById("create-pl-btn");
 
@@ -1158,6 +1147,7 @@ function setupPlaylists() {
             var counter = localStorage.counter;
             var name = 'New Playlist ' + (++counter);
             var newPlaylist = {'name': name, "tracks": []};
+
 
             localStorage.counter = counter;
 
@@ -1209,26 +1199,19 @@ function setupPlaylists() {
     }
 }
 
-
-function loadPlaylistsFromDatabase(userID) {
-
-    console.log("loadPlaylists")
-
-
+// GET THE PLAYLISTS OF A GIVEN USER
+function DatabasePlaylist(userID) {
 
     doJSONRequest("GET", "/users/" + userID + "/playlists", null, null, renderPlaylists);
 
     function renderPlaylists(playlists) {
-
-        console.log("renderPlaylists")
-
         playlists.forEach(function(pl) {
-
             appendNewPlaylistToMenu(pl)
         })
     }
 
-}
+};
+
 function allowDrop(evt) {
     evt.preventDefault();
 }
@@ -1244,21 +1227,19 @@ function drop(evt) {
     addTrackToPlaylist(playlistId, trackId)
 }
 
+// ADD TRACKS TO PLAYLIST
+
 function addTrackToPlaylist(playlistId, trackId) {
-
-    var userName = sessionStorage.getItem("userName")
-
-
 
     doJSONRequest("GET", "/users/", null, null, getUserID)
 
     function getUserID() {
+
+        // user playlists
         userID = sessionStorage.getItem("user_id");
+        doJSONRequest("GET", "/users/" + userID + "/playlists", null, null, DrawPlaylistTracks)
 
-        //get playlist
-        doJSONRequest("GET", "/users/" + userID + "/playlists", null, null, updatePlaylistTracks)
-
-        function updatePlaylistTracks(playlists) {
+        function DrawPlaylistTracks(playlists) {
 
             var newPlaylists = playlists;
 
@@ -1275,8 +1256,8 @@ function addTrackToPlaylist(playlistId, trackId) {
 
                     doJSONRequest("PUT", "/users/" + userID + "/playlists", null, newPlaylists, updatePlaylist)
 
-                    function updatePlaylist(something) {
-                        console.log(something)
+                    function updatePlaylist() {
+                        return;
                     }
 
                 }
@@ -1285,14 +1266,11 @@ function addTrackToPlaylist(playlistId, trackId) {
     }
 }
 
+// CLICK ACTION ON A PLAYLIST
 
 function onPlaylistClicked(userID, link){
 
-    console.log("onPlaylistClicked")
-
     var userID = sessionStorage.getItem("user_id");
-
-    //get clicked playlist name
     var href = link.href
     var hrefElements = href.split("/")
     var playlistName = decodeURI(href.split("/")[hrefElements.length-1])
@@ -1304,40 +1282,39 @@ function onPlaylistClicked(userID, link){
 
         playlists.forEach(function(playlist) {
             if (playlist.name == playlistName) {
-                console.log(playlist)
 
-                //in case playlist just added with no added tracks
+                //empty playlist
                 var container = document.getElementById('content')
-                if (playlists.length < 1) {
-                    container.innerHTML = playlist.name + " is empty."
+                if (playlist.tracks.length < 1) {
+                    container.innerHTML = ">>> This is a empty playlist, drag on some tracks to populate it! <<<"
+
+
                 }
 
+                //tracks playlist
                 else {
 
-                    var tracksList = [];
-
-                    //get all tracks
                     doJSONRequest("GET", "/tracks", null, null, renderPlaylistTracks)
+                    var PlTracks = [];
 
                     function renderPlaylistTracks(tracks) {
-
-                        //find matching track objects with given track IDs
                         for (var i = 0; i < playlist.tracks.length; i++) {
                             for (var j = 0; j < tracks.length; j++) {
                                 if (playlist.tracks[i] == tracks[j]._id) {
-                                    tracksList[i] = tracks[j]
+                                    PlTracks[i] = tracks[j]
                                 }
                             }
                         }
 
-                        //render view with new content
-                        var tracksData = buildTracksData(tracksList);
 
-                        var data = {
+                        // function to build the tracks list of each playlist
+                        var tracksData = buildTracksData(PlTracks);
+
+                        var PlaylistData = {
                             "tracks" : tracksData
                         };
 
-                        dust.render("tracks", data, function(err, out) {
+                        dust.render("tracks", PlaylistData, function(err, out) {
 
                             var content = document.getElementById("content");
 
@@ -1364,10 +1341,7 @@ function onPlaylistClicked(userID, link){
 
 }
 
-
-
-
-/////////////////// END NEW PLAY \\\\\\\\
+// APPEND PLAYLIST TO MENU
 
 function appendNewPlaylistToMenu(pl){
 
@@ -1383,6 +1357,10 @@ function appendNewPlaylistToMenu(pl){
   newHtml += '  </li>';
   document.getElementById('playlists').innerHTML += newHtml;
 }
+
+
+
+//------------------------   END OF PLAYLIST ---------------------\\
 
 /* Player */
 
