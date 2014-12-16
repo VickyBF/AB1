@@ -27,15 +27,25 @@
           <li><a href="library.html"><i class="nav-menu-icon glyphicon glyphicon-music"></i> Tracks</a></li>
           <li><a href="artists.html"><i class="nav-menu-icon fa fa-users"></i> Artists</a></li>
           <li><a href="albums.html"><i class="nav-menu-icon icons8-music-record"></i> Albums</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
-          <li class="mm-user-item"><a href="login.html"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
+          <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-user"></i>username</a></li>
+          <li class="mm-user-item"><a href="#"><i class="nav-menu-icon fa fa-sign-out"></i>logout</a></li>
         </ul>
+<<<<<<< HEAD
        <button id="modal_open" type="button"> Add Track</button>
        <button id="create-pl-btn" type="button"> Add playlist</button>
 
                <ul class="nav-menu" id="playlists">
                <!-- Playlists will be rendered here -->
 
+=======
+        <div class = "buttons">
+       <button id="modal_open" type="button"> Add Track</button>
+       <button id="create-pl-btn" type="button"> Add playlist</button>
+        </div>
+               <ul class="nav-menu" id="playlists">
+               <!-- Playlists will be rendered here -->
+
+>>>>>>> FETCH_HEAD
 
                </ul>
       </div> <!-- /.main-nav-content -->
@@ -95,6 +105,7 @@
                             </div>
 
                        <div id="modal_wrapper">
+<<<<<<< HEAD
                                               <div id="modal_window">
                                               <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
 
@@ -119,13 +130,37 @@
                                                <button onclick="postSong()" value="Upload mp3" id="upload_button">Upload</button>
                                               </div> <!-- #modal_window -->
                                               </div> <!-- #modal_wrapper -->
+=======
+                                                                     <div id="modal_window">
+                                                                     <div style="text-align: right;"><a id="modal_close" href="#">close <b>X</b></a></div>
+
+                                                                     <p>Complete the form below to upload a Track:</p>
+
+                                                                     <form id="modal_feedback" enctype="multipart/form-data" action="/tracks" method="post" accept-charset="UTF-8">
+
+                                                                     <p><label>Name<strong>*</strong><br>
+                                                                     <input type="text" id="setName" size="27" name="name" value="" required></label></p>
+                                                                      <p><label>Artist<strong>*</strong><br>
+                                                                      <input type="text" size="27" name="artist" id="ajax"  list="json-datalist" class="text-field valid" placeholder="e.g. datalist" required></label></p>
+                                                                      <datalist id="json-datalist"></datalist>
+                                                                      <p><label>Album<strong>*</strong><br>
+                                                                      <input type="text" size="27" name="album" id="ajax2" value="" list="json-datalist2" required></label></p>
+                                                                      <datalist id="json-datalist2"></datalist>
+
+                                                                      <input type="file" id="mp3_file_toUpload" name="mp3_file_toUpload" required />
+                                                                      <input class="upload" type="submit" name="bla"/>
+                                                                      </form>
+
+                                                                     </div> <!-- #modal_window -->
+                                                                     </div> <!-- #modal_wrapper -->
+>>>>>>> FETCH_HEAD
 
                       </div>
 
        <div id = "loguser">
         <ul class="nav-menu vertical-menu float-right clearfix">
           <li><a href="#">username</a></li>
-          <li><a href="#">logout</a></li>
+          <li><a href="/">logout</a></li>
         </ul>
        </div>
       </nav>
@@ -147,10 +182,13 @@
   <script src="js/ajax.js"></script>
   <script src="js/app.js"></script>
 
+<<<<<<< HEAD
 
 /* ---------------- Autocomplete of artists(Modal window) ---------------- */
 
 
+=======
+>>>>>>> FETCH_HEAD
 </body>
 </html>
 

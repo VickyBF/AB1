@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
   var filter = {};
   if (req.query.filter) {
     var jsonFilter = JSON.parse(req.query.filter);
-    
+
     if(jsonFilter.artist){
       filter.artist = jsonFilter.artist;
     }
@@ -46,10 +46,13 @@ router.get('/', function(req, res, next) {
 //create new track
 router.post('/',function(req, res, next) {
   console.log(req.body)
+<<<<<<< HEAD
   //req.body.file = req.files.mp3_file_toUpload.path;
   //req.body.duration=0;
   //req.body.artist = req.body.artist._id
   //req.body.album = req.body.album._id
+=======
+>>>>>>> FETCH_HEAD
   var newTrack = new Track(req.body);
   newTrack.save(onModelSave(res, 201, true,next));
 });
@@ -118,6 +121,12 @@ router.put('/:trackid', function(req, res, next) {
       else
         track.dateReleased = track.dateReleased;
 
+      if(data.vote)
+        track.vote = track.vote + data.vote;
+
+      else
+        track.vote = track.vote;
+
       track.save(onModelSave(res));
     }else{
       //track does not exist create it
@@ -153,43 +162,43 @@ function onModelSave(res, status, sendItAsResponse,next){
   var sendItAsResponse = sendItAsResponse || false;
   return function(err, saved){
     if (err) {
-      if (err.name === 'ValidationError' 
-        || err.name === 'TypeError' ) {
+      if (err.name === 'ValidationError'
+          || err.name === 'TypeError' ) {
         res.status(400)
-      return res.json({
-        statusCode: 400,
-        message: "Bad Request"
-      });
+        return res.json({
+          statusCode: 400,
+          message: "Bad Request"
+        });
+      }else{
+        return next (err);
+      }
+    }
+    if( sendItAsResponse){
+      var obj = saved.toObject();
+      delete obj.password;
+      delete obj.__v;
+      addLinks(obj);
+      return res.status(statusCode).json(obj);
     }else{
-      return next (err);
+      return res.status(statusCode).end();
     }
   }
-  if( sendItAsResponse){
-    var obj = saved.toObject();
-    delete obj.password;
-    delete obj.__v;
-    addLinks(obj);
-    return res.status(statusCode).json(obj);
-  }else{
-    return res.status(statusCode).end();
-  }
-}
 }
 
 function addLinks(track){
   track.links = [
-  { 
-    "rel" : "self",
-    "href" : config.url + "/tracks/" + track._id
-  },
-  { 
-    "rel" : "artist",
-    "href" : config.url + "/artists/" + track.artist
-  }
+    {
+      "rel" : "self",
+      "href" : config.url + "/tracks/" + track._id
+    },
+    {
+      "rel" : "artist",
+      "href" : config.url + "/artists/" + track.artist
+    }
   ];
 
   if(track.album){
-    track.links.push({ 
+    track.links.push({
       "rel" : "album",
       "href" : config.url + "/albums/" + track.album
     });
